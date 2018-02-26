@@ -37,19 +37,19 @@ namespace PilotCenterTSZ.UI
         private void btnGenerate_Click(object sender, System.EventArgs e)
         {
 
-            string url = @"http://flyatlantic-va.com/site/flight_briefings/TSZ003.xps";
+            string url = @"http://flyatlantic-va.com/site/"+ briefing;
             // Create an instance of WebClient
             WebClient client = new WebClient();
             // Hookup DownloadFileCompleted Event
             client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
 
             // Start the download and copy the file to c:\temp
-            client.DownloadFileAsync(new Uri(url), Environment.CurrentDirectory+ @"/PilotCenter Briefings/TSZ003.xps");
+            client.DownloadFileAsync(new Uri(url), Environment.CurrentDirectory+@"/"+briefing);
         }
 
         void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            MessageBox.Show("File downloaded");
+            Process.Start(Environment.CurrentDirectory + @"/" + briefing);
         }
 
     }

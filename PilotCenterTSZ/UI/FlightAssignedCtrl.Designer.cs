@@ -39,7 +39,6 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.txtCallsign = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -129,9 +128,9 @@
             // btnGenerate
             // 
             this.btnGenerate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(102, 140);
+            this.btnGenerate.Location = new System.Drawing.Point(100, 131);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(198, 32);
+            this.btnGenerate.Size = new System.Drawing.Size(200, 32);
             this.btnGenerate.TabIndex = 8;
             this.btnGenerate.Text = "Generate Briefing";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -158,18 +157,10 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Callsign";
             // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(37, 111);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(342, 23);
-            this.progressBar.TabIndex = 11;
-            // 
             // FlightAssignedCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.txtCallsign);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnGenerate);
@@ -202,6 +193,5 @@
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.TextBox txtCallsign;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

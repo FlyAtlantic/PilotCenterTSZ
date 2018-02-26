@@ -56,7 +56,7 @@
 			<Directory Id="ProgramFilesFolder">
 				<Directory Id="MAINFOLDER" Name="FlyAtlantic PilotCenter">
 					<Directory Id="INSTALLFOLDER" Name="PilotCenter" />
-					<Directory Id="BRIEFINGS" Name="PilotCenter Briefings">
+					<Directory Id="BRIEFINGS" Name="flight_briefings">
 						<Component Id="BRIEFINGS" Guid="10437cec-f349-4b2f-8a82-f12b78a9580f"
 						  SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no"
 						  Win64="no" Location="either">
