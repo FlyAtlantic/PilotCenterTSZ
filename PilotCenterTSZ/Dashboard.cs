@@ -34,7 +34,7 @@ namespace PilotCenterTSZ
             flightAssignmentCtrl.Hide();
             pilotAccountCtrl.Hide();
             myLogBookCtrl.Hide();
-            pilotStatistics.Hide();
+            pilotCarrer.Hide();
         }
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)
@@ -85,6 +85,11 @@ namespace PilotCenterTSZ
 
             AlertFlight();
 
+            if (a.LevelID <= 2)
+            {
+                btnAdminCenterFrm.Visible = true;
+            }
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -94,6 +99,7 @@ namespace PilotCenterTSZ
             flightAssignmentCtrl.flightAssignedCtrl.UpdateInfos();
             myLogBookCtrl.GetLogBook();
             AlertFlight();
+            pilotCarrer.Actions();
         }
 
         private void btnAssignFlight_Click(object sender, EventArgs e)
@@ -180,7 +186,7 @@ namespace PilotCenterTSZ
             myLogBookCtrl.Show();
         }
 
-        private void btnPilotCenterFrm_Click(object sender, EventArgs e)
+        private void btnAdminCenterFrm_Click(object sender, EventArgs e)
         {
             AdminDash adminDash = new AdminDash();
 
@@ -194,10 +200,11 @@ namespace PilotCenterTSZ
             Application.Exit();
         }
 
-        private void btnStatistics_Click(object sender, EventArgs e)
+        private void btnCarrer_Click(object sender, EventArgs e)
         {
             AllHides();
-            pilotStatistics.Show();
+            pilotCarrer.Show();
         }
+
     }
 }

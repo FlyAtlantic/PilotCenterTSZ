@@ -12,6 +12,9 @@ namespace PilotCenterTSZ
         public int UserID
         { get; set; }
 
+        public int LevelID
+        { get; }
+
         public string UserName
         { get; set; }
 
@@ -47,7 +50,7 @@ namespace PilotCenterTSZ
 
         public UserInfo()
         {
-            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email order by pireps.date desc LIMIT 1";
+            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email order by pireps.date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -79,6 +82,7 @@ namespace PilotCenterTSZ
                             Location = (string)sqlCmdRes[8];
                         Eps = (int)sqlCmdRes[10];
                         RankID = (int)sqlCmdRes[11];
+                        LevelID = (int)sqlCmdRes[12];
                     }
 
             }
@@ -569,5 +573,195 @@ group by
 
 
     }
+
+    public class AllTypeRatingsByUserRank
+    {
+        public int TypeRatingID
+        { get; set; }
+
+        public string TypeRatingName
+        { get; set; }
+
+        public int Eps
+        { get; set; }
+
+        public AllTypeRatingsByUserRank()
+        {
+
+        }
+
+        public static List<AllTypeRatingsByUserRank> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<AllTypeRatingsByUserRank>(
+                @"
+SELECT
+    typeratingsname.name as TypeRatingName,
+    typeratingsname.eps as Eps,
+    typeratingsname.id as TypeRatingID
+from typeratingsname left join utilizadores on typeratingsname.rank <= utilizadores.rank where user_email=@Email",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
+
+    public class AllQualificationsByUserRank
+    {
+        public string QualificationName
+        { get; set; }
+
+        public int Eps
+        { get; set; }
+
+        public int QualificationID
+        { get; set; }
+
+        public AllQualificationsByUserRank()
+        {
+
+        }
+
+        public static List<AllQualificationsByUserRank> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<AllQualificationsByUserRank>(
+                @"
+SELECT
+    qualificationsname.name as QualificationName,
+    qualificationsname.eps as Eps,
+    qualificationsname.id as QualificationID
+from qualificationsname left join utilizadores on qualificationsname.rank <= utilizadores.rank where user_email=@Email",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
+
+    public class UserNextRank
+    {
+        public string NextRankID
+        { get; set; }
+
+        public string NextRank
+        { get; set; }
+
+        public int CountType
+        { get; set; }
+
+        public int CountQual
+        { get; set; }
+
+        public int MinType
+        { get; set; }
+
+        public int MinQual
+        { get; set; }
+
+        public UserNextRank()
+        {
+
+        }
+
+        public static List<UserNextRank> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<UserNextRank>(
+                @"select COUNT(DISTINCT(qualification)) as CountQual, COUNT(typerating) as CountType, ranks.rank as NextRank, ranks.minqualifications as MinQual, ranks.mintyperatings as MinType, ranks.rankid as NextRankID from utilizadores left join typeratings on typeratings.pilot = utilizadores.user_id left join qualifications on qualifications.pilot = utilizadores.user_id LEFT JOIN ratings ON utilizadores.rate = ratings.id LEFT JOIN ranks ON utilizadores.rank=ranks.rankid - 1 where user_email = @Email and qualification != 0",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
+
+    public class TakeExamForPilot
+    {
+        public static int ExamID
+        { get; set; }
+
+        public TakeExamForPilot()
+        {
+
+        }
+
+        public static void TakeExamTypeRating(int typeID, int userID)
+        {
+            
+
+            string sqlPushExamID = "Select exam_id from exams where type = @typeID";
+            string sqlTakeExamForPilot = "INSERT INTO `exam_assigns` (`idpilot`, `exam_id`, dateassign) VALUES (@UserID, @ExamID, NOW())";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@typeID", typeID);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        ExamID = (int)sqlCmdRes[0];
+                    }
+
+                MySqlCommand sqlCmd1 = new MySqlCommand(sqlTakeExamForPilot, conn);
+                sqlCmd1.Parameters.AddWithValue("@ExamID", ExamID);
+                sqlCmd1.Parameters.AddWithValue("@UserID", userID);
+
+                sqlCmd1.ExecuteScalar();
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public static void TakeExamQualification(int qualID, int userID)
+        {
+
+
+            string sqlPushExamID = "Select exam_id from exams where qual = @qualID";
+            string sqlTakeExamForPilot = "INSERT INTO `exam_assigns` (`idpilot`, `exam_id`, dateassign) VALUES (@UserID, @ExamID, NOW())";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@qualID", qualID);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        ExamID = (int)sqlCmdRes[0];
+                    }
+
+                MySqlCommand sqlCmd1 = new MySqlCommand(sqlTakeExamForPilot, conn);
+                sqlCmd1.Parameters.AddWithValue("@ExamID", ExamID);
+                sqlCmd1.Parameters.AddWithValue("@UserID", userID);
+
+                sqlCmd1.ExecuteScalar();
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+    }
+
 }
 

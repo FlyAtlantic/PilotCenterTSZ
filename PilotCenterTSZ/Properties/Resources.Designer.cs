@@ -283,6 +283,26 @@ namespace PilotCenterTSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lpma {
+            get {
+                object obj = ResourceManager.GetObject("lpma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lxgb {
+            get {
+                object obj = ResourceManager.GetObject("lxgb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MD11 {
             get {
                 object obj = ResourceManager.GetObject("MD11", resourceCulture);
@@ -306,6 +326,16 @@ namespace PilotCenterTSZ.Properties {
         internal static System.Drawing.Bitmap RJ1H {
             get {
                 object obj = ResourceManager.GetObject("RJ1H", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rvsmetops {
+            get {
+                object obj = ResourceManager.GetObject("rvsmetops", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

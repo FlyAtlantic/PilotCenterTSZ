@@ -32,22 +32,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.btnPilotCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
+            this.btnAdminCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
             this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pMenuBar = new System.Windows.Forms.Panel();
-            this.btnStatistics = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCarrer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAssignFlight = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPilotCenter = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.VerifyAndDeleteFlight = new System.Windows.Forms.Timer(this.components);
             this.FlightTimeEndTick = new System.Windows.Forms.Timer(this.components);
             this.myLogBookCtrl = new PilotCenterTSZ.UI.MyLogBookCtrl();
             this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
-            this.pilotStatistics = new PilotCenterTSZ.UI.PilotStatistics();
+            this.pilotCarrer = new PilotCenterTSZ.UI.PilotCarrer();
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pBarFlightTimeEnd);
-            this.panel1.Controls.Add(this.btnPilotCenterFrm);
+            this.panel1.Controls.Add(this.btnAdminCenterFrm);
             this.panel1.Controls.Add(this.lblFlightAlert);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -91,25 +91,26 @@
             this.pBarFlightTimeEnd.Value = 0;
             this.pBarFlightTimeEnd.Visible = false;
             // 
-            // btnPilotCenterFrm
+            // btnAdminCenterFrm
             // 
-            this.btnPilotCenterFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnPilotCenterFrm.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnPilotCenterFrm.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnPilotCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPilotCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.btnPilotCenterFrm.ForeColor = System.Drawing.Color.White;
-            this.btnPilotCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
-            this.btnPilotCenterFrm.ImagePosition = 0;
-            this.btnPilotCenterFrm.ImageZoom = 95;
-            this.btnPilotCenterFrm.LabelPosition = 0;
-            this.btnPilotCenterFrm.LabelText = "";
-            this.btnPilotCenterFrm.Location = new System.Drawing.Point(510, 18);
-            this.btnPilotCenterFrm.Margin = new System.Windows.Forms.Padding(6);
-            this.btnPilotCenterFrm.Name = "btnPilotCenterFrm";
-            this.btnPilotCenterFrm.Size = new System.Drawing.Size(39, 39);
-            this.btnPilotCenterFrm.TabIndex = 6;
-            this.btnPilotCenterFrm.Click += new System.EventHandler(this.btnPilotCenterFrm_Click);
+            this.btnAdminCenterFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnAdminCenterFrm.ForeColor = System.Drawing.Color.White;
+            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
+            this.btnAdminCenterFrm.ImagePosition = 0;
+            this.btnAdminCenterFrm.ImageZoom = 95;
+            this.btnAdminCenterFrm.LabelPosition = 0;
+            this.btnAdminCenterFrm.LabelText = "";
+            this.btnAdminCenterFrm.Location = new System.Drawing.Point(510, 18);
+            this.btnAdminCenterFrm.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAdminCenterFrm.Name = "btnAdminCenterFrm";
+            this.btnAdminCenterFrm.Size = new System.Drawing.Size(39, 39);
+            this.btnAdminCenterFrm.TabIndex = 6;
+            this.btnAdminCenterFrm.Click += new System.EventHandler(this.btnAdminCenterFrm_Click);
+            this.btnAdminCenterFrm.Visible = false;
             // 
             // lblFlightAlert
             // 
@@ -137,7 +138,7 @@
             // pMenuBar
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.pMenuBar.Controls.Add(this.btnStatistics);
+            this.pMenuBar.Controls.Add(this.btnCarrer);
             this.pMenuBar.Controls.Add(this.btnLogBook);
             this.pMenuBar.Controls.Add(this.btnAssignFlight);
             this.pMenuBar.Controls.Add(this.btnPilotCenter);
@@ -148,40 +149,40 @@
             this.pMenuBar.Size = new System.Drawing.Size(211, 579);
             this.pMenuBar.TabIndex = 97;
             // 
-            // btnStatistics
+            // btnCarrer
             // 
-            this.btnStatistics.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
-            this.btnStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnStatistics.BorderRadius = 0;
-            this.btnStatistics.ButtonText = "Statistics";
-            this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistics.DisabledColor = System.Drawing.Color.Gray;
-            this.btnStatistics.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnStatistics.Iconimage = global::PilotCenterTSZ.Properties.Resources.button_ok;
-            this.btnStatistics.Iconimage_right = null;
-            this.btnStatistics.Iconimage_right_Selected = null;
-            this.btnStatistics.Iconimage_Selected = null;
-            this.btnStatistics.IconMarginLeft = 0;
-            this.btnStatistics.IconMarginRight = 0;
-            this.btnStatistics.IconRightVisible = true;
-            this.btnStatistics.IconRightZoom = 0D;
-            this.btnStatistics.IconVisible = true;
-            this.btnStatistics.IconZoom = 90D;
-            this.btnStatistics.IsTab = false;
-            this.btnStatistics.Location = new System.Drawing.Point(0, 265);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnStatistics.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
-            this.btnStatistics.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnStatistics.selected = false;
-            this.btnStatistics.Size = new System.Drawing.Size(241, 48);
-            this.btnStatistics.TabIndex = 9;
-            this.btnStatistics.Text = "Statistics";
-            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistics.Textcolor = System.Drawing.Color.White;
-            this.btnStatistics.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
+            this.btnCarrer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnCarrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnCarrer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarrer.BorderRadius = 0;
+            this.btnCarrer.ButtonText = "Pilot Carrer";
+            this.btnCarrer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCarrer.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCarrer.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCarrer.Iconimage = global::PilotCenterTSZ.Properties.Resources.button_ok;
+            this.btnCarrer.Iconimage_right = null;
+            this.btnCarrer.Iconimage_right_Selected = null;
+            this.btnCarrer.Iconimage_Selected = null;
+            this.btnCarrer.IconMarginLeft = 0;
+            this.btnCarrer.IconMarginRight = 0;
+            this.btnCarrer.IconRightVisible = true;
+            this.btnCarrer.IconRightZoom = 0D;
+            this.btnCarrer.IconVisible = true;
+            this.btnCarrer.IconZoom = 90D;
+            this.btnCarrer.IsTab = false;
+            this.btnCarrer.Location = new System.Drawing.Point(0, 265);
+            this.btnCarrer.Name = "btnCarrer";
+            this.btnCarrer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnCarrer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnCarrer.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCarrer.selected = false;
+            this.btnCarrer.Size = new System.Drawing.Size(241, 48);
+            this.btnCarrer.TabIndex = 9;
+            this.btnCarrer.Text = "Pilot Carrer";
+            this.btnCarrer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCarrer.Textcolor = System.Drawing.Color.White;
+            this.btnCarrer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrer.Click += new System.EventHandler(this.btnCarrer_Click);
             // 
             // btnLogBook
             // 
@@ -189,7 +190,7 @@
             this.btnLogBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnLogBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogBook.BorderRadius = 0;
-            this.btnLogBook.ButtonText = "LogBook";
+            this.btnLogBook.ButtonText = "Logbook";
             this.btnLogBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogBook.DisabledColor = System.Drawing.Color.Gray;
             this.btnLogBook.Iconcolor = System.Drawing.Color.Transparent;
@@ -212,7 +213,7 @@
             this.btnLogBook.selected = false;
             this.btnLogBook.Size = new System.Drawing.Size(241, 48);
             this.btnLogBook.TabIndex = 8;
-            this.btnLogBook.Text = "LogBook";
+            this.btnLogBook.Text = "Logbook";
             this.btnLogBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogBook.Textcolor = System.Drawing.Color.White;
             this.btnLogBook.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -345,13 +346,13 @@
             this.flightAssignmentCtrl.TabIndex = 99;
             this.flightAssignmentCtrl.Visible = false;
             // 
-            // pilotStatistics
+            // pilotCarrer
             // 
-            this.pilotStatistics.Location = new System.Drawing.Point(214, 116);
-            this.pilotStatistics.Name = "pilotStatistics";
-            this.pilotStatistics.Size = new System.Drawing.Size(925, 528);
-            this.pilotStatistics.TabIndex = 100;
-            this.pilotStatistics.Visible = false;
+            this.pilotCarrer.Location = new System.Drawing.Point(214, 116);
+            this.pilotCarrer.Name = "pilotCarrer";
+            this.pilotCarrer.Size = new System.Drawing.Size(925, 528);
+            this.pilotCarrer.TabIndex = 100;
+            this.pilotCarrer.Visible = false;
             // 
             // pilotAccountCtrl
             // 
@@ -367,10 +368,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
-            this.Controls.Add(this.pilotStatistics);
+            this.Controls.Add(this.pilotCarrer);
             this.Controls.Add(this.myLogBookCtrl);
-            this.Controls.Add(this.flightAssignmentCtrl);
             this.Controls.Add(this.pilotAccountCtrl);
+            this.Controls.Add(this.flightAssignmentCtrl);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pMenuBar);
             this.Controls.Add(this.panel1);
@@ -402,12 +403,12 @@
         private System.Windows.Forms.Timer FlightTimeEndTick;
         private System.Windows.Forms.Label label1;
         private UI.MyLogBookCtrl myLogBookCtrl;
-        private Bunifu.Framework.UI.BunifuTileButton btnPilotCenterFrm;
+        private Bunifu.Framework.UI.BunifuTileButton btnAdminCenterFrm;
         private Bunifu.Framework.UI.BunifuFlatButton btnLogBook;
         private Bunifu.Framework.UI.BunifuFlatButton btnAssignFlight;
         private Bunifu.Framework.UI.BunifuFlatButton btnPilotCenter;
-        private Bunifu.Framework.UI.BunifuFlatButton btnStatistics;
-        private UI.PilotStatistics pilotStatistics;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCarrer;
+        private UI.PilotCarrer pilotCarrer;
     }
 }
 

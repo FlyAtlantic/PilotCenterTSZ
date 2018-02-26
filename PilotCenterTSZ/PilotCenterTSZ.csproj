@@ -159,11 +159,11 @@
     <Compile Include="UI\PilotAccountCtrl.Designer.cs">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PilotStatistics.cs">
+    <Compile Include="UI\PilotCarrer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\PilotStatistics.Designer.cs">
-      <DependentUpon>PilotStatistics.cs</DependentUpon>
+    <Compile Include="UI\PilotCarrer.Designer.cs">
+      <DependentUpon>PilotCarrer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="UI\PilotAccountCtrl.resx">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PilotStatistics.resx">
-      <DependentUpon>PilotStatistics.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PilotCarrer.resx">
+      <DependentUpon>PilotCarrer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -309,6 +309,9 @@
     <None Include="Resources\secondofficer.png" />
     <None Include="Resources\flightinstructor.png" />
     <None Include="Resources\button_ok.png" />
+    <None Include="Resources\lpma.png" />
+    <None Include="Resources\lxgb.png" />
+    <None Include="Resources\rvsmetops.png" />
     <Content Include="tszbanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

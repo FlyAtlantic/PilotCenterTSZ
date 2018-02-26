@@ -23,5 +23,10 @@ namespace AdminCenter
 
             //PilotCenterTSZ p = new PilotCenterTSZ();
         }
+
+        private void AdminDash_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

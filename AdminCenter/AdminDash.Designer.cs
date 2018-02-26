@@ -244,6 +244,7 @@
             this.Name = "AdminDash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDash_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pMenuBar.ResumeLayout(false);
