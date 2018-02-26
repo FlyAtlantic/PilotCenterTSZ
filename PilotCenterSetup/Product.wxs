@@ -10,7 +10,7 @@
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.CompanyName)"
-           UpgradeCode="72c6ebbd-d5da-44e6-ad86-67fdc43925b6">
+           UpgradeCode="e0ccead8-7fcb-445e-90d7-5999949ed269">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes"/>
