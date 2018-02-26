@@ -182,6 +182,9 @@
     <EmbeddedResource Include="UI\AwardHourReceive.resx">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FlightAssignedCtrl.resx">
+      <DependentUpon>FlightAssignedCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MyLogBookCtrl.resx">
       <DependentUpon>MyLogBookCtrl.cs</DependentUpon>
     </EmbeddedResource>

@@ -377,6 +377,9 @@ group by
         public string UserAircraft
         { get; set; }
 
+        public string FlightBriefing
+        { get; set; }
+
         public DateTime UserDateAssign
         { get; set; }
 
@@ -387,7 +390,7 @@ group by
 
         public void VerifyFlightAssign()
         {
-            string sqlVerifyFlightAssign = "select departure, destination, aircraft, idf, user_id, date_assigned, flights.callsign from pilotassignments LEFT JOIN flights ON pilotassignments.flightid = flights.idf left join utilizadores on pilotassignments.pilot = utilizadores.user_id where user_email=@Email LIMIT 1";
+            string sqlVerifyFlightAssign = "select departure, destination, aircraft, idf, user_id, date_assigned, flights.callsign, flights.briefing from pilotassignments LEFT JOIN flights ON pilotassignments.flightid = flights.idf left join utilizadores on pilotassignments.pilot = utilizadores.user_id where user_email=@Email LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -408,6 +411,7 @@ group by
                         UserAircraft = (string)sqlCmdRes[2];
                         UserDateAssign = (DateTime)sqlCmdRes[5];
                         FlightCallsign = (string)sqlCmdRes[6];
+                        FlightBriefing = (string)sqlCmdRes[7];
                     }
 
             }
