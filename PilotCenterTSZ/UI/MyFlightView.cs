@@ -54,7 +54,7 @@ namespace PilotCenterTSZ.UI
 
         public void FlightMap()
         {
-
+            gMapControl1.Overlays.Clear();
             string sqlGetMapCenterPosition = "SELECT AVG(LAT), AVG(LON), flights.flighttime FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf where callsign=@Callsign order by IDL asc";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
