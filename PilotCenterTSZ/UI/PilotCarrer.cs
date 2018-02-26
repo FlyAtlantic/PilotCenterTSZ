@@ -945,7 +945,7 @@ namespace PilotCenterTSZ.UI
 
                         progressTypes = (q.CountType * 100) / q.MinType;
 
-                        progressQuals = (q.CountQual * 100) / q.MinQual;
+                        progressQuals = 100;
 
                         progress = (progressTypes + progressQuals) / 2;
 
