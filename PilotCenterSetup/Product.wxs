@@ -41,7 +41,7 @@
 					<Shortcut Id="ApplicationDesktopShortcut"
 						Name="FlyAtlantic PilotCenter"
 						Description="Comment field in your shortcut"
-						Target="[INSTALLFOLDER]PilotCenterTSZ.exe"
+						Target="[MAINFOLDER]PilotCenterTSZ.exe"
 						WorkingDirectory="INSTALLFOLDER"/>
 					<RemoveFolder Id="DesktopFolder" On="uninstall"/>
 					<RegistryValue
