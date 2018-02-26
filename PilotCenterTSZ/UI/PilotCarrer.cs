@@ -40,6 +40,8 @@ namespace PilotCenterTSZ.UI
                 {
                     case "C172":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / 1;
 
                         lblC172.Text = String.Format("{0}% to Complete", progress);
@@ -49,7 +51,10 @@ namespace PilotCenterTSZ.UI
                             pbarC172.Value = 100;
                             lblC172.Visible = false;
                             lblC172.ForeColor = Color.ForestGreen;
-                            btnC172.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnC172.Visible = false;
+                            else
+                                btnC172.Visible = true;
                             btnC172.Tag = p.TypeRatingID;
                         }
                         else
@@ -68,6 +73,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B190":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB190.Text = String.Format("{0}% to Complete", progress);
@@ -77,7 +84,10 @@ namespace PilotCenterTSZ.UI
                             pbarB190.Value = 100;
                             lblB190.Visible = false;
                             lblB190.ForeColor = Color.ForestGreen;
-                            btnB190.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB190.Visible = false;
+                            else
+                                btnB190.Visible = true;
                             btnB190.Tag = p.TypeRatingID;
 
                         }
@@ -97,6 +107,8 @@ namespace PilotCenterTSZ.UI
 
                     case "JS41":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblJS41.Text = String.Format("{0}% to Complete", progress);
@@ -106,7 +118,10 @@ namespace PilotCenterTSZ.UI
                             pbarJS41.Value = 100;
                             lblJS41.Visible = false;
                             lblJS41.ForeColor = Color.ForestGreen;
-                            btnJS41.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnJS41.Visible = false;
+                            else
+                                btnJS41.Visible = true;
                             btnJS41.Tag = p.TypeRatingID;
                         }
                         else
@@ -125,6 +140,8 @@ namespace PilotCenterTSZ.UI
 
                     case "DH8D":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblJS41.Text = String.Format("{0}% to Complete", progress);
@@ -134,7 +151,10 @@ namespace PilotCenterTSZ.UI
                             pbarDH8D.Value = 100;
                             lblDH8D.Visible = false;
                             lblDH8D.ForeColor = Color.ForestGreen;
-                            btnDH8D.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnDH8D.Visible = false;
+                            else
+                                btnDH8D.Visible = true;
                             btnDH8D.Tag = p.TypeRatingID;
                         }
                         else
@@ -153,6 +173,8 @@ namespace PilotCenterTSZ.UI
 
                     case "AT72":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblAT72.Text = String.Format("{0}% to Complete", progress);
@@ -162,7 +184,10 @@ namespace PilotCenterTSZ.UI
                             pbarAT72.Value = 100;
                             lblAT72.Visible = false;
                             lblAT72.ForeColor = Color.ForestGreen;
-                            btnAT72.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnAT72.Visible = false;
+                            else
+                                btnAT72.Visible = true;
                             btnAT72.Tag = p.TypeRatingID;
                         }
                         else
@@ -181,6 +206,8 @@ namespace PilotCenterTSZ.UI
 
                     case "RJ1H":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblRJ1H.Text = String.Format("{0}% to Complete", progress);
@@ -190,7 +217,10 @@ namespace PilotCenterTSZ.UI
                             pbarRJ1H.Value = 100;
                             lblRJ1H.Visible = false;
                             lblRJ1H.ForeColor = Color.ForestGreen;
-                            btnRJ1H.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnRJ1H.Visible = false;
+                            else
+                                btnRJ1H.Visible = true;
                             btnRJ1H.Tag = p.TypeRatingID;
                         }
                         else
@@ -209,6 +239,8 @@ namespace PilotCenterTSZ.UI
 
                     case "A32F":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblA32F.Text = String.Format("{0}% to Complete", progress);
@@ -218,7 +250,10 @@ namespace PilotCenterTSZ.UI
                             pbarA32F.Value = 100;
                             lblA32F.Visible = false;
                             lblA32F.ForeColor = Color.ForestGreen;
-                            btnA32F.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnA32F.Visible = false;
+                            else
+                                btnA32F.Visible = true;
                             btnA32F.Tag = p.TypeRatingID;
                         }
                         else
@@ -237,6 +272,8 @@ namespace PilotCenterTSZ.UI
 
                     case "A332":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblJS41.Text = String.Format("{0}% to Complete", progress);
@@ -246,7 +283,10 @@ namespace PilotCenterTSZ.UI
                             pbarA332.Value = 100;
                             lblA332.Visible = false;
                             lblA332.ForeColor = Color.ForestGreen;
-                            btnA332.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnA332.Visible = false;
+                            else
+                                btnA332.Visible = true;
                             btnA332.Tag = p.TypeRatingID;
                         }
                         else
@@ -265,6 +305,8 @@ namespace PilotCenterTSZ.UI
 
                     case "A343":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblA343.Text = String.Format("{0}% to Complete", progress);
@@ -274,7 +316,10 @@ namespace PilotCenterTSZ.UI
                             pbarA343.Value = 100;
                             lblA343.Visible = false;
                             lblA343.ForeColor = Color.ForestGreen;
-                            btnA343.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnA343.Visible = false;
+                            else
+                                btnA343.Visible = true;
                             btnA343.Tag = p.TypeRatingID;
                         }
                         else
@@ -293,6 +338,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B738":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB738.Text = String.Format("{0}% to Complete", progress);
@@ -302,7 +349,10 @@ namespace PilotCenterTSZ.UI
                             pbarB738.Value = 100;
                             lblB738.Visible = false;
                             lblB738.ForeColor = Color.ForestGreen;
-                            btnB738.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB738.Visible = false;
+                            else
+                                btnB738.Visible = true;
                             btnB738.Tag = p.TypeRatingID;
                         }
                         else
@@ -321,6 +371,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B744":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB744.Text = String.Format("{0}% to Complete", progress);
@@ -330,7 +382,10 @@ namespace PilotCenterTSZ.UI
                             pbarB744.Value = 100;
                             lblB744.Visible = false;
                             lblB744.ForeColor = Color.ForestGreen;
-                            btnB744.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB744.Visible = false;
+                            else
+                                btnB744.Visible = true;
                             btnB744.Tag = p.TypeRatingID;
                         }
                         else
@@ -349,6 +404,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B763":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB763.Text = String.Format("{0}% to Complete", progress);
@@ -358,7 +415,10 @@ namespace PilotCenterTSZ.UI
                             pbarB763.Value = 100;
                             lblB763.Visible = false;
                             lblB763.ForeColor = Color.ForestGreen;
-                            btnB763.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB763.Visible = false;
+                            else
+                                btnB763.Visible = true;
                             btnB763.Tag = p.TypeRatingID;
                         }
                         else
@@ -377,6 +437,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B77L":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB77L.Text = String.Format("{0}% to Complete", progress);
@@ -386,7 +448,10 @@ namespace PilotCenterTSZ.UI
                             pbarB77L.Value = 100;
                             lblB77L.Visible = false;
                             lblB77L.ForeColor = Color.ForestGreen;
-                            btnB77L.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB77L.Visible = false;
+                            else
+                                btnB77L.Visible = true;
                             btnB77L.Tag = p.TypeRatingID;
                         }
                         else
@@ -405,6 +470,8 @@ namespace PilotCenterTSZ.UI
 
                     case "B787":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblB787.Text = String.Format("{0}% to Complete", progress);
@@ -414,7 +481,10 @@ namespace PilotCenterTSZ.UI
                             pbarB787.Value = 100;
                             lblB787.Visible = false;
                             lblB787.ForeColor = Color.ForestGreen;
-                            btnB787.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnB787.Visible = false;
+                            else
+                                btnB787.Visible = true;
                             btnB787.Tag = p.TypeRatingID;
                         }
                         else
@@ -433,6 +503,8 @@ namespace PilotCenterTSZ.UI
 
                     case "MD11":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblMD11.Text = String.Format("{0}% to Complete", progress);
@@ -442,7 +514,10 @@ namespace PilotCenterTSZ.UI
                             pbarMD11.Value = 100;
                             lblMD11.Visible = false;
                             lblMD11.ForeColor = Color.ForestGreen;
-                            btnMD11.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnMD11.Visible = false;
+                            else
+                                btnMD11.Visible = true;
                             btnMD11.Tag = p.TypeRatingID;
                         }
                         else
@@ -461,6 +536,8 @@ namespace PilotCenterTSZ.UI
 
                     case "CONC":
 
+                        p.GetTypeRatingExamAssign(p.TypeRatingID);
+
                         progress = (a.Eps * 100) / p.Eps;
 
                         lblCONC.Text = String.Format("{0}% to Complete", progress);
@@ -470,7 +547,10 @@ namespace PilotCenterTSZ.UI
                             pbarCONC.Value = 100;
                             lblCONC.Visible = false;
                             lblCONC.ForeColor = Color.ForestGreen;
-                            btnCONC.Visible = true;
+                            if (p.ExamTypeAssign)
+                                btnCONC.Visible = false;
+                            else
+                                btnCONC.Visible = true;
                             btnCONC.Tag = p.TypeRatingID;
                         }
                         else
@@ -690,6 +770,8 @@ namespace PilotCenterTSZ.UI
                 {
                     case "RVSM / ETOPS":
 
+                        q.GetTypeQualificationExamAssign(q.QualificationID);
+
                         progress = (a.Eps * 100) / q.Eps;
 
                         lblRVSMETOPS.Text = String.Format("{0}% to Complete", progress);
@@ -699,7 +781,10 @@ namespace PilotCenterTSZ.UI
                             pbarRVSMETOPS.Value = 100;
                             lblRVSMETOPS.Visible = false;
                             lblRVSMETOPS.ForeColor = Color.ForestGreen;
-                            btnRVSMETOPS.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnRVSMETOPS.Visible = false;
+                            else
+                                btnRVSMETOPS.Visible = true;
                             btnRVSMETOPS.Tag = q.QualificationID;
                         }
                         else
@@ -718,6 +803,8 @@ namespace PilotCenterTSZ.UI
 
                     case "Gibraltar":
 
+                        q.GetTypeQualificationExamAssign(q.QualificationID);
+
                         progress = (a.Eps * 100) / q.Eps;
 
                         lblLXGB.Text = String.Format("{0}% to Complete", progress);
@@ -727,7 +814,10 @@ namespace PilotCenterTSZ.UI
                             pbarLXGB.Value = 100;
                             lblLXGB.Visible = false;
                             lblLXGB.ForeColor = Color.ForestGreen;
-                            btnLXGB.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnLXGB.Visible = false;
+                            else
+                                btnLXGB.Visible = true;
                             btnLXGB.Tag = q.QualificationID;
 
                         }
@@ -747,6 +837,8 @@ namespace PilotCenterTSZ.UI
 
                     case "Madeira":
 
+                        q.GetTypeQualificationExamAssign(q.QualificationID);
+
                         progress = (a.Eps * 100) / q.Eps;
 
                         lblLPMA.Text = String.Format("{0}% to Complete", progress);
@@ -756,7 +848,10 @@ namespace PilotCenterTSZ.UI
                             pbarLPMA.Value = 100;
                             lblLPMA.Visible = false;
                             lblLPMA.ForeColor = Color.ForestGreen;
-                            btnLPMA.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnLPMA.Visible = false;
+                            else
+                                btnLPMA.Visible = true;
                             btnLPMA.Tag = q.QualificationID;
                         }
                         else
@@ -835,6 +930,8 @@ namespace PilotCenterTSZ.UI
                 {
                     case "Senior Student":
 
+                        q.GetTypePromotionExamAssign(q.NextRankID);
+
                         imgPromotion.Image = Properties.Resources.seniorstudent;
                         btnPromotion.Tag = q.NextRankID;
 
@@ -853,7 +950,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -870,6 +970,8 @@ namespace PilotCenterTSZ.UI
                         break;
 
                     case "Second Officer":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
 
                         imgPromotion.Image = Properties.Resources.secondofficer;
                         btnPromotion.Tag = q.NextRankID;
@@ -889,7 +991,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -906,6 +1011,8 @@ namespace PilotCenterTSZ.UI
                         break;
 
                     case "First Officer":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
 
                         imgPromotion.Image = Properties.Resources.firstofficer;
                         btnPromotion.Tag = q.NextRankID;
@@ -925,7 +1032,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -942,6 +1052,8 @@ namespace PilotCenterTSZ.UI
                         break;
 
                     case "Captain":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
 
                         imgPromotion.Image = Properties.Resources.captain;
                         btnPromotion.Tag = q.NextRankID;
@@ -961,7 +1073,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -978,6 +1093,8 @@ namespace PilotCenterTSZ.UI
                         break;
 
                     case "Senior Captain":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
 
                         imgPromotion.Image = Properties.Resources.seniorcaptain;
                         btnPromotion.Tag = q.NextRankID;
@@ -997,7 +1114,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -1014,6 +1134,8 @@ namespace PilotCenterTSZ.UI
                         break;
 
                     case "Flight Instructor":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
 
                         imgPromotion.Image = Properties.Resources.flightinstructor;
                         btnPromotion.Tag = q.NextRankID;
@@ -1033,7 +1155,10 @@ namespace PilotCenterTSZ.UI
                             pbarPromotion.Value = 100;
                             lblPromotion.Visible = false;
                             lblPromotion.ForeColor = Color.ForestGreen;
-                            btnPromotion.Visible = true;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
                         }
                         else
                         {
@@ -1053,89 +1178,127 @@ namespace PilotCenterTSZ.UI
                         break;
                 }
 
-            }
-           
+            }           
         }
 
         private void btnC172_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnC172.Tag), a.UserID);
+            btnC172.Visible = false;
         }
 
         private void btnB190_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB190.Tag), a.UserID);
+            btnB190.Visible = false;
         }
 
         private void btnJS41_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnJS41.Tag), a.UserID);
+            btnJS41.Visible = false;
         }
 
         private void btnDH8D_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnDH8D.Tag), a.UserID);
+            btnDH8D.Visible = false;
         }
 
         private void btnAT72_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnAT72.Tag), a.UserID);
+            btnAT72.Visible = false;
         }
 
         private void btnRJ1H_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnRJ1H.Tag), a.UserID);
+            btnRJ1H.Visible = false;
         }
 
         private void btnA32F_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnA32F.Tag), a.UserID);
+            btnA32F.Visible = false;
         }
 
         private void btnB738_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB738.Tag), a.UserID);
+            btnB738.Visible = false;
         }
 
         private void btnA332_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnA332.Tag), a.UserID);
+            btnA332.Visible = false;
         }
 
         private void btnB763_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB763.Tag), a.UserID);
+            btnB763.Visible = false;
         }
 
         private void btnB77L_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB77L.Tag), a.UserID);
+            btnB77L.Visible = false;
         }
 
         private void btnB787_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB787.Tag), a.UserID);
+            btnB787.Visible = false;
         }
 
         private void btnMD11_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnMD11.Tag), a.UserID);
+            btnMD11.Visible = false;
         }
 
         private void btnA343_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnA343.Tag), a.UserID);
+            btnA343.Visible = false;
         }
 
         private void btnB744_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnB744.Tag), a.UserID);
+            btnB744.Visible = false;
         }
 
         private void btnCONC_Click(object sender, EventArgs e)
         {
             TakeExamForPilot.TakeExamTypeRating(Convert.ToInt32(btnCONC.Tag), a.UserID);
+            btnCONC.Visible = false;
         }
 
+        private void btnRVSMETOPS_Click(object sender, EventArgs e)
+        {
+            TakeExamForPilot.TakeExamQualification(Convert.ToInt32(btnRVSMETOPS.Tag), a.UserID);
+            btnRVSMETOPS.Visible = false;
+        }
+
+        private void btnLXGB_Click(object sender, EventArgs e)
+        {
+            TakeExamForPilot.TakeExamQualification(Convert.ToInt32(btnLXGB.Tag), a.UserID);
+            btnLXGB.Visible = false;
+        }
+
+        private void btnLPMA_Click(object sender, EventArgs e)
+        {
+            TakeExamForPilot.TakeExamQualification(Convert.ToInt32(btnLPMA.Tag), a.UserID);
+            btnLPMA.Visible = false;
+        }
+
+        private void btnPromotion_Click(object sender, EventArgs e)
+        {
+            TakeExamForPilot.TakeExamPromotion(Convert.ToInt32(btnPromotion.Tag), a.UserID);
+            btnPromotion.Visible = false;
+        }
     }
 }

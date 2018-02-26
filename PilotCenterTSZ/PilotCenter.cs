@@ -576,6 +576,9 @@ group by
 
     public class AllTypeRatingsByUserRank
     {
+        public bool ExamTypeAssign
+        { get; set; }
+
         public int TypeRatingID
         { get; set; }
 
@@ -604,10 +607,40 @@ from typeratingsname left join utilizadores on typeratingsname.rank <= utilizado
                     Email = Properties.Settings.Default.Email
                 }).ToList();
         }
+
+        public void GetTypeRatingExamAssign(int typerating)
+        {
+            string sqlPushExamID = "Select COUNT(*) from exam_assigns left join exams on exam_assigns.exam_id = exams.exam_id where exams.type = @typerating and after_submit = 1 and (NOW() <= DATE_ADD(dateassign, INTERVAL 1 DAY) || avaiable = 1)";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@typerating", typerating);
+
+                ExamTypeAssign = Convert.ToBoolean(Convert.ToInt32(sqlCmd.ExecuteScalar()));
+
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
     }
 
     public class AllQualificationsByUserRank
     {
+        public bool ExamTypeAssign
+        { get; set; }
+
         public string QualificationName
         { get; set; }
 
@@ -636,11 +669,41 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
                     Email = Properties.Settings.Default.Email
                 }).ToList();
         }
+
+        public void GetTypeQualificationExamAssign(int qualification)
+        {
+            string sqlPushExamID = "Select COUNT(*) from exam_assigns left join exams on exam_assigns.exam_id = exams.exam_id where exams.type = @qualification and after_submit = 1 and (NOW() <= DATE_ADD(dateassign, INTERVAL 1 DAY) || avaiable = 1)";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@qualification", qualification);
+
+                ExamTypeAssign = Convert.ToBoolean(Convert.ToInt32(sqlCmd.ExecuteScalar()));
+
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
     }
 
     public class UserNextRank
     {
-        public string NextRankID
+        public bool ExamTypeAssign
+        { get; set; }
+
+        public int NextRankID
         { get; set; }
 
         public string NextRank
@@ -671,6 +734,33 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
                 {
                     Email = Properties.Settings.Default.Email
                 }).ToList();
+        }
+
+        public void GetTypePromotionExamAssign(int promotion)
+        {
+            string sqlPushExamID = "Select COUNT(*) from exam_assigns left join exams on exam_assigns.exam_id = exams.exam_id where exams.type = @promotion and after_submit = 1 and (NOW() <= DATE_ADD(dateassign, INTERVAL 1 DAY) || avaiable = 1)";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@promotion", promotion);
+
+                ExamTypeAssign = Convert.ToBoolean(Convert.ToInt32(sqlCmd.ExecuteScalar()));
+
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
         }
     }
 
@@ -705,6 +795,9 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
                     {
                         ExamID = (int)sqlCmdRes[0];
                     }
+
+                conn.Close();
+                conn.Open();
 
                 MySqlCommand sqlCmd1 = new MySqlCommand(sqlTakeExamForPilot, conn);
                 sqlCmd1.Parameters.AddWithValue("@ExamID", ExamID);
@@ -745,6 +838,9 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
                         ExamID = (int)sqlCmdRes[0];
                     }
 
+                conn.Close();
+                conn.Open();
+
                 MySqlCommand sqlCmd1 = new MySqlCommand(sqlTakeExamForPilot, conn);
                 sqlCmd1.Parameters.AddWithValue("@ExamID", ExamID);
                 sqlCmd1.Parameters.AddWithValue("@UserID", userID);
@@ -761,6 +857,50 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
                 conn.Close();
             }
         }
+
+        public static void TakeExamPromotion(int examID, int userID)
+        {
+
+
+            string sqlPushExamID = "Select exam_id from exams where exam_id = @examID";
+            string sqlTakeExamForPilot = "INSERT INTO `exam_assigns` (`idpilot`, `exam_id`, typequalprom, dateassign) VALUES (@UserID, @ExamID, NOW())";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPushExamID, conn);
+                sqlCmd.Parameters.AddWithValue("@examID", examID);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        ExamID = (int)sqlCmdRes[0];
+                    }
+
+                conn.Close();
+                conn.Open();
+
+                MySqlCommand sqlCmd1 = new MySqlCommand(sqlTakeExamForPilot, conn);
+                sqlCmd1.Parameters.AddWithValue("@ExamID", ExamID);
+                sqlCmd1.Parameters.AddWithValue("@UserID", userID);
+
+                sqlCmd1.ExecuteScalar();
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+
     }
 
 }

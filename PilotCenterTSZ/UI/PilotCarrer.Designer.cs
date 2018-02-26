@@ -62,6 +62,22 @@
             this.pbarJS41 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.pbarB190 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.pbarC172 = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.imgCONC = new System.Windows.Forms.PictureBox();
+            this.imgB744 = new System.Windows.Forms.PictureBox();
+            this.imgA343 = new System.Windows.Forms.PictureBox();
+            this.imgMD11 = new System.Windows.Forms.PictureBox();
+            this.imgB787 = new System.Windows.Forms.PictureBox();
+            this.imgB77L = new System.Windows.Forms.PictureBox();
+            this.imgB763 = new System.Windows.Forms.PictureBox();
+            this.imgA332 = new System.Windows.Forms.PictureBox();
+            this.imgB738 = new System.Windows.Forms.PictureBox();
+            this.imgA32F = new System.Windows.Forms.PictureBox();
+            this.imgRJ1H = new System.Windows.Forms.PictureBox();
+            this.imgAT72 = new System.Windows.Forms.PictureBox();
+            this.imgDH8D = new System.Windows.Forms.PictureBox();
+            this.imgJS41 = new System.Windows.Forms.PictureBox();
+            this.imgB190 = new System.Windows.Forms.PictureBox();
+            this.imgC172 = new System.Windows.Forms.PictureBox();
             this.lblCONC = new System.Windows.Forms.Label();
             this.lblB744 = new System.Windows.Forms.Label();
             this.lblB763 = new System.Windows.Forms.Label();
@@ -91,34 +107,14 @@
             this.imgRVSMETOPS = new System.Windows.Forms.PictureBox();
             this.imgLPMA = new System.Windows.Forms.PictureBox();
             this.imgLXGB = new System.Windows.Forms.PictureBox();
-            this.imgCONC = new System.Windows.Forms.PictureBox();
-            this.imgB744 = new System.Windows.Forms.PictureBox();
-            this.imgA343 = new System.Windows.Forms.PictureBox();
-            this.imgMD11 = new System.Windows.Forms.PictureBox();
-            this.imgB787 = new System.Windows.Forms.PictureBox();
-            this.imgB77L = new System.Windows.Forms.PictureBox();
-            this.imgB763 = new System.Windows.Forms.PictureBox();
-            this.imgA332 = new System.Windows.Forms.PictureBox();
-            this.imgB738 = new System.Windows.Forms.PictureBox();
-            this.imgA32F = new System.Windows.Forms.PictureBox();
-            this.imgRJ1H = new System.Windows.Forms.PictureBox();
-            this.imgAT72 = new System.Windows.Forms.PictureBox();
-            this.imgDH8D = new System.Windows.Forms.PictureBox();
-            this.imgJS41 = new System.Windows.Forms.PictureBox();
-            this.imgB190 = new System.Windows.Forms.PictureBox();
-            this.imgC172 = new System.Windows.Forms.PictureBox();
             this.gboxPromotion = new System.Windows.Forms.GroupBox();
+            this.lblNextRank = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPromotion = new System.Windows.Forms.Button();
             this.lblPromotion = new System.Windows.Forms.Label();
             this.pbarPromotion = new Bunifu.Framework.UI.BunifuProgressBar();
             this.imgPromotion = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblNextRank = new System.Windows.Forms.Label();
             this.gboxTypeRatings.SuspendLayout();
-            this.gboxQualifications.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgRVSMETOPS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLPMA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLXGB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCONC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgB744)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgA343)).BeginInit();
@@ -135,6 +131,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgJS41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgB190)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgC172)).BeginInit();
+            this.gboxQualifications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRVSMETOPS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLPMA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLXGB)).BeginInit();
             this.gboxPromotion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPromotion)).BeginInit();
             this.SuspendLayout();
@@ -459,7 +459,7 @@
             this.pbarCONC.BackColor = System.Drawing.Color.Silver;
             this.pbarCONC.BorderRadius = 5;
             this.pbarCONC.Location = new System.Drawing.Point(122, 497);
-            this.pbarCONC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarCONC.Margin = new System.Windows.Forms.Padding(2);
             this.pbarCONC.MaximumValue = 100;
             this.pbarCONC.Name = "pbarCONC";
             this.pbarCONC.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -472,7 +472,7 @@
             this.pbarB744.BackColor = System.Drawing.Color.Silver;
             this.pbarB744.BorderRadius = 5;
             this.pbarB744.Location = new System.Drawing.Point(122, 466);
-            this.pbarB744.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB744.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB744.MaximumValue = 100;
             this.pbarB744.Name = "pbarB744";
             this.pbarB744.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -485,7 +485,7 @@
             this.pbarA343.BackColor = System.Drawing.Color.Silver;
             this.pbarA343.BorderRadius = 5;
             this.pbarA343.Location = new System.Drawing.Point(122, 435);
-            this.pbarA343.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarA343.Margin = new System.Windows.Forms.Padding(2);
             this.pbarA343.MaximumValue = 100;
             this.pbarA343.Name = "pbarA343";
             this.pbarA343.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -498,7 +498,7 @@
             this.pbarMD11.BackColor = System.Drawing.Color.Silver;
             this.pbarMD11.BorderRadius = 5;
             this.pbarMD11.Location = new System.Drawing.Point(122, 404);
-            this.pbarMD11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarMD11.Margin = new System.Windows.Forms.Padding(2);
             this.pbarMD11.MaximumValue = 100;
             this.pbarMD11.Name = "pbarMD11";
             this.pbarMD11.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -511,7 +511,7 @@
             this.pbarB787.BackColor = System.Drawing.Color.Silver;
             this.pbarB787.BorderRadius = 5;
             this.pbarB787.Location = new System.Drawing.Point(122, 373);
-            this.pbarB787.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB787.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB787.MaximumValue = 100;
             this.pbarB787.Name = "pbarB787";
             this.pbarB787.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -524,7 +524,7 @@
             this.pbarB77L.BackColor = System.Drawing.Color.Silver;
             this.pbarB77L.BorderRadius = 5;
             this.pbarB77L.Location = new System.Drawing.Point(122, 342);
-            this.pbarB77L.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB77L.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB77L.MaximumValue = 100;
             this.pbarB77L.Name = "pbarB77L";
             this.pbarB77L.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -537,7 +537,7 @@
             this.pbarB763.BackColor = System.Drawing.Color.Silver;
             this.pbarB763.BorderRadius = 5;
             this.pbarB763.Location = new System.Drawing.Point(122, 311);
-            this.pbarB763.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB763.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB763.MaximumValue = 100;
             this.pbarB763.Name = "pbarB763";
             this.pbarB763.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -550,7 +550,7 @@
             this.pbarA332.BackColor = System.Drawing.Color.Silver;
             this.pbarA332.BorderRadius = 5;
             this.pbarA332.Location = new System.Drawing.Point(122, 280);
-            this.pbarA332.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarA332.Margin = new System.Windows.Forms.Padding(2);
             this.pbarA332.MaximumValue = 100;
             this.pbarA332.Name = "pbarA332";
             this.pbarA332.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -563,7 +563,7 @@
             this.pbarA32F.BackColor = System.Drawing.Color.Silver;
             this.pbarA32F.BorderRadius = 5;
             this.pbarA32F.Location = new System.Drawing.Point(122, 218);
-            this.pbarA32F.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarA32F.Margin = new System.Windows.Forms.Padding(2);
             this.pbarA32F.MaximumValue = 100;
             this.pbarA32F.Name = "pbarA32F";
             this.pbarA32F.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -576,7 +576,7 @@
             this.pbarB738.BackColor = System.Drawing.Color.Silver;
             this.pbarB738.BorderRadius = 5;
             this.pbarB738.Location = new System.Drawing.Point(122, 248);
-            this.pbarB738.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB738.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB738.MaximumValue = 100;
             this.pbarB738.Name = "pbarB738";
             this.pbarB738.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -589,7 +589,7 @@
             this.pbarRJ1H.BackColor = System.Drawing.Color.Silver;
             this.pbarRJ1H.BorderRadius = 5;
             this.pbarRJ1H.Location = new System.Drawing.Point(122, 187);
-            this.pbarRJ1H.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarRJ1H.Margin = new System.Windows.Forms.Padding(2);
             this.pbarRJ1H.MaximumValue = 100;
             this.pbarRJ1H.Name = "pbarRJ1H";
             this.pbarRJ1H.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -602,7 +602,7 @@
             this.pbarAT72.BackColor = System.Drawing.Color.Silver;
             this.pbarAT72.BorderRadius = 5;
             this.pbarAT72.Location = new System.Drawing.Point(122, 156);
-            this.pbarAT72.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarAT72.Margin = new System.Windows.Forms.Padding(2);
             this.pbarAT72.MaximumValue = 100;
             this.pbarAT72.Name = "pbarAT72";
             this.pbarAT72.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -615,7 +615,7 @@
             this.pbarDH8D.BackColor = System.Drawing.Color.Silver;
             this.pbarDH8D.BorderRadius = 5;
             this.pbarDH8D.Location = new System.Drawing.Point(122, 127);
-            this.pbarDH8D.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarDH8D.Margin = new System.Windows.Forms.Padding(2);
             this.pbarDH8D.MaximumValue = 100;
             this.pbarDH8D.Name = "pbarDH8D";
             this.pbarDH8D.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -628,7 +628,7 @@
             this.pbarJS41.BackColor = System.Drawing.Color.Silver;
             this.pbarJS41.BorderRadius = 5;
             this.pbarJS41.Location = new System.Drawing.Point(122, 98);
-            this.pbarJS41.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarJS41.Margin = new System.Windows.Forms.Padding(2);
             this.pbarJS41.MaximumValue = 100;
             this.pbarJS41.Name = "pbarJS41";
             this.pbarJS41.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -641,7 +641,7 @@
             this.pbarB190.BackColor = System.Drawing.Color.Silver;
             this.pbarB190.BorderRadius = 5;
             this.pbarB190.Location = new System.Drawing.Point(122, 67);
-            this.pbarB190.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarB190.Margin = new System.Windows.Forms.Padding(2);
             this.pbarB190.MaximumValue = 100;
             this.pbarB190.Name = "pbarB190";
             this.pbarB190.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -654,13 +654,173 @@
             this.pbarC172.BackColor = System.Drawing.Color.Silver;
             this.pbarC172.BorderRadius = 5;
             this.pbarC172.Location = new System.Drawing.Point(122, 36);
-            this.pbarC172.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarC172.Margin = new System.Windows.Forms.Padding(2);
             this.pbarC172.MaximumValue = 100;
             this.pbarC172.Name = "pbarC172";
             this.pbarC172.ProgressColor = System.Drawing.Color.ForestGreen;
             this.pbarC172.Size = new System.Drawing.Size(200, 10);
             this.pbarC172.TabIndex = 18;
             this.pbarC172.Value = 0;
+            // 
+            // imgCONC
+            // 
+            this.imgCONC.Image = global::PilotCenterTSZ.Properties.Resources.CONC;
+            this.imgCONC.Location = new System.Drawing.Point(6, 487);
+            this.imgCONC.Name = "imgCONC";
+            this.imgCONC.Size = new System.Drawing.Size(110, 30);
+            this.imgCONC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgCONC.TabIndex = 17;
+            this.imgCONC.TabStop = false;
+            // 
+            // imgB744
+            // 
+            this.imgB744.Image = global::PilotCenterTSZ.Properties.Resources.B747;
+            this.imgB744.Location = new System.Drawing.Point(6, 456);
+            this.imgB744.Name = "imgB744";
+            this.imgB744.Size = new System.Drawing.Size(110, 30);
+            this.imgB744.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB744.TabIndex = 16;
+            this.imgB744.TabStop = false;
+            // 
+            // imgA343
+            // 
+            this.imgA343.Image = global::PilotCenterTSZ.Properties.Resources.A343;
+            this.imgA343.Location = new System.Drawing.Point(6, 425);
+            this.imgA343.Name = "imgA343";
+            this.imgA343.Size = new System.Drawing.Size(110, 30);
+            this.imgA343.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgA343.TabIndex = 15;
+            this.imgA343.TabStop = false;
+            // 
+            // imgMD11
+            // 
+            this.imgMD11.Image = global::PilotCenterTSZ.Properties.Resources.MD11;
+            this.imgMD11.Location = new System.Drawing.Point(6, 394);
+            this.imgMD11.Name = "imgMD11";
+            this.imgMD11.Size = new System.Drawing.Size(110, 30);
+            this.imgMD11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgMD11.TabIndex = 14;
+            this.imgMD11.TabStop = false;
+            // 
+            // imgB787
+            // 
+            this.imgB787.Image = global::PilotCenterTSZ.Properties.Resources.B787;
+            this.imgB787.Location = new System.Drawing.Point(6, 363);
+            this.imgB787.Name = "imgB787";
+            this.imgB787.Size = new System.Drawing.Size(110, 30);
+            this.imgB787.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB787.TabIndex = 13;
+            this.imgB787.TabStop = false;
+            // 
+            // imgB77L
+            // 
+            this.imgB77L.Image = global::PilotCenterTSZ.Properties.Resources.B77L;
+            this.imgB77L.Location = new System.Drawing.Point(6, 332);
+            this.imgB77L.Name = "imgB77L";
+            this.imgB77L.Size = new System.Drawing.Size(110, 30);
+            this.imgB77L.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB77L.TabIndex = 12;
+            this.imgB77L.TabStop = false;
+            // 
+            // imgB763
+            // 
+            this.imgB763.Image = global::PilotCenterTSZ.Properties.Resources.B767;
+            this.imgB763.Location = new System.Drawing.Point(6, 301);
+            this.imgB763.Name = "imgB763";
+            this.imgB763.Size = new System.Drawing.Size(110, 30);
+            this.imgB763.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB763.TabIndex = 11;
+            this.imgB763.TabStop = false;
+            // 
+            // imgA332
+            // 
+            this.imgA332.Image = global::PilotCenterTSZ.Properties.Resources.A332;
+            this.imgA332.Location = new System.Drawing.Point(6, 270);
+            this.imgA332.Name = "imgA332";
+            this.imgA332.Size = new System.Drawing.Size(110, 30);
+            this.imgA332.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgA332.TabIndex = 10;
+            this.imgA332.TabStop = false;
+            // 
+            // imgB738
+            // 
+            this.imgB738.Image = global::PilotCenterTSZ.Properties.Resources.B738;
+            this.imgB738.Location = new System.Drawing.Point(6, 239);
+            this.imgB738.Name = "imgB738";
+            this.imgB738.Size = new System.Drawing.Size(110, 30);
+            this.imgB738.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB738.TabIndex = 9;
+            this.imgB738.TabStop = false;
+            // 
+            // imgA32F
+            // 
+            this.imgA32F.Image = ((System.Drawing.Image)(resources.GetObject("imgA32F.Image")));
+            this.imgA32F.Location = new System.Drawing.Point(6, 208);
+            this.imgA32F.Name = "imgA32F";
+            this.imgA32F.Size = new System.Drawing.Size(110, 30);
+            this.imgA32F.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgA32F.TabIndex = 8;
+            this.imgA32F.TabStop = false;
+            // 
+            // imgRJ1H
+            // 
+            this.imgRJ1H.Image = global::PilotCenterTSZ.Properties.Resources.RJ1H;
+            this.imgRJ1H.Location = new System.Drawing.Point(6, 177);
+            this.imgRJ1H.Name = "imgRJ1H";
+            this.imgRJ1H.Size = new System.Drawing.Size(110, 30);
+            this.imgRJ1H.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgRJ1H.TabIndex = 7;
+            this.imgRJ1H.TabStop = false;
+            // 
+            // imgAT72
+            // 
+            this.imgAT72.Image = global::PilotCenterTSZ.Properties.Resources.AT72;
+            this.imgAT72.Location = new System.Drawing.Point(6, 146);
+            this.imgAT72.Name = "imgAT72";
+            this.imgAT72.Size = new System.Drawing.Size(110, 30);
+            this.imgAT72.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgAT72.TabIndex = 6;
+            this.imgAT72.TabStop = false;
+            // 
+            // imgDH8D
+            // 
+            this.imgDH8D.Image = global::PilotCenterTSZ.Properties.Resources.DH8D;
+            this.imgDH8D.Location = new System.Drawing.Point(6, 115);
+            this.imgDH8D.Name = "imgDH8D";
+            this.imgDH8D.Size = new System.Drawing.Size(110, 30);
+            this.imgDH8D.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgDH8D.TabIndex = 5;
+            this.imgDH8D.TabStop = false;
+            // 
+            // imgJS41
+            // 
+            this.imgJS41.Image = global::PilotCenterTSZ.Properties.Resources.JS41;
+            this.imgJS41.Location = new System.Drawing.Point(6, 84);
+            this.imgJS41.Name = "imgJS41";
+            this.imgJS41.Size = new System.Drawing.Size(110, 30);
+            this.imgJS41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgJS41.TabIndex = 4;
+            this.imgJS41.TabStop = false;
+            // 
+            // imgB190
+            // 
+            this.imgB190.Image = global::PilotCenterTSZ.Properties.Resources.B190;
+            this.imgB190.Location = new System.Drawing.Point(6, 53);
+            this.imgB190.Name = "imgB190";
+            this.imgB190.Size = new System.Drawing.Size(110, 30);
+            this.imgB190.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgB190.TabIndex = 3;
+            this.imgB190.TabStop = false;
+            // 
+            // imgC172
+            // 
+            this.imgC172.Image = global::PilotCenterTSZ.Properties.Resources.C172;
+            this.imgC172.Location = new System.Drawing.Point(6, 22);
+            this.imgC172.Name = "imgC172";
+            this.imgC172.Size = new System.Drawing.Size(110, 30);
+            this.imgC172.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgC172.TabIndex = 2;
+            this.imgC172.TabStop = false;
             // 
             // lblCONC
             // 
@@ -873,6 +1033,7 @@
             this.btnLPMA.Text = "Take Exam";
             this.btnLPMA.UseVisualStyleBackColor = false;
             this.btnLPMA.Visible = false;
+            this.btnLPMA.Click += new System.EventHandler(this.btnLPMA_Click);
             // 
             // btnLXGB
             // 
@@ -886,6 +1047,7 @@
             this.btnLXGB.Text = "Take Exam";
             this.btnLXGB.UseVisualStyleBackColor = false;
             this.btnLXGB.Visible = false;
+            this.btnLXGB.Click += new System.EventHandler(this.btnLXGB_Click);
             // 
             // btnRVSMETOPS
             // 
@@ -899,6 +1061,7 @@
             this.btnRVSMETOPS.Text = "Take Exam";
             this.btnRVSMETOPS.UseVisualStyleBackColor = false;
             this.btnRVSMETOPS.Visible = false;
+            this.btnRVSMETOPS.Click += new System.EventHandler(this.btnRVSMETOPS_Click);
             // 
             // lblLPMA
             // 
@@ -938,7 +1101,7 @@
             this.pbarLPMA.BackColor = System.Drawing.Color.Silver;
             this.pbarLPMA.BorderRadius = 5;
             this.pbarLPMA.Location = new System.Drawing.Point(122, 98);
-            this.pbarLPMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarLPMA.Margin = new System.Windows.Forms.Padding(2);
             this.pbarLPMA.MaximumValue = 100;
             this.pbarLPMA.Name = "pbarLPMA";
             this.pbarLPMA.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -951,7 +1114,7 @@
             this.pbarLXGB.BackColor = System.Drawing.Color.Silver;
             this.pbarLXGB.BorderRadius = 5;
             this.pbarLXGB.Location = new System.Drawing.Point(122, 67);
-            this.pbarLXGB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarLXGB.Margin = new System.Windows.Forms.Padding(2);
             this.pbarLXGB.MaximumValue = 100;
             this.pbarLXGB.Name = "pbarLXGB";
             this.pbarLXGB.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -964,7 +1127,7 @@
             this.pbarRVSMETOPS.BackColor = System.Drawing.Color.Silver;
             this.pbarRVSMETOPS.BorderRadius = 5;
             this.pbarRVSMETOPS.Location = new System.Drawing.Point(122, 36);
-            this.pbarRVSMETOPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbarRVSMETOPS.Margin = new System.Windows.Forms.Padding(2);
             this.pbarRVSMETOPS.MaximumValue = 100;
             this.pbarRVSMETOPS.Name = "pbarRVSMETOPS";
             this.pbarRVSMETOPS.ProgressColor = System.Drawing.Color.ForestGreen;
@@ -1002,166 +1165,6 @@
             this.imgLXGB.TabIndex = 64;
             this.imgLXGB.TabStop = false;
             // 
-            // imgCONC
-            // 
-            this.imgCONC.Image = global::PilotCenterTSZ.Properties.Resources.CONC;
-            this.imgCONC.Location = new System.Drawing.Point(6, 487);
-            this.imgCONC.Name = "imgCONC";
-            this.imgCONC.Size = new System.Drawing.Size(110, 30);
-            this.imgCONC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgCONC.TabIndex = 17;
-            this.imgCONC.TabStop = false;
-            // 
-            // imgB744
-            // 
-            this.imgB744.Image = global::PilotCenterTSZ.Properties.Resources.B747;
-            this.imgB744.Location = new System.Drawing.Point(6, 456);
-            this.imgB744.Name = "imgB744";
-            this.imgB744.Size = new System.Drawing.Size(110, 30);
-            this.imgB744.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB744.TabIndex = 16;
-            this.imgB744.TabStop = false;
-            // 
-            // imgA343
-            // 
-            this.imgA343.Image = global::PilotCenterTSZ.Properties.Resources.A343;
-            this.imgA343.Location = new System.Drawing.Point(6, 425);
-            this.imgA343.Name = "imgA343";
-            this.imgA343.Size = new System.Drawing.Size(110, 30);
-            this.imgA343.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgA343.TabIndex = 15;
-            this.imgA343.TabStop = false;
-            // 
-            // imgMD11
-            // 
-            this.imgMD11.Image = global::PilotCenterTSZ.Properties.Resources.MD11;
-            this.imgMD11.Location = new System.Drawing.Point(6, 394);
-            this.imgMD11.Name = "imgMD11";
-            this.imgMD11.Size = new System.Drawing.Size(110, 30);
-            this.imgMD11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgMD11.TabIndex = 14;
-            this.imgMD11.TabStop = false;
-            // 
-            // imgB787
-            // 
-            this.imgB787.Image = global::PilotCenterTSZ.Properties.Resources.B787;
-            this.imgB787.Location = new System.Drawing.Point(6, 363);
-            this.imgB787.Name = "imgB787";
-            this.imgB787.Size = new System.Drawing.Size(110, 30);
-            this.imgB787.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB787.TabIndex = 13;
-            this.imgB787.TabStop = false;
-            // 
-            // imgB77L
-            // 
-            this.imgB77L.Image = global::PilotCenterTSZ.Properties.Resources.B77L;
-            this.imgB77L.Location = new System.Drawing.Point(6, 332);
-            this.imgB77L.Name = "imgB77L";
-            this.imgB77L.Size = new System.Drawing.Size(110, 30);
-            this.imgB77L.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB77L.TabIndex = 12;
-            this.imgB77L.TabStop = false;
-            // 
-            // imgB763
-            // 
-            this.imgB763.Image = global::PilotCenterTSZ.Properties.Resources.B767;
-            this.imgB763.Location = new System.Drawing.Point(6, 301);
-            this.imgB763.Name = "imgB763";
-            this.imgB763.Size = new System.Drawing.Size(110, 30);
-            this.imgB763.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB763.TabIndex = 11;
-            this.imgB763.TabStop = false;
-            // 
-            // imgA332
-            // 
-            this.imgA332.Image = global::PilotCenterTSZ.Properties.Resources.A332;
-            this.imgA332.Location = new System.Drawing.Point(6, 270);
-            this.imgA332.Name = "imgA332";
-            this.imgA332.Size = new System.Drawing.Size(110, 30);
-            this.imgA332.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgA332.TabIndex = 10;
-            this.imgA332.TabStop = false;
-            // 
-            // imgB738
-            // 
-            this.imgB738.Image = global::PilotCenterTSZ.Properties.Resources.B738;
-            this.imgB738.Location = new System.Drawing.Point(6, 239);
-            this.imgB738.Name = "imgB738";
-            this.imgB738.Size = new System.Drawing.Size(110, 30);
-            this.imgB738.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB738.TabIndex = 9;
-            this.imgB738.TabStop = false;
-            // 
-            // imgA32F
-            // 
-            this.imgA32F.Image = ((System.Drawing.Image)(resources.GetObject("imgA32F.Image")));
-            this.imgA32F.Location = new System.Drawing.Point(6, 208);
-            this.imgA32F.Name = "imgA32F";
-            this.imgA32F.Size = new System.Drawing.Size(110, 30);
-            this.imgA32F.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgA32F.TabIndex = 8;
-            this.imgA32F.TabStop = false;
-            // 
-            // imgRJ1H
-            // 
-            this.imgRJ1H.Image = global::PilotCenterTSZ.Properties.Resources.RJ1H;
-            this.imgRJ1H.Location = new System.Drawing.Point(6, 177);
-            this.imgRJ1H.Name = "imgRJ1H";
-            this.imgRJ1H.Size = new System.Drawing.Size(110, 30);
-            this.imgRJ1H.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgRJ1H.TabIndex = 7;
-            this.imgRJ1H.TabStop = false;
-            // 
-            // imgAT72
-            // 
-            this.imgAT72.Image = global::PilotCenterTSZ.Properties.Resources.AT72;
-            this.imgAT72.Location = new System.Drawing.Point(6, 146);
-            this.imgAT72.Name = "imgAT72";
-            this.imgAT72.Size = new System.Drawing.Size(110, 30);
-            this.imgAT72.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgAT72.TabIndex = 6;
-            this.imgAT72.TabStop = false;
-            // 
-            // imgDH8D
-            // 
-            this.imgDH8D.Image = global::PilotCenterTSZ.Properties.Resources.DH8D;
-            this.imgDH8D.Location = new System.Drawing.Point(6, 115);
-            this.imgDH8D.Name = "imgDH8D";
-            this.imgDH8D.Size = new System.Drawing.Size(110, 30);
-            this.imgDH8D.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgDH8D.TabIndex = 5;
-            this.imgDH8D.TabStop = false;
-            // 
-            // imgJS41
-            // 
-            this.imgJS41.Image = global::PilotCenterTSZ.Properties.Resources.JS41;
-            this.imgJS41.Location = new System.Drawing.Point(6, 84);
-            this.imgJS41.Name = "imgJS41";
-            this.imgJS41.Size = new System.Drawing.Size(110, 30);
-            this.imgJS41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgJS41.TabIndex = 4;
-            this.imgJS41.TabStop = false;
-            // 
-            // imgB190
-            // 
-            this.imgB190.Image = global::PilotCenterTSZ.Properties.Resources.B190;
-            this.imgB190.Location = new System.Drawing.Point(6, 53);
-            this.imgB190.Name = "imgB190";
-            this.imgB190.Size = new System.Drawing.Size(110, 30);
-            this.imgB190.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgB190.TabIndex = 3;
-            this.imgB190.TabStop = false;
-            // 
-            // imgC172
-            // 
-            this.imgC172.Image = global::PilotCenterTSZ.Properties.Resources.C172;
-            this.imgC172.Location = new System.Drawing.Point(6, 22);
-            this.imgC172.Name = "imgC172";
-            this.imgC172.Size = new System.Drawing.Size(110, 30);
-            this.imgC172.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgC172.TabIndex = 2;
-            this.imgC172.TabStop = false;
-            // 
             // gboxPromotion
             // 
             this.gboxPromotion.Controls.Add(this.lblNextRank);
@@ -1179,6 +1182,27 @@
             this.gboxPromotion.TabStop = false;
             this.gboxPromotion.Text = "Promotion";
             // 
+            // lblNextRank
+            // 
+            this.lblNextRank.AutoSize = true;
+            this.lblNextRank.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextRank.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblNextRank.Location = new System.Drawing.Point(95, 37);
+            this.lblNextRank.Name = "lblNextRank";
+            this.lblNextRank.Size = new System.Drawing.Size(83, 17);
+            this.lblNextRank.TabIndex = 78;
+            this.lblNextRank.Text = "lblNextRank";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "Next Rank:";
+            // 
             // btnPromotion
             // 
             this.btnPromotion.BackColor = System.Drawing.Color.LightCoral;
@@ -1191,6 +1215,7 @@
             this.btnPromotion.Text = "Take Exam";
             this.btnPromotion.UseVisualStyleBackColor = false;
             this.btnPromotion.Visible = false;
+            this.btnPromotion.Click += new System.EventHandler(this.btnPromotion_Click);
             // 
             // lblPromotion
             // 
@@ -1226,27 +1251,6 @@
             this.imgPromotion.TabIndex = 64;
             this.imgPromotion.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Next Rank:";
-            // 
-            // lblNextRank
-            // 
-            this.lblNextRank.AutoSize = true;
-            this.lblNextRank.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNextRank.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNextRank.Location = new System.Drawing.Point(95, 37);
-            this.lblNextRank.Name = "lblNextRank";
-            this.lblNextRank.Size = new System.Drawing.Size(83, 17);
-            this.lblNextRank.TabIndex = 78;
-            this.lblNextRank.Text = "lblNextRank";
-            // 
             // PilotCarrer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1259,11 +1263,6 @@
             this.Size = new System.Drawing.Size(925, 532);
             this.gboxTypeRatings.ResumeLayout(false);
             this.gboxTypeRatings.PerformLayout();
-            this.gboxQualifications.ResumeLayout(false);
-            this.gboxQualifications.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgRVSMETOPS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLPMA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLXGB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCONC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgB744)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgA343)).EndInit();
@@ -1280,6 +1279,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgJS41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgB190)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgC172)).EndInit();
+            this.gboxQualifications.ResumeLayout(false);
+            this.gboxQualifications.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRVSMETOPS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLPMA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLXGB)).EndInit();
             this.gboxPromotion.ResumeLayout(false);
             this.gboxPromotion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPromotion)).EndInit();
