@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define ProductName="$(fileVersion.ProductName($(var.PilotCenterTSZ.TargetPath)))" ?>
+<?define CompanyName="$(fileVersion.CompanyName($(var.PilotCenterTSZ.TargetPath)))" ?>
+<?define ProductVersion="$(fileVersion.ProductVersion($(var.PilotCenterTSZ.TargetPath)))" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*"
+           Name="$(var.ProductName)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="$(var.CompanyName)"
+           UpgradeCode="72c6ebbd-d5da-44e6-ad86-67fdc43925b6">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes"/>
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="PilotCenterSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+
+		<InstallExecuteSequence>
+			<Custom Action='LaunchInstalledExe' After='InstallFinalize'/>
+		</InstallExecuteSequence>
+
+		<CustomAction Id="LaunchInstalledExe"
+		   FileKey="PilotCenterTSZ.exe"
+		   ExeCommand=""
+		   Execute="immediate"
+		   Impersonate="yes"
+		   Return="asyncNoWait" />
+	</Product>
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="DesktopFolder" Name="Desktop">
+				<Component Id="ApplicationShortcutDesktop" Guid="*">
+					<Shortcut Id="ApplicationDesktopShortcut"
+						Name="FlyAtlantic PilotCenter"
+						Description="Comment field in your shortcut"
+						Target="[INSTALLFOLDER]PilotCenterTSZ.exe"
+						WorkingDirectory="INSTALLFOLDER"/>
+					<RemoveFolder Id="DesktopFolder" On="uninstall"/>
+					<RegistryValue
+						Root="HKCU"
+						Key="Software/PilotCenterTSZ"
+						Name="installed"
+						Type="integer"
+						Value="1"
+						KeyPath="yes"/>
+				</Component>
+			</Directory>
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="FlyAtlantic PilotCenter" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="PilotCenterTSZ">
+				<File Source="$(var.PilotCenterTSZ.TargetPath)" />
+			</Component>
+			<Component Id="Bunifu_UI_v1.5.3">
+				<File Name="Bunifu_UI_v1.5.3.dll" Source="$(var.PilotCenterTSZ.TargetDir)\Bunifu_UI_v1.5.3.dll" />
+			</Component>
+			<Component Id="MySql.Data">
+				<File Name="MySql.Data.dll" Source="$(var.PilotCenterTSZ.TargetDir)\MySql.Data.dll" />
+			</Component>
+			<Component Id="ExamCenterUpdate">
+				<File Name="ExamCenterUpdate.dll" Source="$(var.PilotCenterTSZ.TargetDir)\ExamCenterUpdate.dll" />
+			</Component>
+			<Component Id="Dapper">
+				<File Name="Dapper.dll" Source="$(var.PilotCenterTSZ.TargetDir)\Dapper.dll" />
+			</Component>
+			<Component Id="GMapNETCore">
+				<File Name="GMap.NET.Core.dll" Source="$(var.PilotCenterTSZ.TargetDir)\GMap.NET.Core.dll" />
+			</Component>
+			<Component Id="GMap.NET.WindowsForms">
+			<File Name="GMap.NET.WindowsForms.dll" Source="$(var.PilotCenterTSZ.TargetDir)\GMap.NET.WindowsForms.dll" />
+			</Component>			
+		</ComponentGroup>
+	</Fragment>
+</Wix>
