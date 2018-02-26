@@ -42,7 +42,7 @@
 						Name="FlyAtlantic PilotCenter"
 						Description="Comment field in your shortcut"
 						Target="[MAINFOLDER]PilotCenterTSZ.exe"
-						WorkingDirectory="INSTALLFOLDER"/>
+						WorkingDirectory="MAINFOLDER"/>
 					<RemoveFolder Id="DesktopFolder" On="uninstall"/>
 					<RegistryValue
 						Root="HKCU"
