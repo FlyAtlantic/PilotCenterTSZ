@@ -55,7 +55,7 @@ namespace PilotCenterTSZ.UI
         public void FlightMap()
         {
             gMapControl1.Overlays.Clear();
-            string sqlGetMapCenterPosition = "SELECT AVG(LAT), AVG(LON), flights.flighttime FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf where callsign=@Callsign order by IDL asc";
+            string sqlGetMapCenterPosition = "SELECT AVG(LAT), AVG(LON), max(pireps.flighttime) FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email order by IDL asc";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -64,6 +64,7 @@ namespace PilotCenterTSZ.UI
 
                 MySqlCommand sqlCmd = new MySqlCommand(sqlGetMapCenterPosition, conn);
                 sqlCmd.Parameters.AddWithValue("@Callsign", IDF);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
 
                 MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
                 if (sqlCmdRes.HasRows)
@@ -71,7 +72,7 @@ namespace PilotCenterTSZ.UI
                     {
                         MapPositionLat = (double)sqlCmdRes[0];
                         MapPositionLong = (double)sqlCmdRes[1];
-                        FlightTime = (TimeSpan)sqlCmdRes[2];
+                        FlightTime = TimeSpan.FromMinutes((int)sqlCmdRes[2]);
                     }
 
             }
@@ -89,13 +90,19 @@ namespace PilotCenterTSZ.UI
             gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
 
             gMapControl1.MinZoom = 2;
-            gMapControl1.MaxZoom = 100;
-            if (FlightTime > TimeSpan.FromMinutes(180))
+            gMapControl1.MaxZoom = 10;
+            if (FlightTime < TimeSpan.FromMinutes(180))
+            {
+                gMapControl1.Zoom = 5;
+            }
+            else if (FlightTime > TimeSpan.FromMinutes(180) && FlightTime < TimeSpan.FromMinutes(600))
             {
                 gMapControl1.Zoom = 3;
             }
-            else
-                gMapControl1.Zoom = 4;
+            else if (FlightTime > TimeSpan.FromMinutes(600))
+            {
+                gMapControl1.Zoom = 2;
+            }
 
             GMapOverlay polyOverlay = new GMapOverlay("polygons");
             GMapRoute polygon = new GMapRoute(getPointsFromSql(), "mypolygon");
@@ -109,10 +116,11 @@ namespace PilotCenterTSZ.UI
         static List<GMap.NET.PointLatLng> getPointsFromSql()
         {
             return (List<GMap.NET.PointLatLng>)new MySqlConnection(Login.ConnectionString).Query<GMap.NET.PointLatLng>(
-                @"SELECT DISTINCT LAT as Lat, LON as Lng FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf where callsign=@Callsign order by IDL asc",
+                @"SELECT DISTINCT LAT as Lat, LON as Lng FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email order by IDL asc",
                 new
                 {
-                    Callsign = IDF
+                    Callsign = IDF,
+                    Email = Properties.Settings.Default.Email
                 });
         }
 
