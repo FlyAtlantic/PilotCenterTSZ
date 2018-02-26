@@ -312,6 +312,7 @@
     <None Include="Resources\lpma.png" />
     <None Include="Resources\lxgb.png" />
     <None Include="Resources\rvsmetops.png" />
+    <None Include="Resources\2000px-Oxygen480-actions-system-shutdown.svg.png" />
     <Content Include="tszbanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

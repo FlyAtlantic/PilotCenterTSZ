@@ -71,6 +71,8 @@ namespace PilotCenterTSZ
 
             InitializeComponent();
 
+            Clock.Start();
+
             lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3}", DateTime.UtcNow.DayOfWeek.ToString(), a.Rank, a.UserName, a.UserSurname);
 
             VerifyAndDeleteFlight.Start();
@@ -89,6 +91,8 @@ namespace PilotCenterTSZ
             {
                 btnAdminCenterFrm.Visible = true;
             }
+
+            PilotCarrerTick.Start();
 
         }
 
@@ -110,7 +114,6 @@ namespace PilotCenterTSZ
 
         private void VerifyAndDeleteFlight_Tick(object sender, EventArgs e)
         {
-            pilotCarrer.Actions();
 
             AssignFlight.VerifyFlightTimeOut();
 
@@ -207,5 +210,25 @@ namespace PilotCenterTSZ
             pilotCarrer.Show();
         }
 
+        private void PilotCarrerTick_Tick(object sender, EventArgs e)
+        {
+            pilotCarrer.Actions();
+        }
+
+        private void Clock_Tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.UtcNow.ToString();
+            lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3}", DateTime.UtcNow.DayOfWeek.ToString(), a.Rank, a.UserName, a.UserSurname);
+        }
+
+        private void btnExitApp_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you really want to close me?",
+                    "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

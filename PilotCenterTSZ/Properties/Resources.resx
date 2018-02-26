@@ -121,9 +121,6 @@
   <data name="student" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B767" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="captain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\captain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,11 +145,17 @@
   <data name="A343" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A343.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rvsmetops" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rvsmetops.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="secondofficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\secondofficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="JS41" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JS41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="A332" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,14 @@
   <data name="seniorcaptain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seniorcaptain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CONC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CONC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AT72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AT72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DH8D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DH8D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="A32F" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A32F.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,11 +196,11 @@
   <data name="seniorstudent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seniorstudent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DH8D" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DH8D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="B767" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CONC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CONC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lpma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lpma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="seniorinstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seniorinstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,16 +214,10 @@
   <data name="firstofficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\firstofficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lpma" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lpma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="lxgb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lxgb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rvsmetops" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rvsmetops.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2000px-Oxygen480-actions-system-shutdown.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2000px-Oxygen480-actions-system-shutdown.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -30,6 +30,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.myFlightView = new PilotCenterTSZ.UI.MyFlightView();
+            this.lblDclick = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstLogBook
@@ -94,15 +95,28 @@
             this.myFlightView.TabIndex = 1;
             this.myFlightView.Visible = false;
             // 
+            // lblDclick
+            // 
+            this.lblDclick.AutoSize = true;
+            this.lblDclick.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDclick.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblDclick.Location = new System.Drawing.Point(365, 481);
+            this.lblDclick.Name = "lblDclick";
+            this.lblDclick.Size = new System.Drawing.Size(205, 17);
+            this.lblDclick.TabIndex = 2;
+            this.lblDclick.Text = "Double-Click for Flight Preview.";
+            // 
             // MyLogBookCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblDclick);
             this.Controls.Add(this.myFlightView);
             this.Controls.Add(this.lstLogBook);
             this.Name = "MyLogBookCtrl";
             this.Size = new System.Drawing.Size(925, 560);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         #endregion
@@ -116,5 +130,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private MyFlightView myFlightView;
+        public System.Windows.Forms.Label lblDclick;
     }
 }

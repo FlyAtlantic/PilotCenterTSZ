@@ -47,6 +47,7 @@ namespace PilotCenterTSZ.UI
             var a = this.Parent as MyLogBookCtrl;
 
             a.lstLogBook.Show();
+            a.lblDclick.Visible = true;
 
 
         }

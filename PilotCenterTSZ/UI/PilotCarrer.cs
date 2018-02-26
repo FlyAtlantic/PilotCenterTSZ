@@ -922,9 +922,15 @@ namespace PilotCenterTSZ.UI
         {
             foreach (UserNextRank q in UserNextRank.Get())
             {
+
                 int progressTypes;
                 int progressQuals;
                 int progress;
+
+                if ((q.NextRankID) == 0)
+                    gboxPromotion.Visible = false;
+                else
+                    gboxPromotion.Visible = true;
 
                 switch (q.NextRank)
                 {

@@ -45,6 +45,8 @@ namespace PilotCenterTSZ.UI
             {
                 myFlightView.GetFlightID(lstLogBook.SelectedItems[0].SubItems[0].Text, lstLogBook.SelectedItems[0].SubItems[1].Text, lstLogBook.SelectedItems[0].SubItems[2].Text, lstLogBook.SelectedItems[0].SubItems[3].Text, lstLogBook.SelectedItems[0].SubItems[4].Text);
             }
+
+            lblDclick.Visible = false;
         }
 
     }

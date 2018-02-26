@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExitApp = new Bunifu.Framework.UI.BunifuTileButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.btnAdminCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pMenuBar = new System.Windows.Forms.Panel();
@@ -48,6 +49,9 @@
             this.myLogBookCtrl = new PilotCenterTSZ.UI.MyLogBookCtrl();
             this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
             this.pilotCarrer = new PilotCenterTSZ.UI.PilotCarrer();
+            this.PilotCarrerTick = new System.Windows.Forms.Timer(this.components);
+            this.Clock = new System.Windows.Forms.Timer(this.components);
+            this.lblClock = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -55,9 +59,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panel1.Controls.Add(this.btnExitApp);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pBarFlightTimeEnd);
-            this.panel1.Controls.Add(this.btnAdminCenterFrm);
             this.panel1.Controls.Add(this.lblFlightAlert);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -66,12 +70,40 @@
             this.panel1.Size = new System.Drawing.Size(1149, 77);
             this.panel1.TabIndex = 96;
             // 
+            // pilotAccountCtrl
+            // 
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
+            // 
+            // btnExitApp
+            // 
+            this.btnExitApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnExitApp.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnExitApp.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnExitApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExitApp.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnExitApp.ForeColor = System.Drawing.Color.White;
+            this.btnExitApp.Image = global::PilotCenterTSZ.Properties.Resources._2000px_Oxygen480_actions_system_shutdown_svg;
+            this.btnExitApp.ImagePosition = 0;
+            this.btnExitApp.ImageZoom = 100;
+            this.btnExitApp.LabelPosition = 0;
+            this.btnExitApp.LabelText = "";
+            this.btnExitApp.Location = new System.Drawing.Point(1094, 6);
+            this.btnExitApp.Margin = new System.Windows.Forms.Padding(6);
+            this.btnExitApp.Name = "btnExitApp";
+            this.btnExitApp.Size = new System.Drawing.Size(40, 40);
+            this.btnExitApp.TabIndex = 102;
+            this.btnExitApp.Click += new System.EventHandler(this.btnExitApp_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(631, 21);
+            this.label1.Location = new System.Drawing.Point(463, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 102;
@@ -82,7 +114,7 @@
             // 
             this.pBarFlightTimeEnd.BackColor = System.Drawing.Color.Silver;
             this.pBarFlightTimeEnd.BorderRadius = 5;
-            this.pBarFlightTimeEnd.Location = new System.Drawing.Point(727, 21);
+            this.pBarFlightTimeEnd.Location = new System.Drawing.Point(559, 21);
             this.pBarFlightTimeEnd.MaximumValue = 100;
             this.pBarFlightTimeEnd.Name = "pBarFlightTimeEnd";
             this.pBarFlightTimeEnd.ProgressColor = System.Drawing.Color.Teal;
@@ -104,19 +136,19 @@
             this.btnAdminCenterFrm.ImageZoom = 95;
             this.btnAdminCenterFrm.LabelPosition = 0;
             this.btnAdminCenterFrm.LabelText = "";
-            this.btnAdminCenterFrm.Location = new System.Drawing.Point(510, 18);
+            this.btnAdminCenterFrm.Location = new System.Drawing.Point(6, 9);
             this.btnAdminCenterFrm.Margin = new System.Windows.Forms.Padding(6);
             this.btnAdminCenterFrm.Name = "btnAdminCenterFrm";
             this.btnAdminCenterFrm.Size = new System.Drawing.Size(39, 39);
             this.btnAdminCenterFrm.TabIndex = 6;
-            this.btnAdminCenterFrm.Click += new System.EventHandler(this.btnAdminCenterFrm_Click);
             this.btnAdminCenterFrm.Visible = false;
+            this.btnAdminCenterFrm.Click += new System.EventHandler(this.btnAdminCenterFrm_Click);
             // 
             // lblFlightAlert
             // 
             this.lblFlightAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFlightAlert.ForeColor = System.Drawing.Color.Red;
-            this.lblFlightAlert.Location = new System.Drawing.Point(248, 48);
+            this.lblFlightAlert.Location = new System.Drawing.Point(257, 48);
             this.lblFlightAlert.Name = "lblFlightAlert";
             this.lblFlightAlert.Size = new System.Drawing.Size(889, 29);
             this.lblFlightAlert.TabIndex = 100;
@@ -141,6 +173,7 @@
             this.pMenuBar.Controls.Add(this.btnCarrer);
             this.pMenuBar.Controls.Add(this.btnLogBook);
             this.pMenuBar.Controls.Add(this.btnAssignFlight);
+            this.pMenuBar.Controls.Add(this.btnAdminCenterFrm);
             this.pMenuBar.Controls.Add(this.btnPilotCenter);
             this.pMenuBar.Controls.Add(this.btnRefresh);
             this.pMenuBar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -348,19 +381,33 @@
             // 
             // pilotCarrer
             // 
+            this.pilotCarrer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pilotCarrer.Location = new System.Drawing.Point(214, 116);
             this.pilotCarrer.Name = "pilotCarrer";
             this.pilotCarrer.Size = new System.Drawing.Size(925, 528);
             this.pilotCarrer.TabIndex = 100;
             this.pilotCarrer.Visible = false;
             // 
-            // pilotAccountCtrl
+            // PilotCarrerTick
             // 
-            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl.TabIndex = 99;
+            this.PilotCarrerTick.Interval = 900000;
+            this.PilotCarrerTick.Tick += new System.EventHandler(this.PilotCarrerTick_Tick);
+            // 
+            // Clock
+            // 
+            this.Clock.Interval = 1000;
+            this.Clock.Tick += new System.EventHandler(this.Clock_Tick);
+            // 
+            // lblClock
+            // 
+            this.lblClock.AutoSize = true;
+            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClock.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblClock.Location = new System.Drawing.Point(961, 86);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(176, 20);
+            this.lblClock.TabIndex = 101;
+            this.lblClock.Text = "2011-01-07 14:04:25";
             // 
             // Dashboard
             // 
@@ -368,10 +415,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
+            this.Controls.Add(this.lblClock);
             this.Controls.Add(this.pilotCarrer);
             this.Controls.Add(this.myLogBookCtrl);
-            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.flightAssignmentCtrl);
+            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pMenuBar);
             this.Controls.Add(this.panel1);
@@ -409,6 +457,10 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnPilotCenter;
         private Bunifu.Framework.UI.BunifuFlatButton btnCarrer;
         private UI.PilotCarrer pilotCarrer;
+        private System.Windows.Forms.Timer PilotCarrerTick;
+        private System.Windows.Forms.Timer Clock;
+        private System.Windows.Forms.Label lblClock;
+        public Bunifu.Framework.UI.BunifuTileButton btnExitApp;
     }
 }
 
