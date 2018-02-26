@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.10</ProductVersion>
-    <ProjectGuid>790732a2-f887-4154-a00d-8921bf0dbe0e</ProjectGuid>
+    <ProjectGuid>753f859a-03e0-4da6-9270-987dba544d53</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>PilotCenterSetup</OutputName>
     <OutputType>Package</OutputType>
@@ -22,12 +22,14 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
-    <WixExtension Include="WixFileVersionExtension">
-      <HintPath>WixFileVersionExtension.dll</HintPath>
-      <Name>WixFileVersionExtension</Name>
-    </WixExtension>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\AdminCenter\AdminCenter.csproj">
+      <Name>AdminCenter</Name>
+      <Project>{14c9ace5-9fe0-495b-a8a6-e5268d414d1c}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\ExamCenterUpdate\ExamCenterUpdate.csproj">
       <Name>ExamCenterUpdate</Name>
       <Project>{2b047db0-e6ae-4a01-974e-d1253d73ca51}</Project>
@@ -44,6 +46,12 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixFileVersionExtension">
+      <HintPath>WixFileVersionExtension.dll</HintPath>
+      <Name>WixFileVersionExtension</Name>
+    </WixExtension>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />

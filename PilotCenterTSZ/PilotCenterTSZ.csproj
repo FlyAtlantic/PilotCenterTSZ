@@ -159,8 +159,15 @@
     <Compile Include="UI\PilotAccountCtrl.Designer.cs">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PilotStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PilotStatistics.Designer.cs">
+      <DependentUpon>PilotStatistics.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,8 +182,14 @@
     <EmbeddedResource Include="UI\AwardHourReceive.resx">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\MyLogBookCtrl.resx">
+      <DependentUpon>MyLogBookCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\PilotAccountCtrl.resx">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PilotStatistics.resx">
+      <DependentUpon>PilotStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -295,6 +308,7 @@
     <None Include="Resources\seniorstudent.png" />
     <None Include="Resources\secondofficer.png" />
     <None Include="Resources\flightinstructor.png" />
+    <None Include="Resources\button_ok.png" />
     <Content Include="tszbanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

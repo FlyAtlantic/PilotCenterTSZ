@@ -101,7 +101,7 @@
             this.Controls.Add(this.myFlightView);
             this.Controls.Add(this.lstLogBook);
             this.Name = "MyLogBookCtrl";
-            this.Size = new System.Drawing.Size(400, 533);
+            this.Size = new System.Drawing.Size(925, 560);
             this.ResumeLayout(false);
 
         }

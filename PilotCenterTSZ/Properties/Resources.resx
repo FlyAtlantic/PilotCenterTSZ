@@ -118,91 +118,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="A32F" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\A32F.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="A332" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\A332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="A343" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\A343.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AT72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AT72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="B190" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B190.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="B738" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B738.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="B747" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B747.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="student" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B767" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B77L" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B77L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="captain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\captain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B787" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B787.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="C172" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\C172.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="captain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\captain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="B77L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B77L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="captaininstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\captaininstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CONC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CONC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DH8D" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DH8D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="firstofficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\firstofficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fleetcaptain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fleetcaptain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JS41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JS41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lg_TSZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lg_TSZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MD11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MD11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refreshImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refreshImg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RJ1H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RJ1H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="B747" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B747.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="seniorcaptain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seniorcaptain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="seniorinstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seniorinstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="student" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flightinstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flightinstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="A343" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A343.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="secondofficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\secondofficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="JS41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JS41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A332" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="seniorcaptain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\seniorcaptain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AT72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AT72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A32F" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A32F.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RJ1H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RJ1H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fleetcaptain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fleetcaptain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="B190" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B190.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flightinstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flightinstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="B738" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B738.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="C172" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\C172.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="seniorstudent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seniorstudent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DH8D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DH8D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CONC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CONC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="seniorinstructor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\seniorinstructor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lg_TSZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lg_TSZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refreshImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refreshImg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="firstofficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\firstofficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

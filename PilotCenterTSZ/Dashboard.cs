@@ -34,6 +34,7 @@ namespace PilotCenterTSZ
             flightAssignmentCtrl.Hide();
             pilotAccountCtrl.Hide();
             myLogBookCtrl.Hide();
+            pilotStatistics.Hide();
         }
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)
@@ -186,6 +187,17 @@ namespace PilotCenterTSZ
             Hide();
 
             adminDash.Show();
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            AllHides();
+            pilotStatistics.Show();
         }
     }
 }

@@ -78,8 +78,8 @@
 				<File Name="GMap.NET.Core.dll" Source="$(var.PilotCenterTSZ.TargetDir)\GMap.NET.Core.dll" />
 			</Component>
 			<Component Id="GMap.NET.WindowsForms">
-			<File Name="GMap.NET.WindowsForms.dll" Source="$(var.PilotCenterTSZ.TargetDir)\GMap.NET.WindowsForms.dll" />
-			</Component>			
+				<File Name="GMap.NET.WindowsForms.dll" Source="$(var.PilotCenterTSZ.TargetDir)\GMap.NET.WindowsForms.dll" />
+			</Component>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
