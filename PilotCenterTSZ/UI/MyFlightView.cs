@@ -14,6 +14,7 @@ namespace PilotCenterTSZ.UI
 {
     public partial class MyFlightView : UserControl
     {
+
         double MapPositionLat;
         double MapPositionLong;
         TimeSpan FlightTime;
@@ -21,9 +22,14 @@ namespace PilotCenterTSZ.UI
         public static string IDF
         { get; set; }
 
-        public void GetFlightID(string idf, string dep, string arr, string aircraft, string time)
+        public static int IDP
+        { get; set; }
+
+        public void GetFlightID(int idp, string idf, string dep, string arr, string aircraft, string time)
         {
             IDF = idf;
+
+            IDP = idp;
 
             FlightsClimbGraphic();
 
@@ -49,13 +55,12 @@ namespace PilotCenterTSZ.UI
             a.lstLogBook.Show();
             a.lblDclick.Visible = true;
 
-
         }
 
         public void FlightMap()
         {
             gMapControl1.Overlays.Clear();
-            string sqlGetMapCenterPosition = "SELECT AVG(LAT), AVG(LON), max(pireps.flighttime) FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email order by IDL asc";
+            string sqlGetMapCenterPosition = "SELECT AVG(LAT), AVG(LON), max(pireps.flighttime) FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email and pireps.id = @FlightID order by IDL asc";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -65,6 +70,7 @@ namespace PilotCenterTSZ.UI
                 MySqlCommand sqlCmd = new MySqlCommand(sqlGetMapCenterPosition, conn);
                 sqlCmd.Parameters.AddWithValue("@Callsign", IDF);
                 sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+                sqlCmd.Parameters.AddWithValue("@FlightID", IDP);
 
                 MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
                 if (sqlCmdRes.HasRows)
@@ -116,11 +122,12 @@ namespace PilotCenterTSZ.UI
         static List<GMap.NET.PointLatLng> getPointsFromSql()
         {
             return (List<GMap.NET.PointLatLng>)new MySqlConnection(Login.ConnectionString).Query<GMap.NET.PointLatLng>(
-                @"SELECT DISTINCT LAT as Lat, LON as Lng FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email order by IDL asc",
+                @"SELECT DISTINCT LAT as Lat, LON as Lng FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid= utilizadores.user_id where flights.callsign=@Callsign and user_email = @Email and pireps.id = @IDP order by IDL asc",
                 new
                 {
                     Callsign = IDF,
-                    Email = Properties.Settings.Default.Email
+                    Email = Properties.Settings.Default.Email,
+                    IDP = IDP
                 });
         }
 
@@ -152,7 +159,7 @@ namespace PilotCenterTSZ.UI
             int temp = 0;
             int diff = 0;
 
-            foreach (FlightLog l in FlightLog.GetClimb(IDF))
+            foreach (FlightLog l in FlightLog.GetClimb(IDF, IDP))
             {
                 if (l.Time.Minute != temp)
                 {
@@ -209,7 +216,7 @@ namespace PilotCenterTSZ.UI
             int temp = 0;
             int diff = 0;
 
-            foreach (FlightLog l in FlightLog.GetDescent(IDF))
+            foreach (FlightLog l in FlightLog.GetDescent(IDF, IDP))
             {
                 if (l.Time.Minute != temp)
                 {

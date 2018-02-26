@@ -20,6 +20,7 @@ namespace PilotCenterTSZ.UI
                 lstLogBook.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 lstLogBook.Items.Add(new ListViewItem(new string[]
                 {
+
                     l.Callsign,
                     l.Departure,
                     l.Arrival,
@@ -27,8 +28,8 @@ namespace PilotCenterTSZ.UI
                     TimeSpan.FromMinutes(l.FlightTime).ToString(@"hh\:mm"),
                     l.FtPerMin.ToString(),
                     l.Sum.ToString(),
-                    l.Eps.ToString()
-
+                    l.Eps.ToString(),
+                    l.IDP.ToString()
                 }));
             }
         }
@@ -43,7 +44,7 @@ namespace PilotCenterTSZ.UI
 
             if (lstLogBook.SelectedItems.Count == 1)
             {
-                myFlightView.GetFlightID(lstLogBook.SelectedItems[0].SubItems[0].Text, lstLogBook.SelectedItems[0].SubItems[1].Text, lstLogBook.SelectedItems[0].SubItems[2].Text, lstLogBook.SelectedItems[0].SubItems[3].Text, lstLogBook.SelectedItems[0].SubItems[4].Text);
+                myFlightView.GetFlightID(Convert.ToInt32(lstLogBook.SelectedItems[0].SubItems[8].Text),lstLogBook.SelectedItems[0].SubItems[0].Text, lstLogBook.SelectedItems[0].SubItems[1].Text, lstLogBook.SelectedItems[0].SubItems[2].Text, lstLogBook.SelectedItems[0].SubItems[3].Text, lstLogBook.SelectedItems[0].SubItems[4].Text);
             }
 
             lblDclick.Visible = false;
