@@ -110,6 +110,7 @@ namespace PilotCenterTSZ
 
         private void VerifyAndDeleteFlight_Tick(object sender, EventArgs e)
         {
+            pilotCarrer.Actions();
 
             AssignFlight.VerifyFlightTimeOut();
 
