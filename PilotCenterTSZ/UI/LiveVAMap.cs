@@ -78,7 +78,6 @@ namespace PilotCenterTSZ.UI
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            Console.WriteLine("Foda-se Finalmente");
 
             gMapControl.Overlays.Clear();
 
