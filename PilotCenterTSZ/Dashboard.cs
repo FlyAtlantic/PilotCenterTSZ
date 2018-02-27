@@ -77,38 +77,7 @@ namespace PilotCenterTSZ
                 pBarFlightTimeEnd.Visible = false;
                 FlightTimeEndTick.Stop();
             }
-        }
-        
-        public void GetInfosToMapLive()
-        {
-            string sqlGetInfosToMapLive = "select flightLog.pirepid, flights.callsign from flightLog left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid = utilizadores.user_id left join pilotassignments on utilizadores.user_id = pilotassignments.pilot where flights.callsign is not null order by idl desc";
-            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
-
-            try
-            {
-                conn.Open();
-
-                MySqlCommand sqlCmd = new MySqlCommand(sqlGetInfosToMapLive, conn);
-
-                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
-                if (sqlCmdRes.HasRows)
-                    while (sqlCmdRes.Read())
-                    {
-                        idp = (int)sqlCmdRes[0];
-                        idf = (string)sqlCmdRes[1];
-                    }
-                //liveVAMap.GetFlightID(idp, idf);
-
-            }
-            catch (Exception crap)
-            {
-                throw new ApplicationException("Failed to load exam @GetInfosToMapLive()", crap);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
+        }      
 
         public Dashboard()
         {
@@ -137,7 +106,7 @@ namespace PilotCenterTSZ
             }
 
             PilotCarrerTick.Start();
-            GetInfosToMapLive();
+            liveVAMap.GetMapAircrafts();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -285,7 +254,7 @@ namespace PilotCenterTSZ
 
         private void LiveMapTick_Tick(object sender, EventArgs e)
         {
-            //liveVAMap.GetFlightID(idp, idf);
+            liveVAMap.GetMapAircrafts();
         }
     }
 }

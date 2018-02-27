@@ -49,60 +49,20 @@ namespace PilotCenterTSZ.UI
         public int FlightPhaseMap
         { get; set; }
 
+        public int test
+        { get; set; }
+
+        public int markerTag
+        { get; set; }
+
+        GMapOverlay routes = new GMapOverlay("routes");
+        List<PointLatLng> points;
+        GMapRoute route;
+        GMarkerGoogle marker;
+
         public LiveVAMap()
         {
             InitializeComponent();
-            GetMapInfos();
-        }
-
-        //public void GetFlightID(int idp, string idf)
-        //{
-        //    IDF = idf;
-
-        //    IDP = idp;
-
-        //    GetMapInfos();
-
-        //}
-        int test;
-
-        public void GetMapInfos()
-        {
-
-        //gMapControl.Overlays.Clear();
-
-        string sqlGetVALiveMapUsers = "SELECT pilotid as PilotID, assignid as AssignID, LAT, LON, HDG, ALT, GS, phase as Phase, last_report FROM flight_on_live having last_report < date_add(last_report, interval 15 minute)";
-        MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
-
-        try
-        {
-            conn.Open();
-
-            MySqlCommand sqlCmd = new MySqlCommand(sqlGetVALiveMapUsers, conn);
-
-            MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
-            if (sqlCmdRes.HasRows)
-                while (sqlCmdRes.Read())
-                {
-                    PilotID = (int)sqlCmdRes[0];
-                    AssignID = (int)sqlCmdRes[1];
-                    LAT = (float)sqlCmdRes[2];
-                    LON = (float)sqlCmdRes[3];
-                    HDG = (int)sqlCmdRes[4];
-                    ALT = (int)sqlCmdRes[5];
-                    GS = (int)sqlCmdRes[5];
-                    FlightPhaseMap = (int)sqlCmdRes[6];
-                }
-
-            }
-            catch (Exception crap)
-            {
-                throw new ApplicationException("Failed to load exam @sqlGetMapCenterPosition()", crap);
-            }
-            finally
-            {
-                conn.Close();
-            }
 
             gMapControl.DragButton = MouseButtons.Left;
             gMapControl.MapProvider = GMapProviders.GoogleSatelliteMap;
@@ -110,16 +70,59 @@ namespace PilotCenterTSZ.UI
             gMapControl.MinZoom = 2;
             gMapControl.MaxZoom = 15;
             gMapControl.Zoom = 2;
-          
-            GMapOverlay routes = new GMapOverlay("routes");
-            List<PointLatLng> points = new List<PointLatLng>();
-            GMapRoute route;
-            GMarkerGoogle marker;
 
-            foreach (var point in OnLiveMap.Get())
+            GetMapAircrafts();
+
+            gMapControl.OnMarkerClick += GMapControl_OnMarkerClick;
+        }
+
+        private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            Console.WriteLine("Foda-se Finalmente");
+
+            gMapControl.Overlays.Clear();
+
+            GetMapAircrafts();
+
+            GetUserRoute(markerTag);
+        }
+
+      
+        public void GetMapAircrafts()
+        {
+
+            gMapControl.Overlays.Clear();
+
+
+            foreach (var point in OnLiveMap.GetAircraft())
             {
-                if (test != point.PirepID) {
-                    points = new List<PointLatLng>();                    
+                if (point.PirepID != test)
+                {
+                    //UserMarkers
+                    marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
+
+                    marker.Tag = markerTag = point.PirepID;
+
+                    routes.Markers.Add(marker);
+                }
+                test = point.PirepID;
+
+                gMapControl.Overlays.Add(routes);
+
+            }
+
+        }
+
+        public void GetUserRoute(int tag)
+        {
+
+            points = new List<PointLatLng>();
+
+            foreach (var point in OnLiveMap.Get(tag))
+            {
+                if (test != point.PirepID)
+                {
+                    points = new List<PointLatLng>();
                 }
                 test = point.PirepID;
 
@@ -130,26 +133,11 @@ namespace PilotCenterTSZ.UI
                 routes.Routes.Add(route);
 
             }
-
-            foreach (var point in OnLiveMap.GetAircraft())
-            {
-                if (point.PirepID != test) {
-                    //UserMarkers
-                    marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
-                    routes.Markers.Add(marker);
-                }
-
                 gMapControl.Overlays.Add(routes);
-            }
-            //UserMarkers
 
-            //GMapOverlay markersOverlay = new GMapOverlay("markers");
-            //GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(LAT, LON),
-            //  GMarkerGoogleType.green);
-            //markersOverlay.Markers.Add(marker);
-            //gMapControl.Overlays.Add(markersOverlay);
-
-        }   
+        }
 
     }
+
 }
+

@@ -938,16 +938,20 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
 
         }
 
-        public static List<OnLiveMap> Get()
+        public static List<OnLiveMap> Get(int tag)
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
-                @"select flightLog.LAT as LAT, flightLog.LON as LON, flights.callsign as LiveCallsign, flightLog.pirepid as PirepID, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON from flightLog left join pireps on flightLog.pirepid = pireps.id left join flight_on_live on pireps.id = flight_on_live.pirepid left join flights on pireps.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+                @"select flightLog.LAT as LAT, flightLog.LON as LON, flights.callsign as LiveCallsign, flightLog.pirepid as PirepID, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON from flightLog left join pireps on flightLog.pirepid = pireps.id left join flight_on_live on pireps.id = flight_on_live.pirepid left join flights on pireps.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute) and flightLog.pirepid = @MarkerTag",
+                new
+                {
+                    MarkerTag = tag
+                });
         }
 
         public static List<OnLiveMap> GetAircraft()
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
-                @"select flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+                @"select flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
         }
     }
 }
