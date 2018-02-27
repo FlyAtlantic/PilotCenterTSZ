@@ -10,7 +10,12 @@ namespace PilotCenterTSZ
     {
         UserInfo a = new UserInfo();
 
-        public static int FlightID
+        LogBook l = new LogBook();
+
+        AssignFlight f = new AssignFlight();
+
+
+        public static int Flightid
         { get; set; }
 
         public static string FlightCallsign
@@ -23,6 +28,12 @@ namespace PilotCenterTSZ
         { get; set; }
 
         public static string UserAircraft
+        { get; set; }
+
+        public static int idp
+        { get; set; }
+
+        public static string idf
         { get; set; }
 
         int s;
@@ -40,16 +51,17 @@ namespace PilotCenterTSZ
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)
         {
-            FlightID = flightID;
+            Flightid = flightID;
             FlightCallsign = flightCallsign;
             UserDeparture = userDeparture;
             UserArrival = userArrival;
             UserAircraft = userAircraft;
+
         }
 
         public void AlertFlight()
         {
-            if (FlightID != 0)
+            if (Flightid != 0)
             {
                 lblFlightAlert.Text = String.Format("Alert!! You have one flight with callsign {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
                 lblFlightAlert.Visible = true;
@@ -64,6 +76,37 @@ namespace PilotCenterTSZ
                 label1.Visible = false;
                 pBarFlightTimeEnd.Visible = false;
                 FlightTimeEndTick.Stop();
+            }
+        }
+        
+        public void GetInfosToMapLive()
+        {
+            string sqlGetInfosToMapLive = "select flightLog.pirepid, flights.callsign from flightLog left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf left join utilizadores on pireps.pilotid = utilizadores.user_id left join pilotassignments on utilizadores.user_id = pilotassignments.pilot where flights.callsign is not null order by idl desc";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlGetInfosToMapLive, conn);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        idp = (int)sqlCmdRes[0];
+                        idf = (string)sqlCmdRes[1];
+                    }
+                //liveVAMap.GetFlightID(idp, idf);
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @GetInfosToMapLive()", crap);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -94,11 +137,7 @@ namespace PilotCenterTSZ
             }
 
             PilotCarrerTick.Start();
-
-            liveVAMap.GetMapInfos();
-
-            LiveMapTick.Start();
-
+            GetInfosToMapLive();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -246,7 +285,7 @@ namespace PilotCenterTSZ
 
         private void LiveMapTick_Tick(object sender, EventArgs e)
         {
-            liveVAMap.GetMapInfos();
+            //liveVAMap.GetFlightID(idp, idf);
         }
     }
 }

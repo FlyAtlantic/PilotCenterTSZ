@@ -191,7 +191,7 @@
         private System.Windows.Forms.TextBox txtAircraft;
         private System.Windows.Forms.TextBox txtAssigned;
         private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.TextBox txtCallsign;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtCallsign;
     }
 }
