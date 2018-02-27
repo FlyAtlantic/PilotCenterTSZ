@@ -912,5 +912,6 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
 
     }
 
+
 }
 

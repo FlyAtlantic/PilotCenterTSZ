@@ -33,14 +33,15 @@
             this.btnExitApp = new Bunifu.Framework.UI.BunifuTileButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.btnAdminCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pMenuBar = new System.Windows.Forms.Panel();
+            this.btnLiveVaMap = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCarrer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAssignFlight = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
+            this.btnAdminCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnPilotCenter = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
             this.lblWelcome = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@
             this.PilotCarrerTick = new System.Windows.Forms.Timer(this.components);
             this.Clock = new System.Windows.Forms.Timer(this.components);
             this.lblClock = new System.Windows.Forms.Label();
+            this.liveVAMap = new PilotCenterTSZ.UI.LiveVAMap();
+            this.LiveMapTick = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -69,14 +72,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1149, 77);
             this.panel1.TabIndex = 96;
-            // 
-            // pilotAccountCtrl
-            // 
-            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl.TabIndex = 99;
             // 
             // btnExitApp
             // 
@@ -123,27 +118,6 @@
             this.pBarFlightTimeEnd.Value = 0;
             this.pBarFlightTimeEnd.Visible = false;
             // 
-            // btnAdminCenterFrm
-            // 
-            this.btnAdminCenterFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnAdminCenterFrm.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnAdminCenterFrm.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnAdminCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdminCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.btnAdminCenterFrm.ForeColor = System.Drawing.Color.White;
-            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
-            this.btnAdminCenterFrm.ImagePosition = 0;
-            this.btnAdminCenterFrm.ImageZoom = 95;
-            this.btnAdminCenterFrm.LabelPosition = 0;
-            this.btnAdminCenterFrm.LabelText = "";
-            this.btnAdminCenterFrm.Location = new System.Drawing.Point(6, 9);
-            this.btnAdminCenterFrm.Margin = new System.Windows.Forms.Padding(6);
-            this.btnAdminCenterFrm.Name = "btnAdminCenterFrm";
-            this.btnAdminCenterFrm.Size = new System.Drawing.Size(39, 39);
-            this.btnAdminCenterFrm.TabIndex = 6;
-            this.btnAdminCenterFrm.Visible = false;
-            this.btnAdminCenterFrm.Click += new System.EventHandler(this.btnAdminCenterFrm_Click);
-            // 
             // lblFlightAlert
             // 
             this.lblFlightAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,6 +144,7 @@
             // pMenuBar
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.pMenuBar.Controls.Add(this.btnLiveVaMap);
             this.pMenuBar.Controls.Add(this.btnCarrer);
             this.pMenuBar.Controls.Add(this.btnLogBook);
             this.pMenuBar.Controls.Add(this.btnAssignFlight);
@@ -181,6 +156,41 @@
             this.pMenuBar.Name = "pMenuBar";
             this.pMenuBar.Size = new System.Drawing.Size(211, 579);
             this.pMenuBar.TabIndex = 97;
+            // 
+            // btnLiveVaMap
+            // 
+            this.btnLiveVaMap.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnLiveVaMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnLiveVaMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLiveVaMap.BorderRadius = 0;
+            this.btnLiveVaMap.ButtonText = "Live VA Map";
+            this.btnLiveVaMap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLiveVaMap.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLiveVaMap.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLiveVaMap.Iconimage = global::PilotCenterTSZ.Properties.Resources.button_ok;
+            this.btnLiveVaMap.Iconimage_right = null;
+            this.btnLiveVaMap.Iconimage_right_Selected = null;
+            this.btnLiveVaMap.Iconimage_Selected = null;
+            this.btnLiveVaMap.IconMarginLeft = 0;
+            this.btnLiveVaMap.IconMarginRight = 0;
+            this.btnLiveVaMap.IconRightVisible = true;
+            this.btnLiveVaMap.IconRightZoom = 0D;
+            this.btnLiveVaMap.IconVisible = true;
+            this.btnLiveVaMap.IconZoom = 90D;
+            this.btnLiveVaMap.IsTab = false;
+            this.btnLiveVaMap.Location = new System.Drawing.Point(0, 310);
+            this.btnLiveVaMap.Name = "btnLiveVaMap";
+            this.btnLiveVaMap.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnLiveVaMap.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnLiveVaMap.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLiveVaMap.selected = false;
+            this.btnLiveVaMap.Size = new System.Drawing.Size(241, 48);
+            this.btnLiveVaMap.TabIndex = 10;
+            this.btnLiveVaMap.Text = "Live VA Map";
+            this.btnLiveVaMap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLiveVaMap.Textcolor = System.Drawing.Color.White;
+            this.btnLiveVaMap.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLiveVaMap.Click += new System.EventHandler(this.btnLiveVaMap_Click);
             // 
             // btnCarrer
             // 
@@ -286,6 +296,27 @@
             this.btnAssignFlight.Textcolor = System.Drawing.Color.White;
             this.btnAssignFlight.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignFlight.Click += new System.EventHandler(this.btnAssignFlight_Click);
+            // 
+            // btnAdminCenterFrm
+            // 
+            this.btnAdminCenterFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnAdminCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnAdminCenterFrm.ForeColor = System.Drawing.Color.White;
+            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
+            this.btnAdminCenterFrm.ImagePosition = 0;
+            this.btnAdminCenterFrm.ImageZoom = 95;
+            this.btnAdminCenterFrm.LabelPosition = 0;
+            this.btnAdminCenterFrm.LabelText = "";
+            this.btnAdminCenterFrm.Location = new System.Drawing.Point(6, 9);
+            this.btnAdminCenterFrm.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAdminCenterFrm.Name = "btnAdminCenterFrm";
+            this.btnAdminCenterFrm.Size = new System.Drawing.Size(39, 39);
+            this.btnAdminCenterFrm.TabIndex = 6;
+            this.btnAdminCenterFrm.Visible = false;
+            this.btnAdminCenterFrm.Click += new System.EventHandler(this.btnAdminCenterFrm_Click);
             // 
             // btnPilotCenter
             // 
@@ -409,17 +440,48 @@
             this.lblClock.TabIndex = 101;
             this.lblClock.Text = "2011-01-07 14:04:25";
             // 
+            // liveVAMap
+            // 
+            this.liveVAMap.ALT = 38008;
+            this.liveVAMap.AssignID = 302;
+            this.liveVAMap.FlightPhaseMap = 428;
+            this.liveVAMap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liveVAMap.GS = 38008;
+            this.liveVAMap.HDG = 7;
+            this.liveVAMap.LAT = 45.516700744628906D;
+            this.liveVAMap.Location = new System.Drawing.Point(220, 116);
+            this.liveVAMap.LON = -6.7688698768615723D;
+            this.liveVAMap.Name = "liveVAMap";
+            this.liveVAMap.PilotID = 64;
+            this.liveVAMap.Size = new System.Drawing.Size(914, 528);
+            this.liveVAMap.TabIndex = 102;
+            this.liveVAMap.Visible = false;
+            // 
+            // LiveMapTick
+            // 
+            this.LiveMapTick.Interval = 60000;
+            this.LiveMapTick.Tick += new System.EventHandler(this.LiveMapTick_Tick);
+            // 
+            // pilotAccountCtrl
+            // 
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
+            this.Controls.Add(this.liveVAMap);
             this.Controls.Add(this.lblClock);
             this.Controls.Add(this.pilotCarrer);
+            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.myLogBookCtrl);
             this.Controls.Add(this.flightAssignmentCtrl);
-            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pMenuBar);
             this.Controls.Add(this.panel1);
@@ -461,6 +523,9 @@
         private System.Windows.Forms.Timer Clock;
         private System.Windows.Forms.Label lblClock;
         public Bunifu.Framework.UI.BunifuTileButton btnExitApp;
+        private Bunifu.Framework.UI.BunifuFlatButton btnLiveVaMap;
+        private UI.LiveVAMap liveVAMap;
+        private System.Windows.Forms.Timer LiveMapTick;
     }
 }
 

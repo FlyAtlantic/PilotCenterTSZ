@@ -35,6 +35,7 @@ namespace PilotCenterTSZ
             pilotAccountCtrl.Hide();
             myLogBookCtrl.Hide();
             pilotCarrer.Hide();
+            liveVAMap.Hide();
         }
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)
@@ -93,6 +94,10 @@ namespace PilotCenterTSZ
             }
 
             PilotCarrerTick.Start();
+
+            liveVAMap.GetMapInfos();
+
+            LiveMapTick.Start();
 
         }
 
@@ -219,6 +224,7 @@ namespace PilotCenterTSZ
         {
             lblClock.Text = DateTime.UtcNow.ToString();
             lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3}", DateTime.UtcNow.DayOfWeek.ToString(), a.Rank, a.UserName, a.UserSurname);
+
         }
 
         private void btnExitApp_Click(object sender, EventArgs e)
@@ -229,6 +235,18 @@ namespace PilotCenterTSZ
             {
                 Application.Exit();
             }
+        }
+
+        private void btnLiveVaMap_Click(object sender, EventArgs e)
+        {
+            AllHides();
+
+            liveVAMap.Show();
+        }
+
+        private void LiveMapTick_Tick(object sender, EventArgs e)
+        {
+            liveVAMap.GetMapInfos();
         }
     }
 }

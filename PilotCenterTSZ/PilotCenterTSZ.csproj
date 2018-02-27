@@ -151,6 +151,12 @@
     <Compile Include="UI\FlightAssignmentCtrl.Designer.cs">
       <DependentUpon>FlightAssignmentCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\LiveVAMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\LiveVAMap.Designer.cs">
+      <DependentUpon>LiveVAMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MyFlightView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FlightAssignedCtrl.resx">
       <DependentUpon>FlightAssignedCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LiveVAMap.resx">
+      <DependentUpon>LiveVAMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MyFlightView.resx">
+      <DependentUpon>MyFlightView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MyLogBookCtrl.resx">
       <DependentUpon>MyLogBookCtrl.cs</DependentUpon>
