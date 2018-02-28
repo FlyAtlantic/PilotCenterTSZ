@@ -91,8 +91,12 @@ namespace PilotCenterTSZ.UI
 
         private void GMapControl_Click(object sender, EventArgs e)
         {
-            routes.Routes.Clear();
-            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            if(routes.Routes.Count != 0)
+            {
+                routes.Routes.Clear();
+                marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            }
+
         }
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
