@@ -74,7 +74,9 @@ namespace PilotCenterTSZ.UI
             gMapControl.MaxZoom = 15;
             gMapControl.Zoom = 2;
 
-            GetMapAircrafts();
+            GetMapAircrafts();            
+
+            gMapControl.Click += GMapControl_Click;
 
             gMapControl.OnMarkerClick += GMapControl_OnMarkerClick;
 
@@ -85,6 +87,12 @@ namespace PilotCenterTSZ.UI
                 else if (numberPilots.NumberOnlinePilots <= 5)
                     gMapControl.Zoom = 3;
             }
+        }
+
+        private void GMapControl_Click(object sender, EventArgs e)
+        {
+            routes.Routes.Clear();
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
         }
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)

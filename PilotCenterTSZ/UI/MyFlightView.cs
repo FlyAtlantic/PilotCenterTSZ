@@ -95,8 +95,8 @@ namespace PilotCenterTSZ.UI
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
 
-            gMapControl1.MinZoom = 2;
-            gMapControl1.MaxZoom = 10;
+            gMapControl1.MinZoom = 1;
+            gMapControl1.MaxZoom = 15;
             if (FlightTime < TimeSpan.FromMinutes(180))
             {
                 gMapControl1.Zoom = 5;
@@ -113,7 +113,7 @@ namespace PilotCenterTSZ.UI
             GMapOverlay polyOverlay = new GMapOverlay("polygons");
             GMapRoute polygon = new GMapRoute(getPointsFromSql(), "mypolygon");
             //polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-            polygon.Stroke = new Pen(Color.Red, 1);
+            polygon.Stroke = new Pen(Color.Red, 2);
             polyOverlay.Routes.Add(polygon);
             gMapControl1.Overlays.Add(polyOverlay);
             gMapControl1.Position = new PointLatLng(MapPositionLat, MapPositionLong);

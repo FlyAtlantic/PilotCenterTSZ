@@ -1010,7 +1010,7 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public static List<OnLiveMap> GetAircraft()
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
-                @"select flight_on_live.last_report as LastReport, flight_on_live.HDG, flight_on_live.ALT, flight_on_live.GS, flight_phases.fphase as Phase, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID, flights.callsign as LiveCallsign, flights.departure as DEP, flights.destination as ARR from flight_on_live left join flight_phases on flight_on_live.phase = flight_phases.code left join pilotassignments on flight_on_live.assignid = pilotassignments.id left join flights on pilotassignments.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+                @"select flight_on_live.last_report as LastReport, flight_on_live.HDG, flight_on_live.ALT, flight_on_live.GS, flight_phases.fphase as Phase, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID, flights.callsign as LiveCallsign, flights.departure as DEP, flights.destination as ARR from flight_on_live left join flight_phases on flight_on_live.phase = flight_phases.code left join pilotassignments on flight_on_live.assignid = pilotassignments.id left join flights on pilotassignments.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute) and flights.callsign != null");
         }
 
         public static List<OnLiveMap> GetCenterMap()

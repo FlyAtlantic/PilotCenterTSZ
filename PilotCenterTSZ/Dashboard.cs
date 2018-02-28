@@ -253,7 +253,7 @@ namespace PilotCenterTSZ
         {
             if (MessageBox.Show("Do you really want to close me?",
                     "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation,
-                    MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 Application.Exit();
             }
