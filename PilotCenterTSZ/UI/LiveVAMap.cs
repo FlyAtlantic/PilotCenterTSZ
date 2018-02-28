@@ -87,6 +87,10 @@ namespace PilotCenterTSZ.UI
                 else if (numberPilots.NumberOnlinePilots <= 5)
                     gMapControl.Zoom = 3;
             }
+            foreach (var position in OnLiveMap.GetCenterMap())
+            {
+                gMapControl.Position = new GMap.NET.PointLatLng(position.CenterMapLAT, position.CenterMapLON);
+            }
         }
 
         private void GMapControl_DoubleClick(object sender, EventArgs e)
@@ -149,8 +153,6 @@ namespace PilotCenterTSZ.UI
                     
                     routes.Markers.Add(marker);
 
-
-                    gMapControl.Position = new GMap.NET.PointLatLng(point.LiveLAT, point.LiveLON);
                 }
                 else
                 {
@@ -183,17 +185,6 @@ namespace PilotCenterTSZ.UI
 
                     routes.Markers.Add(marker);
 
-                    if (toolTypeVisible)
-                    {
-                        gMapControl.Position = new GMap.NET.PointLatLng(point.LiveLAT, point.LiveLON);
-                    }
-                    else
-                    {
-                        foreach (var position in OnLiveMap.GetCenterMap())
-                        {
-                            gMapControl.Position = new GMap.NET.PointLatLng(position.CenterMapLAT, position.CenterMapLON);
-                        }
-                    }
                 }
 
                 test = point.PirepID;
