@@ -74,9 +74,9 @@ namespace PilotCenterTSZ.UI
             gMapControl.MaxZoom = 15;
             gMapControl.Zoom = 2;
 
-            GetMapAircrafts();            
+            GetMapAircrafts();
 
-            //gMapControl.Click += GMapControl_Click;
+            gMapControl.DoubleClick += GMapControl_DoubleClick;
 
             gMapControl.OnMarkerClick += GMapControl_OnMarkerClick;
 
@@ -89,24 +89,24 @@ namespace PilotCenterTSZ.UI
             }
         }
 
-        //private void GMapControl_Click(object sender, EventArgs e)
-        //{
-        //    if(routes.Routes.Count != 0)
-        //    {
-        //        routes.Routes.Clear();
-        //        marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-        //    }
+        private void GMapControl_DoubleClick(object sender, EventArgs e)
+        {
+            if (routes.Routes.Count != 0)
+            {                
+                routes.Routes.Clear();
+                marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                
+            }
 
-        //}
+        }
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-
-            gMapControl.Overlays.Clear();
+            routes.Routes.Clear();
 
             GetMapAircrafts();
 
-            GetUserRoute(markerTag);
+            GetUserRoute(Convert.ToInt32(item.Tag));
 
             gMapControl.Zoom = 6;
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
@@ -118,7 +118,10 @@ namespace PilotCenterTSZ.UI
         {
             gMapControl.Overlays.Clear();
 
-            routes.Markers.Remove(marker);
+            routes.Markers.Clear();
+
+            routes.Routes.Clear();
+
             foreach (var point in OnLiveMap.GetAircraft())
             {
                 
@@ -129,7 +132,7 @@ namespace PilotCenterTSZ.UI
 
                     marker.Tag = markerTag = point.PirepID;
 
-                    marker.ToolTipText = "" + point.LiveCallsign + "\n" +
+                    marker.ToolTipText = "" + point.LiveCallsign + " " + point.Name + " " + point.Surname + "\n" +
                         point.DEP + " - " + point.ARR + "\n" +
                         "HDG:" + point.HDG + " º\n" +
                         "ALT:" + point.ALT + " ft\n" +
@@ -155,6 +158,7 @@ namespace PilotCenterTSZ.UI
 
                     if (marker.ToolTipMode == MarkerTooltipMode.Always)
                     {
+
                         GetUserRoute(markerTag);
 
                         toolTypeVisible = true;
@@ -193,7 +197,7 @@ namespace PilotCenterTSZ.UI
                 }
 
                 test = point.PirepID;
-                
+
                 gMapControl.Overlays.Add(routes);
 
                 if (toolTypeVisible)
@@ -206,6 +210,7 @@ namespace PilotCenterTSZ.UI
         
         public void GetUserRoute(int tag)
         {
+            routes.Routes.Clear();
 
             points = new List<PointLatLng>();
 
@@ -224,7 +229,7 @@ namespace PilotCenterTSZ.UI
                 routes.Routes.Add(route);
 
             }
-                gMapControl.Overlays.Add(routes);
+            //gMapControl.Overlays.Add(routes);
 
         }
 
