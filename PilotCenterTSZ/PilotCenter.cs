@@ -476,7 +476,7 @@ group by
         public static void VerifyFlightTimeOut()
         {
 
-            string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) LIMIT 1";
+            string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 15 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 15 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 15 MINUTE)) LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -933,6 +933,36 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public int PirepID
         { get; set; }
 
+        public double CenterMapLAT
+        { get; set; }
+
+        public double CenterMapLON
+        { get; set; }
+
+        public int NumberOnlinePilots
+        { get; set; }
+
+        public DateTime LastReport
+        { get; set; }
+
+        public int HDG
+        { get; set; }
+
+        public int ALT
+        { get; set; }
+
+        public int GS
+        { get; set; }
+
+        public string DEP
+        { get; set; }
+
+        public string ARR
+        { get; set; }
+
+        public string Phase
+        { get; set; }
+
         public OnLiveMap()
         {
 
@@ -951,7 +981,19 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public static List<OnLiveMap> GetAircraft()
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
-                @"select flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+                @"select flight_on_live.last_report as LastReport, flight_on_live.HDG, flight_on_live.ALT, flight_on_live.GS, flight_phases.fphase as Phase, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID, flights.callsign as LiveCallsign, flights.departure as DEP, flights.destination as ARR from flight_on_live left join flight_phases on flight_on_live.phase = flight_phases.id left join pilotassignments on flight_on_live.assignid = pilotassignments.id left join flights on pilotassignments.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+        }
+
+        public static List<OnLiveMap> GetCenterMap()
+        {
+            return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
+                @"select AVG(flight_on_live.LAT) as CenterMapLAT, AVG(flight_on_live.LON) as CenterMapLON from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+        }
+
+        public static List<OnLiveMap> GetNumberPilotsOnline()
+        {
+            return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
+                @"select COUNT(pirepid) as NumberOnlinePilots from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
         }
     }
 }

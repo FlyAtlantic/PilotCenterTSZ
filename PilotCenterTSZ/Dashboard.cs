@@ -117,6 +117,7 @@ namespace PilotCenterTSZ
             myLogBookCtrl.GetLogBook();
             AlertFlight();
             pilotCarrer.Actions();
+            liveVAMap.GetMapAircrafts();
         }
 
         private void btnAssignFlight_Click(object sender, EventArgs e)
