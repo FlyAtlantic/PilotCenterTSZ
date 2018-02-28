@@ -76,7 +76,7 @@ namespace PilotCenterTSZ.UI
 
             GetMapAircrafts();            
 
-            gMapControl.Click += GMapControl_Click;
+            //gMapControl.Click += GMapControl_Click;
 
             gMapControl.OnMarkerClick += GMapControl_OnMarkerClick;
 
@@ -89,15 +89,15 @@ namespace PilotCenterTSZ.UI
             }
         }
 
-        private void GMapControl_Click(object sender, EventArgs e)
-        {
-            if(routes.Routes.Count != 0)
-            {
-                routes.Routes.Clear();
-                marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-            }
+        //private void GMapControl_Click(object sender, EventArgs e)
+        //{
+        //    if(routes.Routes.Count != 0)
+        //    {
+        //        routes.Routes.Clear();
+        //        marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+        //    }
 
-        }
+        //}
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
@@ -118,10 +118,12 @@ namespace PilotCenterTSZ.UI
         {
             gMapControl.Overlays.Clear();
 
+            routes.Markers.Remove(marker);
             foreach (var point in OnLiveMap.GetAircraft())
             {
+                
                 if (point.PirepID != test)
-                {
+                {                   
                     //UserMarkers
                     marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
 
@@ -144,6 +146,8 @@ namespace PilotCenterTSZ.UI
                     
                     routes.Markers.Add(marker);
 
+
+                    gMapControl.Position = new GMap.NET.PointLatLng(point.LiveLAT, point.LiveLON);
                 }
                 else
                 {
@@ -156,7 +160,6 @@ namespace PilotCenterTSZ.UI
                         toolTypeVisible = true;
                     }
 
-                    routes.Markers.Remove(marker);
                     marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
                     marker.Tag = markerTag = point.PirepID;
 
