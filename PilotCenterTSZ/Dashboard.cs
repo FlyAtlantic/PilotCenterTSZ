@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using AdminCenter;
 using ExamCenterTSZ.Functions;
@@ -39,6 +40,9 @@ namespace PilotCenterTSZ
         int s;
         int sBar;
 
+        public DateTime OnFlight
+        { get; set; }
+
 
         public void AllHides()
         {
@@ -63,12 +67,22 @@ namespace PilotCenterTSZ
         {
             if (Flightid != 0)
             {
-                lblFlightAlert.Text = String.Format("Alert!! You have one flight with callsign {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
-                lblFlightAlert.Visible = true;
-                GetInfosForTick();
-                label1.Visible = true;
-                pBarFlightTimeEnd.Visible = true;
-                GetInfosForTick();
+                if (f.OnFlight != 1)
+                {
+                    lblFlightAlert.Text = String.Format("Alert!! You have one flight with callsign {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
+                    lblFlightAlert.Visible = true;
+                    label1.Visible = true;
+                    pBarFlightTimeEnd.Visible = true;
+                    FlightTimeEndTick.Start();
+                }
+                else {
+                    lblFlightAlert.Text = String.Format("On Flying!! -> {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
+                    lblFlightAlert.ForeColor = Color.ForestGreen;
+                    lblFlightAlert.Visible = true;
+                    label1.Visible = true;
+                    pBarFlightTimeEnd.Visible = false;
+                    FlightTimeEndTick.Stop();
+                }
             }
             else
             {
@@ -90,7 +104,7 @@ namespace PilotCenterTSZ
 
             VerifyAndDeleteFlight.Start();
 
-            AssignFlight.VerifyFlightTimeOut();
+            f.VerifyFlightTimeOut();
 
             flightAssignmentCtrl.Actions();
 
@@ -107,6 +121,8 @@ namespace PilotCenterTSZ
 
             PilotCarrerTick.Start();
             liveVAMap.GetMapAircrafts();
+
+            LiveMapTick.Start();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -129,7 +145,7 @@ namespace PilotCenterTSZ
         private void VerifyAndDeleteFlight_Tick(object sender, EventArgs e)
         {
 
-            AssignFlight.VerifyFlightTimeOut();
+            f.VerifyFlightTimeOut();
 
             flightAssignmentCtrl.Actions();
 
@@ -162,12 +178,13 @@ namespace PilotCenterTSZ
                     {
                         s = Convert.ToInt32(sqlCmdRes[1]);
                         sBar = 1800 - Convert.ToInt32(sqlCmdRes[1]);
+
                     }
-                FlightTimeEndTick.Start();
+
             }
             catch (Exception crap)
             {
-                throw new ApplicationException("Failed to load exam @UserInfoDash()", crap);
+               throw new ApplicationException("Failed to load exam @UserInfoDash()", crap);
             }
             finally
             {
@@ -213,10 +230,6 @@ namespace PilotCenterTSZ
             adminDash.Show();
         }
 
-        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void btnCarrer_Click(object sender, EventArgs e)
         {
@@ -256,6 +269,11 @@ namespace PilotCenterTSZ
         private void LiveMapTick_Tick(object sender, EventArgs e)
         {
             liveVAMap.GetMapAircrafts();
+        }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -383,6 +383,9 @@ group by
         public DateTime UserDateAssign
         { get; set; }
 
+        public int OnFlight
+        { get; set; }
+
         public AssignFlight()
         {
 
@@ -472,32 +475,58 @@ group by
                 conn.Close();
             }
         }
-
-        public static void VerifyFlightTimeOut()
+        
+        public void VerifyFlightTimeOut()
         {
 
-            string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 15 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 15 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 15 MINUTE)) LIMIT 1";
+            string sqlVerifyFlight = "select * from pilotassignments WHERE pilot=@UserID and ((NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE)))";
+            string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE)) LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
 
             try
             {
                 conn.Open();
 
-                MySqlCommand sqlCmd = new MySqlCommand(sqlDeleteAssignment, conn);
+                MySqlCommand sqlCmd = new MySqlCommand(sqlVerifyFlight, conn);
                 sqlCmd.Parameters.AddWithValue("@UserID", UserID);
 
-                sqlCmd.ExecuteScalar();
+                if (Convert.ToInt32(sqlCmd.ExecuteScalar()) >= 1)
+                {
+                    try
+                    {
+
+                        MySqlCommand sqlCmd1 = new MySqlCommand(sqlDeleteAssignment, conn);
+                        sqlCmd1.Parameters.AddWithValue("@UserID", UserID);
+
+                        sqlCmd1.ExecuteScalar();
+
+                    }
+                    catch (Exception crap)
+                    {
+                        throw new ApplicationException("Failed to load exam @sqlDeleteAssignment()", crap);
+                    }
+                    finally
+                    {
+                        OnFlight = 0;
+                    }
+                }
+                else
+                {
+                    OnFlight = 1;
+                }
 
             }
             catch (Exception crap)
             {
-                throw new ApplicationException("Failed to load exam @sqlDeleteAssignment()", crap);
+                throw new ApplicationException("Failed to load exam @sqlVerifyFlight()", crap);
             }
             finally
             {
 
                 conn.Close();
             }
+           
         }
 
     }
@@ -981,7 +1010,7 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public static List<OnLiveMap> GetAircraft()
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
-                @"select flight_on_live.last_report as LastReport, flight_on_live.HDG, flight_on_live.ALT, flight_on_live.GS, flight_phases.fphase as Phase, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID, flights.callsign as LiveCallsign, flights.departure as DEP, flights.destination as ARR from flight_on_live left join flight_phases on flight_on_live.phase = flight_phases.id left join pilotassignments on flight_on_live.assignid = pilotassignments.id left join flights on pilotassignments.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+                @"select flight_on_live.last_report as LastReport, flight_on_live.HDG, flight_on_live.ALT, flight_on_live.GS, flight_phases.fphase as Phase, flight_on_live.LAT as LiveLAT, flight_on_live.LON as LiveLON, flight_on_live.pirepid as PirepID, flights.callsign as LiveCallsign, flights.departure as DEP, flights.destination as ARR from flight_on_live left join flight_phases on flight_on_live.phase = flight_phases.code left join pilotassignments on flight_on_live.assignid = pilotassignments.id left join flights on pilotassignments.flightid = flights.idf where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
         }
 
         public static List<OnLiveMap> GetCenterMap()

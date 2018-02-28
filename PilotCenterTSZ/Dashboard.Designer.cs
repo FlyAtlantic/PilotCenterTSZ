@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExitApp = new Bunifu.Framework.UI.BunifuTileButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
             this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.btnCarrer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAssignFlight = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.btnAdminCenterFrm = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnPilotCenter = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
@@ -58,6 +58,15 @@
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pilotAccountCtrl
+            // 
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
+
             // 
             // panel1
             // 
@@ -451,10 +460,12 @@
             this.liveVAMap.LAT = 45.516700744628906D;
             this.liveVAMap.Location = new System.Drawing.Point(220, 116);
             this.liveVAMap.LON = -6.7688698768615723D;
+            this.liveVAMap.markerTag = 443;
             this.liveVAMap.Name = "liveVAMap";
             this.liveVAMap.PilotID = 64;
             this.liveVAMap.Size = new System.Drawing.Size(914, 528);
             this.liveVAMap.TabIndex = 102;
+            this.liveVAMap.test = 443;
             this.liveVAMap.Visible = false;
             // 
             // LiveMapTick
@@ -462,24 +473,16 @@
             this.LiveMapTick.Interval = 60000;
             this.LiveMapTick.Tick += new System.EventHandler(this.LiveMapTick_Tick);
             // 
-            // pilotAccountCtrl
-            // 
-            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl.TabIndex = 99;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
+            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.liveVAMap);
             this.Controls.Add(this.lblClock);
             this.Controls.Add(this.pilotCarrer);
-            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.myLogBookCtrl);
             this.Controls.Add(this.flightAssignmentCtrl);
             this.Controls.Add(this.lblWelcome);
@@ -489,7 +492,7 @@
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pMenuBar.ResumeLayout(false);

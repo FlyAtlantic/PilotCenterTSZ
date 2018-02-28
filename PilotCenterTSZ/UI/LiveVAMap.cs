@@ -56,6 +56,8 @@ namespace PilotCenterTSZ.UI
         public int markerTag
         { get; set; }
 
+        bool toolTypeVisible;
+
         GMapOverlay routes = new GMapOverlay("routes");
         List<PointLatLng> points;
         GMapRoute route;
@@ -75,6 +77,14 @@ namespace PilotCenterTSZ.UI
             GetMapAircrafts();
 
             gMapControl.OnMarkerClick += GMapControl_OnMarkerClick;
+
+            foreach (var numberPilots in OnLiveMap.GetNumberPilotsOnline())
+            {
+                if (numberPilots.NumberOnlinePilots <= 2)
+                    gMapControl.Zoom = 4;
+                else if (numberPilots.NumberOnlinePilots <= 5)
+                    gMapControl.Zoom = 3;
+            }
         }
 
         private void GMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
@@ -86,13 +96,14 @@ namespace PilotCenterTSZ.UI
 
             GetUserRoute(markerTag);
 
-
+            gMapControl.Zoom = 6;
+            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+            marker.ToolTipMode = MarkerTooltipMode.Always;
         }
 
       
         public void GetMapAircrafts()
         {
-
             gMapControl.Overlays.Clear();
 
             foreach (var point in OnLiveMap.GetAircraft())
@@ -103,46 +114,81 @@ namespace PilotCenterTSZ.UI
                     marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
 
                     marker.Tag = markerTag = point.PirepID;
-                    
-                    marker.ToolTipText = "" + point.LiveCallsign + "\n" + 
+
+                    marker.ToolTipText = "" + point.LiveCallsign + "\n" +
                         point.DEP + " - " + point.ARR + "\n" +
-                        "HDG:" + point.HDG + "\n" +
-                        "ALT:" + point.ALT + "\n" +
-                        "GS:" + point.GS + "\n" +
+                        "HDG:" + point.HDG + " º\n" +
+                        "ALT:" + point.ALT + " ft\n" +
+                        "GS:" + point.GS + " kt\n" +
                          point.Phase
                         ;
-                    marker.ToolTip.Fill = Brushes.White;
-                    marker.ToolTip.Foreground = Brushes.Black;
-                    marker.ToolTip.Stroke = Pens.Black;
-                    marker.ToolTip.TextPadding = new Size(20, 20);
-                    marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                    //marker.ToolTip.Fill = Brushes.White;
+                    //marker.ToolTip.Foreground = Brushes.Black;
+                    //marker.ToolTip.Stroke = Pens.Black;
+                    //marker.ToolTip.TextPadding = new Size(20, 20);
+                    //marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
+                    marker.ToolTip.Format.Alignment = StringAlignment.Near;
+
+                    
+                    routes.Markers.Add(marker);
+
+                }
+                else
+                {
+                    toolTypeVisible = false;
+
+                    if (marker.ToolTipMode == MarkerTooltipMode.Always)
+                    {
+                        GetUserRoute(markerTag);
+
+                        toolTypeVisible = true;
+                    }
+
+                    routes.Markers.Remove(marker);
+                    marker = new GMarkerGoogle(new PointLatLng(point.LiveLAT, point.LiveLON), GMarkerGoogleType.blue);
+                    marker.Tag = markerTag = point.PirepID;
+
+                    marker.ToolTipText = "" + point.LiveCallsign + "\n" +
+                        point.DEP + " - " + point.ARR + "\n" +
+                        "HDG:" + point.HDG + " º\n" +
+                        "ALT:" + point.ALT + " ft\n" +
+                        "GS:" + point.GS + " kt\n" +
+                         point.Phase
+                        ;
+                    //marker.ToolTip.Fill = Brushes.White;
+                    //marker.ToolTip.Foreground = Brushes.Black;
+                    //marker.ToolTip.Stroke = Pens.Black;
+                    //marker.ToolTip.TextPadding = new Size(20, 20);
+
                     marker.ToolTip.Format.Alignment = StringAlignment.Near;
 
                     routes.Markers.Add(marker);
 
+                    if (toolTypeVisible)
+                    {
+                        gMapControl.Position = new GMap.NET.PointLatLng(point.LiveLAT, point.LiveLON);
+                    }
+                    else
+                    {
+                        foreach (var position in OnLiveMap.GetCenterMap())
+                        {
+                            gMapControl.Position = new GMap.NET.PointLatLng(position.CenterMapLAT, position.CenterMapLON);
+                        }
+                    }
                 }
-                test = point.PirepID;
 
+                test = point.PirepID;
+                
                 gMapControl.Overlays.Add(routes);
 
-
-                foreach (var position in OnLiveMap.GetCenterMap())
+                if (toolTypeVisible)
                 {
-                    gMapControl.Position = new GMap.NET.PointLatLng(position.CenterMapLAT, position.CenterMapLON);
+                    marker.ToolTipMode = MarkerTooltipMode.Always;
                 }
-
-                foreach (var numberPilots in OnLiveMap.GetNumberPilotsOnline())
-                {
-                    if(numberPilots.NumberOnlinePilots <= 2)
-                        gMapControl.Zoom = 4;
-                    else if (numberPilots.NumberOnlinePilots <= 5)
-                        gMapControl.Zoom = 3;
-                }
-
             }
 
         }
-
+        
         public void GetUserRoute(int tag)
         {
 
@@ -159,7 +205,7 @@ namespace PilotCenterTSZ.UI
                 points.Add(new PointLatLng(point.LAT, point.LON));
 
                 route = new GMapRoute(points, "A walk in the park");
-                route.Stroke = new Pen(Color.Red, 1);
+                route.Stroke = new Pen(Color.Red, 2);
                 routes.Routes.Add(route);
 
             }
