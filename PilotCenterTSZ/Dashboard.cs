@@ -15,7 +15,6 @@ namespace PilotCenterTSZ
 
         AssignFlight f = new AssignFlight();
 
-
         public static int Flightid
         { get; set; }
 
@@ -67,9 +66,10 @@ namespace PilotCenterTSZ
         {
             if (Flightid != 0)
             {
-                if (f.OnFlight != 1)
+                if (!f.OnFlight)
                 {
                     lblFlightAlert.Text = String.Format("Alert!! You have one flight with callsign {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
+                    lblFlightAlert.ForeColor = Color.Red;
                     lblFlightAlert.Visible = true;
                     label1.Visible = true;
                     pBarFlightTimeEnd.Visible = true;
@@ -79,7 +79,7 @@ namespace PilotCenterTSZ
                     lblFlightAlert.Text = String.Format("On Flying!! -> {0}, from {1} to {2} with {3}", FlightCallsign, UserDeparture, UserArrival, UserAircraft);
                     lblFlightAlert.ForeColor = Color.ForestGreen;
                     lblFlightAlert.Visible = true;
-                    label1.Visible = true;
+                    label1.Visible = false;
                     pBarFlightTimeEnd.Visible = false;
                     FlightTimeEndTick.Stop();
                 }

@@ -383,7 +383,7 @@ group by
         public DateTime UserDateAssign
         { get; set; }
 
-        public int OnFlight
+        public bool OnFlight
         { get; set; }
 
         public AssignFlight()
@@ -481,6 +481,7 @@ group by
 
             string sqlVerifyFlight = "select * from pilotassignments WHERE pilot=@UserID and ((NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE)))";
             string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && onflight is null) || (NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE) && onflight is not null) || (NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) && NOW() >=  DATE_ADD(onflight, INTERVAL 30 MINUTE)) LIMIT 1";
+            string sqlVerifyOnflight = "select onflight from pilotassignments LEFT JOIN flights ON pilotassignments.flightid = flights.idf left join utilizadores on pilotassignments.pilot = utilizadores.user_id where user_email=@Email and onflight is not null LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
 
@@ -508,12 +509,8 @@ group by
                     }
                     finally
                     {
-                        OnFlight = 0;
+
                     }
-                }
-                else
-                {
-                    OnFlight = 1;
                 }
 
             }
@@ -526,7 +523,33 @@ group by
 
                 conn.Close();
             }
-           
+
+            try
+            {
+                OnFlight = false;
+
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlVerifyOnflight, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        if(sqlCmdRes[0] != null)
+                            OnFlight = true;
+                    }
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
     }
