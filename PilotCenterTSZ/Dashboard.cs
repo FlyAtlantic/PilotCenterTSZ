@@ -130,6 +130,17 @@ namespace PilotCenterTSZ
             }
         }      
 
+        public void UpdateTyperatingAndQualificationsDate()
+        {
+            LastFlight lf = new LastFlight();
+
+            LastFlight.UpdateRatingDate(lf.AircraftOfLastFlight, lf.DateOfLastFlight);
+
+            if (lf.QualificationNeed != 0) {
+                LastFlight.UpdateQualificationDate(lf.QualificationNeed, lf.DateOfLastFlight);
+            }
+        }
+
         public Dashboard()
         {
 
@@ -164,6 +175,8 @@ namespace PilotCenterTSZ
             LiveMapTick.Start();
 
             notifyIcon1.Visible = false;
+
+            UpdateTyperatingAndQualificationsDate();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -193,6 +206,8 @@ namespace PilotCenterTSZ
             flightAssignmentCtrl.flightAssignedCtrl.UpdateInfos();
 
             AlertFlight();
+
+            UpdateTyperatingAndQualificationsDate();
         }
 
         private void btnPilotCenter_Click(object sender, EventArgs e)
@@ -270,7 +285,6 @@ namespace PilotCenterTSZ
 
             adminDash.Show();
         }
-
 
         private void btnCarrer_Click(object sender, EventArgs e)
         {

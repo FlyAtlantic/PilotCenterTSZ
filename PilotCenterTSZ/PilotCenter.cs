@@ -614,9 +614,12 @@ group by
         public DateTime DateOfFlightExpire
         { get; set; }
 
+        public int QualificationNeed
+        { get; set; }
+
         public LastFlight()
         {
-            string sqlGetLastFlight = "SELECT pireps.date, flights.aircraft, flights.idf, adddate(pireps.date, interval 6 day ) from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where user_email=@Email order by date desc LIMIT 1";
+            string sqlGetLastFlight = "SELECT pireps.date, flights.aircraft, flights.idf, adddate(pireps.date, interval 6 day ), qualification_need from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where user_email=@Email order by date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -635,6 +638,7 @@ group by
                         AircraftOfLastFlight = (string)sqlCmdRes[1];
                         LastFlightID = (int)sqlCmdRes[2];
                         DateOfFlightExpire = (DateTime)sqlCmdRes[3];
+                        QualificationNeed = (int)sqlCmdRes[4];
                     }
                     conn.Close();
                 }
@@ -668,6 +672,62 @@ group by
             catch (Exception crap)
             {
                 throw new ApplicationException("Failed to load exam @ReturnToHub()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public static void UpdateRatingDate(string typerating, DateTime date)
+        {
+            string sqlRatingDate = "UPDATE typeratings left join typeratingsname on typeratings.typerating = typeratingsname.id left join utilizadores on typeratings.pilot = utilizadores.user_id SET `validity` = @Date, `expire` = DATE_ADD(@Date, interval 3 month) where `utilizadores`.`user_email`=@Email and `typeratingsname`.`name` = @Typerating";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlRatingDate, conn);
+                sqlCmd.Parameters.AddWithValue("@Typerating", typerating);
+                sqlCmd.Parameters.AddWithValue("@Date", date);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UpdateRatingDate()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public static void UpdateQualificationDate(int qualification, DateTime date)
+        {
+            string sqlQualificationDate = "UPDATE qualifications left join qualificationsname on qualifications.qualification = qualificationsname.id left join utilizadores on qualifications.pilot = utilizadores.user_id SET `validity` = @Date, `expire` = DATE_ADD(@Date, interval 3 month) where `utilizadores`.`user_email`=@Email and `qualificationsname`.`id` = @Qualification";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlQualificationDate, conn);
+                sqlCmd.Parameters.AddWithValue("@Qualification", qualification);
+                sqlCmd.Parameters.AddWithValue("@Date", date);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UpdateQualificationDate()", crap);
             }
             finally
             {
