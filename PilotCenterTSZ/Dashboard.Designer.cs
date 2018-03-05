@@ -336,7 +336,7 @@
             this.btnAdminCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdminCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnAdminCenterFrm.ForeColor = System.Drawing.Color.White;
-            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
+            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.businessman;
             this.btnAdminCenterFrm.ImagePosition = 0;
             this.btnAdminCenterFrm.ImageZoom = 95;
             this.btnAdminCenterFrm.LabelPosition = 0;

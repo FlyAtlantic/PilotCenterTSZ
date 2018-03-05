@@ -183,6 +183,16 @@ namespace PilotCenterTSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap businessman {
+            get {
+                object obj = ResourceManager.GetObject("businessman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_ok {
             get {
                 object obj = ResourceManager.GetObject("button_ok", resourceCulture);
@@ -326,6 +336,16 @@ namespace PilotCenterTSZ.Properties {
         internal static System.Drawing.Bitmap Minimize_Box_Blue {
             get {
                 object obj = ResourceManager.GetObject("Minimize_Box_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pilot_resume_256 {
+            get {
+                object obj = ResourceManager.GetObject("pilot_resume-256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

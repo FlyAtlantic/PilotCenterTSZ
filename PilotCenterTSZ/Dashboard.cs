@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using AdminCenter;
 using ExamCenterTSZ.Functions;
 using MySql.Data.MySqlClient;
 
