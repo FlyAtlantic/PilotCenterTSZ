@@ -341,6 +341,7 @@
     <None Include="Resources\lxgb.png" />
     <None Include="Resources\rvsmetops.png" />
     <None Include="Resources\2000px-Oxygen480-actions-system-shutdown.svg.png" />
+    <None Include="Resources\Minimize_Box_Blue.png" />
     <Content Include="tszbanner.ico" />
   </ItemGroup>
   <ItemGroup>

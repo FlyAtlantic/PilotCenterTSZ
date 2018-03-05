@@ -48,9 +48,18 @@ namespace PilotCenterTSZ
         public int Eps
         { get; set; }
 
+        public int TotalFlights
+        { get; set; }
+
+        public int SumTotalFlights
+        { get; set; }
+
+        public int MediaTotalFlights
+        { get; set; }
+
         public UserInfo()
         {
-            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email order by pireps.date desc LIMIT 1";
+            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid, count(pireps.id), sum(pireps.eps_granted) from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email and pireps.accepted = 1 order by pireps.date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -83,6 +92,10 @@ namespace PilotCenterTSZ
                         Eps = (int)sqlCmdRes[10];
                         RankID = (int)sqlCmdRes[11];
                         LevelID = (int)sqlCmdRes[12];
+                        TotalFlights = Convert.ToInt32(sqlCmdRes[13]);
+                        SumTotalFlights = Convert.ToInt32(sqlCmdRes[14]);
+
+                        MediaTotalFlights = SumTotalFlights / TotalFlights;
                     }
 
             }
@@ -587,6 +600,83 @@ group by
         }
     }
 
+    public class LastFlight
+    {
+        public DateTime DateOfLastFlight
+        { get; set; }
+
+        public string AircraftOfLastFlight
+        { get; set; }
+
+        public int LastFlightID
+        { get; set; }
+
+        public DateTime DateOfFlightExpire
+        { get; set; }
+
+        public LastFlight()
+        {
+            string sqlGetLastFlight = "SELECT pireps.date, flights.aircraft, flights.idf, adddate(pireps.date, interval 6 day ) from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where user_email=@Email order by date desc LIMIT 1";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlGetLastFlight, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                {
+                    while (sqlCmdRes.Read())
+                    {
+                        DateOfLastFlight = (DateTime)sqlCmdRes[0];
+                        AircraftOfLastFlight = (string)sqlCmdRes[1];
+                        LastFlightID = (int)sqlCmdRes[2];
+                        DateOfFlightExpire = (DateTime)sqlCmdRes[3];
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @GetLastFlight()", crap);
+            }
+            finally
+            {
+
+            }
+        }
+
+        public static void ReturnToHub(int epsMedium)
+        {
+            string sqlReturnToHub = "UPDATE utilizadores SET location = utilizadores.hub, eps = eps - @EpsMedium where user_email=@Email";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlReturnToHub, conn);
+                sqlCmd.Parameters.AddWithValue("@EpsMedium", epsMedium);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @ReturnToHub()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+    }
+
     public class LogBook
     {
         public int IDP
@@ -630,9 +720,7 @@ group by
                     Email = Properties.Settings.Default.Email
                 }).ToList();
         }
-
-
-
+        
     }
 
     public class AllTypeRatingsByUserRank

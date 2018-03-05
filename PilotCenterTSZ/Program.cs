@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PilotCenterTSZ
 {
-    static class Program
+    class Program
     {
+ 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -15,5 +17,6 @@ namespace PilotCenterTSZ
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginFrm());
         }
+        
     }
 }

@@ -9,12 +9,16 @@ namespace PilotCenterTSZ
 {
     public partial class Dashboard : Form
     {
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenu contextMenu1;
+        private System.Windows.Forms.MenuItem menuItem1;      
+
         UserInfo a = new UserInfo();
 
         LogBook l = new LogBook();
 
         AssignFlight f = new AssignFlight();
-
+     
         public static int Flightid
         { get; set; }
 
@@ -64,6 +68,8 @@ namespace PilotCenterTSZ
 
         public void AlertFlight()
         {
+            a = new UserInfo();
+
             if (Flightid != 0)
             {
                 if (!f.OnFlight)
@@ -86,10 +92,41 @@ namespace PilotCenterTSZ
             }
             else
             {
-                lblFlightAlert.Visible = false;
-                label1.Visible = false;
-                pBarFlightTimeEnd.Visible = false;
-                FlightTimeEndTick.Stop();
+                if(a.Location != a.Hub)
+                {
+                    LastFlight lf = new LastFlight();
+
+                    int RemainingDaysToFlightExpire = ((lf.DateOfFlightExpire - DateTime.UtcNow.Date).Days - 1);
+
+                    if (RemainingDaysToFlightExpire == -1)
+                    {
+
+                        lblFlightAlert.Visible = false;
+                        LastFlight.ReturnToHub(a.MediaTotalFlights);
+                    }
+                    else if(RemainingDaysToFlightExpire == 0){
+                        lblFlightAlert.Text = String.Format("Alert!! Today is last day to return your hub without penalizations", (lf.DateOfFlightExpire.Day - DateTime.UtcNow.Day) - 1);
+                        lblFlightAlert.ForeColor = Color.Red;
+                        lblFlightAlert.Visible = true;
+                    }
+                    else
+                    {
+                        lblFlightAlert.Text = String.Format("Alert!! You have {0} days to return your hub without penalizations", (lf.DateOfFlightExpire.Day - DateTime.UtcNow.Day) - 1);
+                        lblFlightAlert.ForeColor = Color.Orange;
+                        lblFlightAlert.Visible = true;
+                    }                   
+                    label1.Visible = false;
+                    pBarFlightTimeEnd.Visible = false;
+                    FlightTimeEndTick.Stop();
+                }
+                else
+                {
+                    lblFlightAlert.Visible = false;
+                    label1.Visible = false;
+                    pBarFlightTimeEnd.Visible = false;
+                    FlightTimeEndTick.Stop();
+                }
+                
             }
         }      
 
@@ -97,6 +134,8 @@ namespace PilotCenterTSZ
         {
 
             InitializeComponent();
+
+            CreateNotifyicon();
 
             Clock.Start();
 
@@ -123,6 +162,8 @@ namespace PilotCenterTSZ
             liveVAMap.GetMapAircrafts();
 
             LiveMapTick.Start();
+
+            notifyIcon1.Visible = false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -275,5 +316,64 @@ namespace PilotCenterTSZ
         {
             Application.Exit();
         }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+            notifyIcon1.Visible = true;
+            notifyIcon1.BalloonTipText = "Pilot Center is on hide mode!";
+            notifyIcon1.ShowBalloonTip(0);
+        }
+
+        private void CreateNotifyicon()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+
+            // Initialize menuItem1
+            this.menuItem1.Index = 0;
+            this.menuItem1.Text = "E&xit";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+
+            // Initialize contextMenu1
+            this.contextMenu1.MenuItems.AddRange(
+                        new System.Windows.Forms.MenuItem[] { this.menuItem1 });
+
+            // Create the NotifyIcon.
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+
+            // The Icon property sets the icon that will appear
+            // in the systray for this application.
+            notifyIcon1.Icon = this.Icon;
+
+            // The ContextMenu property sets the menu that will
+            // appear when the systray icon is right clicked.
+            notifyIcon1.ContextMenu = this.contextMenu1;
+
+            // The Text property sets the text that will be displayed,
+            // in a tooltip, when the mouse hovers over the systray icon.
+            notifyIcon1.Text = "Pilot Center - FlyAtlanticVA";
+            notifyIcon1.Visible = true;
+
+            // Handle the DoubleClick event to activate the form.
+            notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+
+        }
+
+        private void notifyIcon1_DoubleClick(object Sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+        }
+
+        private void menuItem1_Click(object Sender, EventArgs e)
+        {
+            // Close the form, which closes the application.
+            Application.Exit();
+        }
+
     }
 }
+

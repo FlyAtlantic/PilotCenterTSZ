@@ -276,7 +276,7 @@ namespace PilotCenterTSZ.UI
 
                         progress = (a.Eps * 100) / p.Eps;
 
-                        lblJS41.Text = String.Format("{0}% to Complete", progress);
+                        lblA332.Text = String.Format("{0}% to Complete", progress);
 
                         if (progress >= 100)
                         {
