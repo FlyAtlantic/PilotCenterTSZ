@@ -1,0 +1,4 @@
+language: csharp
+solution: "./PilotCenterTSZ.sln"
+script:
+- xbuild /p:Configuration=Travis ./PilotCenterTSZ.sln

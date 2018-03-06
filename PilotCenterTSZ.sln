@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PilotCenterTSZ", "PilotCenterTSZ\PilotCenterTSZ.csproj", "{E0CCEAD8-7FCB-445E-90D7-5999949ED269}"
 EndProject
@@ -11,12 +11,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminCenter", "AdminCenter\
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PilotCenterSetup", "PilotCenterSetup\PilotCenterSetup.wixproj", "{753F859A-03E0-4DA6-9270-987DBA544D53}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{830D0C08-C280-49EF-90D1-6807EA87088F}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
+		Travis|Any CPU = Travis|Any CPU
+		Travis|x86 = Travis|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -27,6 +35,10 @@ Global
 		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Release|x86.ActiveCfg = Release|Any CPU
 		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Release|x86.Build.0 = Release|Any CPU
+		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Travis|Any CPU.ActiveCfg = Travis|Any CPU
+		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Travis|Any CPU.Build.0 = Travis|Any CPU
+		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Travis|x86.ActiveCfg = Travis|Any CPU
+		{E0CCEAD8-7FCB-445E-90D7-5999949ED269}.Travis|x86.Build.0 = Travis|Any CPU
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -35,6 +47,10 @@ Global
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Release|x86.ActiveCfg = Release|Any CPU
 		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Release|x86.Build.0 = Release|Any CPU
+		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Travis|Any CPU.ActiveCfg = Travis|Any CPU
+		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Travis|Any CPU.Build.0 = Travis|Any CPU
+		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Travis|x86.ActiveCfg = Travis|Any CPU
+		{2B047DB0-E6AE-4A01-974E-D1253D73CA51}.Travis|x86.Build.0 = Travis|Any CPU
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -43,6 +59,10 @@ Global
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Release|x86.ActiveCfg = Release|Any CPU
 		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Release|x86.Build.0 = Release|Any CPU
+		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Travis|Any CPU.ActiveCfg = Travis|Any CPU
+		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Travis|Any CPU.Build.0 = Travis|Any CPU
+		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Travis|x86.ActiveCfg = Travis|Any CPU
+		{14C9ACE5-9FE0-495B-A8A6-E5268D414D1C}.Travis|x86.Build.0 = Travis|Any CPU
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Debug|x86.ActiveCfg = Debug|x86
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Debug|x86.Build.0 = Debug|x86
@@ -50,8 +70,14 @@ Global
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Release|Any CPU.Build.0 = Release|x86
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Release|x86.ActiveCfg = Release|x86
 		{753F859A-03E0-4DA6-9270-987DBA544D53}.Release|x86.Build.0 = Release|x86
+		{753F859A-03E0-4DA6-9270-987DBA544D53}.Travis|Any CPU.ActiveCfg = Release|x86
+		{753F859A-03E0-4DA6-9270-987DBA544D53}.Travis|x86.ActiveCfg = Release|x86
+		{753F859A-03E0-4DA6-9270-987DBA544D53}.Travis|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60B26D3F-2CC2-4132-B9A7-C38C30A84D58}
 	EndGlobalSection
 EndGlobal
