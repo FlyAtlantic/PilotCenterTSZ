@@ -114,6 +114,18 @@
     <Compile Include="AdminUI\AdminDash.Designer.cs">
       <DependentUpon>AdminDash.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\AllFlightsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AllFlightsCtrl.Designer.cs">
+      <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\PilotListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\PilotListCtrl.Designer.cs">
+      <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +204,12 @@
     </Compile>
     <EmbeddedResource Include="AdminUI\AdminDash.resx">
       <DependentUpon>AdminDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\AllFlightsCtrl.resx">
+      <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\PilotListCtrl.resx">
+      <DependentUpon>PilotListCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

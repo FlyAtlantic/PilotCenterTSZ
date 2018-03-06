@@ -57,9 +57,15 @@ namespace PilotCenterTSZ
         public int MediaTotalFlights
         { get; set; }
 
+        public string StaffTeam
+        { get; set; }
+
+        public string StaffName
+        { get; set; }
+
         public UserInfo()
         {
-            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid, count(pireps.id), sum(pireps.eps_granted) from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email and pireps.accepted = 1 order by pireps.date desc LIMIT 1";
+            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid, count(pireps.id), sum(pireps.eps_granted), adminlevel.name, user_level.name from utilizadores left join user_level on utilizadores.levelid = user_level.levelid left join adminlevel on utilizadores.stafflevel = adminlevel.level left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email and pireps.accepted = 1 order by pireps.date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -94,6 +100,8 @@ namespace PilotCenterTSZ
                         LevelID = (int)sqlCmdRes[12];
                         TotalFlights = Convert.ToInt32(sqlCmdRes[13]);
                         SumTotalFlights = Convert.ToInt32(sqlCmdRes[14]);
+                        StaffTeam = (string)sqlCmdRes[15];
+                        StaffName = (string)sqlCmdRes[16];
 
                         MediaTotalFlights = SumTotalFlights / TotalFlights;
                     }
@@ -1199,6 +1207,154 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         {
             return (List<OnLiveMap>)new MySqlConnection(Login.ConnectionString).Query<OnLiveMap>(
                 @"select COUNT(pirepid) as NumberOnlinePilots from flight_on_live where NOW() < date_add(flight_on_live.last_report, interval 15 minute)");
+        }
+    }
+
+    public class AdminPilotList
+    {
+
+        public int UserID
+        { get; set; }
+
+        public int Callsign
+        { get; set; }
+
+        public string UserName
+        { get; set; }
+
+        public string UserSurname
+        { get; set; }
+
+        public string UserEmail
+        { get; set; }
+
+        public DateTime JoinDate
+        { get; set; }
+
+        public DateTime LastActivity
+        { get; set; }
+
+        public string UserRank
+        { get; set; }
+
+        public string VatsimID
+        { get; set; }
+
+        public string VatsimRating
+        { get; set; }
+
+        public int UserHours
+        { get; set; }
+
+        public int UserEps
+        { get; set; }
+
+        public string UserLocation
+        { get; set; }
+
+        public string UserHub
+        { get; set; }
+
+        public string Level
+        { get; set; }
+
+        public string StaffTeam
+        { get; set; }
+
+        public int AccountStatus
+        { get; set; }
+
+        public int TotalPilots
+        { get; set; }
+
+        public int TotalActivePilots
+        { get; set; }
+
+        public int TotalInactivePilots
+        { get; set; }
+
+
+        public AdminPilotList()
+        {
+
+        }
+
+        public static List<AdminPilotList> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<AdminPilotList>(
+                @"select user_id as UserID, callsign as Callsign, user_nome as UserName, user_apelido as UserSurname, user_email as UserEmail, user_dataregisto as JoinDate, lastlogin as LastActivity, ranks.rank as UserRank, utilizadores.idvatsim as VatsimID, ratings.ratingname as VatsimRating, utilizadores.pilot_hours as UserHours, utilizadores.eps as UserEps, utilizadores.location as UserLocation, hubs.icao as UserHub, user_level.name as Level, adminlevel.name as StaffTeam, utilizadores.active as AccountStatus from utilizadores left join adminlevel on utilizadores.stafflevel = adminlevel.level left join hubs on utilizadores.hub = hubs.id left join ratings on utilizadores.rate = ratings.id left join user_level on utilizadores.levelid = user_level.levelid left join ranks on utilizadores.rank = ranks.rankid order by user_id").ToList();
+        }
+
+        public static List<AdminPilotList> GetNumberPilots()
+        {
+            return (List<AdminPilotList>)new MySqlConnection(Login.ConnectionString).Query<AdminPilotList>(
+                @"select COUNT(user_id) as TotalPilots from utilizadores");
+        }
+
+        public static List<AdminPilotList> GetNumberActivePilots()
+        {
+            return (List<AdminPilotList>)new MySqlConnection(Login.ConnectionString).Query<AdminPilotList>(
+                @"select COUNT(user_id) as TotalActivePilots from utilizadores where active = 1");
+        }
+
+        public static List<AdminPilotList> GetNumberInactivePilots()
+        {
+            return (List<AdminPilotList>)new MySqlConnection(Login.ConnectionString).Query<AdminPilotList>(
+                @"select COUNT(user_id) as TotalInactivePilots from utilizadores where active = 0");
+        }
+    }
+
+    public class AdminAllFlights
+    {
+        public int PirepID
+        { get; set; }
+
+        public DateTime PirepDate
+        { get; set; }
+
+        public string UserName
+        { get; set; }
+
+        public string UserSurname
+        { get; set; }
+
+        public string Callsign
+        { get; set; }
+
+        public string Departure
+        { get; set; }
+
+        public string Arrival
+        { get; set; }
+
+        public string Aircraft
+        { get; set; }
+
+        public int Touch
+        { get; set; }
+
+        public int Sum
+        { get; set; }
+
+        public int Eps
+        { get; set; }
+
+        public string Obs
+        { get; set; }
+
+        public int TotalFlights
+        { get; set; }
+
+        public static List<AdminAllFlights> GetAdminAllFlights()
+        {
+            return (List<AdminAllFlights>)new MySqlConnection(Login.ConnectionString).Query<AdminAllFlights>(
+                @"select pireps.id as PirepID, pireps.date as PirepDate, utilizadores.user_nome as UserName, utilizadores.user_apelido as UserSurname, flights.departure as Departure, flights.destination as Arrival, flights.aircraft as Aircraft, pireps.`ft/pm` as Touch, pireps.sum as Sum, pireps.eps_granted as Eps, pireps.obs as Obs, flights.callsign as Callsign from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where accepted = 1 order by pireps.id desc");
+        }
+
+        public static List<AdminAllFlights> GetTotalFlights()
+        {
+            return (List<AdminAllFlights>)new MySqlConnection(Login.ConnectionString).Query<AdminAllFlights>(
+                @"select count(id) as TotalFlights from pireps where accepted = 1");
         }
     }
 }

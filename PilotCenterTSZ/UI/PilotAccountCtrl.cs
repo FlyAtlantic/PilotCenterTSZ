@@ -40,7 +40,14 @@ namespace PilotCenterTSZ.UI
             lblRank.Text = a.Rank;
             lblRatingVacc.Text = a.Rate;
             lblCallsign.Text = "TSZ" + a.Callsign;
-            lblFlightHours.Text = Math.Truncate(flightHours).ToString() + ':' + Math.Truncate(flightMinutes).ToString();
+            if(Math.Truncate(flightMinutes) <= 9)
+            {
+                lblFlightHours.Text = Math.Truncate(flightHours).ToString() + ':' + '0' + Math.Truncate(flightMinutes).ToString();
+            }
+            else
+            {
+                lblFlightHours.Text = Math.Truncate(flightHours).ToString() + ':' + Math.Truncate(flightMinutes).ToString();
+            }
             lblLastFlightDate.Text = a.LastFlight.ToString(@"dd-MM-yyyy");
             lblHub.Text = a.Hub;
             lblLocation.Text = a.Location;

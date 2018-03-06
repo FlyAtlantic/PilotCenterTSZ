@@ -10,8 +10,15 @@ namespace PilotCenterTSZ
         public AdminDash()
         {
             InitializeComponent();
-
+            lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3} your Team is {4}", DateTime.UtcNow.DayOfWeek.ToString(), a.StaffName, a.UserName, a.UserSurname, a.StaffTeam);
+            lblClock.Text = DateTime.UtcNow.ToString();
             ClockAdmin.Start();
+        }
+
+        private void Hides()
+        {
+            allFlightsCtrl.Hide();
+            pilotListCtrl.Hide();
         }
 
         private void btnPilotCenterFrm_Click(object sender, EventArgs e)
@@ -26,7 +33,7 @@ namespace PilotCenterTSZ
         private void Clock_Tick(object sender, EventArgs e)
         {
             lblClock.Text = DateTime.UtcNow.ToString();
-            lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3}", DateTime.UtcNow.DayOfWeek.ToString(), a.Rank, a.UserName, a.UserSurname);
+            lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3} your Team is {4}", DateTime.UtcNow.DayOfWeek.ToString(), a.StaffName, a.UserName, a.UserSurname, a.StaffTeam);
         }
 
         private void AdminDash_FormClosed(object sender, FormClosedEventArgs e)
@@ -48,6 +55,18 @@ namespace PilotCenterTSZ
             {
                 Application.Exit();
             }
+        }
+
+        private void btnPilotList_Click(object sender, EventArgs e)
+        {
+            Hides();
+            pilotListCtrl.Show();
+        }
+
+        private void btnAllFlights_Click(object sender, EventArgs e)
+        {
+            Hides();
+            allFlightsCtrl.Show();
         }
     }
 }
