@@ -36,6 +36,8 @@
             this.btnMinimize = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnExitApp = new Bunifu.Framework.UI.BunifuTileButton();
             this.pMenuBar = new System.Windows.Forms.Panel();
+            this.flowTeamArea = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTeam = new System.Windows.Forms.Label();
             this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAllFlights = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPilotList = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -45,8 +47,10 @@
             this.ClockAdmin = new System.Windows.Forms.Timer(this.components);
             this.pilotListCtrl = new PilotCenterTSZ.AdminUI.PilotListCtrl();
             this.allFlightsCtrl = new PilotCenterTSZ.AdminUI.AllFlightsCtrl();
+            this.hubManagerCtrl = new PilotCenterTSZ.AdminUI.Teams.HubManagerCtrl();
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
+            this.flowTeamArea.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,6 +140,7 @@
             // pMenuBar
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.pMenuBar.Controls.Add(this.flowTeamArea);
             this.pMenuBar.Controls.Add(this.btnLogBook);
             this.pMenuBar.Controls.Add(this.btnAllFlights);
             this.pMenuBar.Controls.Add(this.btnPilotList);
@@ -145,6 +150,27 @@
             this.pMenuBar.Name = "pMenuBar";
             this.pMenuBar.Size = new System.Drawing.Size(211, 579);
             this.pMenuBar.TabIndex = 97;
+            // 
+            // flowTeamArea
+            // 
+            this.flowTeamArea.Controls.Add(this.lblTeam);
+            this.flowTeamArea.Location = new System.Drawing.Point(3, 343);
+            this.flowTeamArea.Name = "flowTeamArea";
+            this.flowTeamArea.Size = new System.Drawing.Size(208, 233);
+            this.flowTeamArea.TabIndex = 6;
+            // 
+            // lblTeam
+            // 
+            this.lblTeam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTeam.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeam.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTeam.Location = new System.Drawing.Point(3, 0);
+            this.lblTeam.Name = "lblTeam";
+            this.lblTeam.Size = new System.Drawing.Size(202, 23);
+            this.lblTeam.TabIndex = 0;
+            this.lblTeam.Text = "label1";
+            this.lblTeam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLogBook
             // 
@@ -315,12 +341,22 @@
             this.allFlightsCtrl.TabIndex = 103;
             this.allFlightsCtrl.Visible = false;
             // 
+            // hubManagerCtrl
+            // 
+            this.hubManagerCtrl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hubManagerCtrl.Location = new System.Drawing.Point(217, 116);
+            this.hubManagerCtrl.Name = "hubManagerCtrl";
+            this.hubManagerCtrl.Size = new System.Drawing.Size(908, 479);
+            this.hubManagerCtrl.TabIndex = 104;
+            this.hubManagerCtrl.Visible = false;
+            // 
             // AdminDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
+            this.Controls.Add(this.hubManagerCtrl);
             this.Controls.Add(this.allFlightsCtrl);
             this.Controls.Add(this.pilotListCtrl);
             this.Controls.Add(this.lblWelcome);
@@ -335,6 +371,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pMenuBar.ResumeLayout(false);
+            this.flowTeamArea.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +394,9 @@
         private System.Windows.Forms.Timer ClockAdmin;
         private AdminUI.PilotListCtrl pilotListCtrl;
         private AdminUI.AllFlightsCtrl allFlightsCtrl;
+        private System.Windows.Forms.FlowLayoutPanel flowTeamArea;
+        private System.Windows.Forms.Label lblTeam;
+        private AdminUI.Teams.HubManagerCtrl hubManagerCtrl;
     }
 }
 

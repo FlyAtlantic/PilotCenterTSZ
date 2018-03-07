@@ -120,11 +120,23 @@
     <Compile Include="AdminUI\AllFlightsCtrl.Designer.cs">
       <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\ButtonTeamAreaCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ButtonTeamAreaCtrl.Designer.cs">
+      <DependentUpon>ButtonTeamAreaCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUI\PilotListCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminUI\PilotListCtrl.Designer.cs">
       <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\Teams\HubManagerCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Teams\HubManagerCtrl.Designer.cs">
+      <DependentUpon>HubManagerCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -208,8 +220,14 @@
     <EmbeddedResource Include="AdminUI\AllFlightsCtrl.resx">
       <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\ButtonTeamAreaCtrl.resx">
+      <DependentUpon>ButtonTeamAreaCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminUI\PilotListCtrl.resx">
       <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Teams\HubManagerCtrl.resx">
+      <DependentUpon>HubManagerCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
