@@ -65,7 +65,7 @@ namespace PilotCenterTSZ
 
         public UserInfo()
         {
-            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid, count(pireps.id), sum(pireps.eps_granted), adminlevel.name, user_level.name from utilizadores left join user_level on utilizadores.levelid = user_level.levelid left join adminlevel on utilizadores.stafflevel = adminlevel.level left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email and pireps.accepted = 1 order by pireps.date desc LIMIT 1";
+            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid, utilizadores.levelid, count(pireps.id), sum(pireps.eps_granted), adminlevel.name, user_level.name, utilizadores.levelid from utilizadores left join user_level on utilizadores.levelid = user_level.levelid left join adminlevel on utilizadores.stafflevel = adminlevel.level left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email and pireps.accepted = 1 order by pireps.date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -100,8 +100,11 @@ namespace PilotCenterTSZ
                         LevelID = (int)sqlCmdRes[12];
                         TotalFlights = Convert.ToInt32(sqlCmdRes[13]);
                         SumTotalFlights = Convert.ToInt32(sqlCmdRes[14]);
-                        StaffTeam = (string)sqlCmdRes[15];
-                        StaffName = (string)sqlCmdRes[16];
+                        if ((int)sqlCmdRes[17] < 3)
+                        {
+                            StaffTeam = (string)sqlCmdRes[15];
+                            StaffName = (string)sqlCmdRes[16];
+                        }
 
                         MediaTotalFlights = SumTotalFlights / TotalFlights;
                     }
