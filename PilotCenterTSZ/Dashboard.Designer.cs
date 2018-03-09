@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinimize = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnExitApp = new Bunifu.Framework.UI.BunifuTileButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
             this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.myLogBookCtrl = new PilotCenterTSZ.UI.MyLogBookCtrl();
             this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
             this.pilotCarrer = new PilotCenterTSZ.UI.PilotCarrer();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.PilotCarrerTick = new System.Windows.Forms.Timer(this.components);
             this.Clock = new System.Windows.Forms.Timer(this.components);
             this.lblClock = new System.Windows.Forms.Label();
@@ -66,11 +68,11 @@
             this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
             this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
             this.pilotAccountCtrl.TabIndex = 99;
-
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panel1.Controls.Add(this.btnMinimize);
             this.panel1.Controls.Add(this.btnExitApp);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pBarFlightTimeEnd);
@@ -81,6 +83,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1149, 77);
             this.panel1.TabIndex = 96;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnMinimize.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnMinimize.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimize.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::PilotCenterTSZ.Properties.Resources.Minimize_Box_Blue;
+            this.btnMinimize.ImagePosition = 0;
+            this.btnMinimize.ImageZoom = 100;
+            this.btnMinimize.LabelPosition = 0;
+            this.btnMinimize.LabelText = "";
+            this.btnMinimize.Location = new System.Drawing.Point(1046, 5);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(6);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(40, 40);
+            this.btnMinimize.TabIndex = 103;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnExitApp
             // 
@@ -314,7 +336,7 @@
             this.btnAdminCenterFrm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdminCenterFrm.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.btnAdminCenterFrm.ForeColor = System.Drawing.Color.White;
-            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
+            this.btnAdminCenterFrm.Image = global::PilotCenterTSZ.Properties.Resources.businessman;
             this.btnAdminCenterFrm.ImagePosition = 0;
             this.btnAdminCenterFrm.ImageZoom = 95;
             this.btnAdminCenterFrm.LabelPosition = 0;
@@ -479,9 +501,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
-            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.liveVAMap);
             this.Controls.Add(this.lblClock);
+            this.Controls.Add(this.pilotAccountCtrl);
             this.Controls.Add(this.pilotCarrer);
             this.Controls.Add(this.myLogBookCtrl);
             this.Controls.Add(this.flightAssignmentCtrl);
@@ -489,6 +511,7 @@
             this.Controls.Add(this.pMenuBar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -529,6 +552,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnLiveVaMap;
         private UI.LiveVAMap liveVAMap;
         private System.Windows.Forms.Timer LiveMapTick;
+        public Bunifu.Framework.UI.BunifuTileButton btnMinimize;
     }
 }
 

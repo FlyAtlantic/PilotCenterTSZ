@@ -117,6 +117,36 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUI\AdminDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminDash.Designer.cs">
+      <DependentUpon>AdminDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AllFlightsCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AllFlightsCtrl.Designer.cs">
+      <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ButtonTeamAreaCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ButtonTeamAreaCtrl.Designer.cs">
+      <DependentUpon>ButtonTeamAreaCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\PilotListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\PilotListCtrl.Designer.cs">
+      <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\Teams\HubManagerCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Teams\HubManagerCtrl.Designer.cs">
+      <DependentUpon>HubManagerCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +223,21 @@
     <Compile Include="UI\PilotCarrer.Designer.cs">
       <DependentUpon>PilotCarrer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminUI\AdminDash.resx">
+      <DependentUpon>AdminDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\AllFlightsCtrl.resx">
+      <DependentUpon>AllFlightsCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\ButtonTeamAreaCtrl.resx">
+      <DependentUpon>ButtonTeamAreaCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\PilotListCtrl.resx">
+      <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Teams\HubManagerCtrl.resx">
+      <DependentUpon>HubManagerCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -321,10 +366,6 @@
     <None Include="Resources\B767.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdminCenter\AdminCenter.csproj">
-      <Project>{14c9ace5-9fe0-495b-a8a6-e5268d414d1c}</Project>
-      <Name>AdminCenter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ExamCenterUpdate\ExamCenterUpdate.csproj">
       <Project>{2b047db0-e6ae-4a01-974e-d1253d73ca51}</Project>
       <Name>ExamCenterUpdate</Name>
@@ -350,6 +391,9 @@
     <None Include="Resources\lxgb.png" />
     <None Include="Resources\rvsmetops.png" />
     <None Include="Resources\2000px-Oxygen480-actions-system-shutdown.svg.png" />
+    <None Include="Resources\Minimize_Box_Blue.png" />
+    <None Include="Resources\pilot_resume-256.png" />
+    <None Include="Resources\businessman.png" />
     <Content Include="tszbanner.ico" />
   </ItemGroup>
   <ItemGroup>
