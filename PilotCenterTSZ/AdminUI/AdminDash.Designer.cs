@@ -38,7 +38,7 @@
             this.pMenuBar = new System.Windows.Forms.Panel();
             this.flowTeamArea = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTeam = new System.Windows.Forms.Label();
-            this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnStatistics = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAllFlights = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPilotList = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
@@ -141,7 +141,7 @@
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.pMenuBar.Controls.Add(this.flowTeamArea);
-            this.pMenuBar.Controls.Add(this.btnLogBook);
+            this.pMenuBar.Controls.Add(this.btnStatistics);
             this.pMenuBar.Controls.Add(this.btnAllFlights);
             this.pMenuBar.Controls.Add(this.btnPilotList);
             this.pMenuBar.Controls.Add(this.btnRefresh);
@@ -172,40 +172,40 @@
             this.lblTeam.Text = "label1";
             this.lblTeam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogBook
+            // btnStatistics
             // 
-            this.btnLogBook.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
-            this.btnLogBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnLogBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogBook.BorderRadius = 0;
-            this.btnLogBook.ButtonText = "LogBook";
-            this.btnLogBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogBook.DisabledColor = System.Drawing.Color.Gray;
-            this.btnLogBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogBook.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnLogBook.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogBook.Iconimage")));
-            this.btnLogBook.Iconimage_right = null;
-            this.btnLogBook.Iconimage_right_Selected = null;
-            this.btnLogBook.Iconimage_Selected = null;
-            this.btnLogBook.IconMarginLeft = 0;
-            this.btnLogBook.IconMarginRight = 0;
-            this.btnLogBook.IconRightVisible = true;
-            this.btnLogBook.IconRightZoom = 0D;
-            this.btnLogBook.IconVisible = true;
-            this.btnLogBook.IconZoom = 90D;
-            this.btnLogBook.IsTab = false;
-            this.btnLogBook.Location = new System.Drawing.Point(0, 229);
-            this.btnLogBook.Name = "btnLogBook";
-            this.btnLogBook.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.btnLogBook.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
-            this.btnLogBook.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLogBook.selected = false;
-            this.btnLogBook.Size = new System.Drawing.Size(238, 48);
-            this.btnLogBook.TabIndex = 5;
-            this.btnLogBook.Text = "LogBook";
-            this.btnLogBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogBook.Textcolor = System.Drawing.Color.White;
-            this.btnLogBook.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistics.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnStatistics.BorderRadius = 0;
+            this.btnStatistics.ButtonText = "VA Statistics";
+            this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatistics.DisabledColor = System.Drawing.Color.Gray;
+            this.btnStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistics.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnStatistics.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnStatistics.Iconimage")));
+            this.btnStatistics.Iconimage_right = null;
+            this.btnStatistics.Iconimage_right_Selected = null;
+            this.btnStatistics.Iconimage_Selected = null;
+            this.btnStatistics.IconMarginLeft = 0;
+            this.btnStatistics.IconMarginRight = 0;
+            this.btnStatistics.IconRightVisible = true;
+            this.btnStatistics.IconRightZoom = 0D;
+            this.btnStatistics.IconVisible = true;
+            this.btnStatistics.IconZoom = 90D;
+            this.btnStatistics.IsTab = false;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 229);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnStatistics.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnStatistics.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnStatistics.selected = false;
+            this.btnStatistics.Size = new System.Drawing.Size(238, 48);
+            this.btnStatistics.TabIndex = 5;
+            this.btnStatistics.Text = "VA Statistics";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Textcolor = System.Drawing.Color.White;
+            this.btnStatistics.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnAllFlights
             // 
@@ -387,16 +387,16 @@
         private Bunifu.Framework.UI.BunifuTileButton btnRefresh;
         private Bunifu.Framework.UI.BunifuFlatButton btnAllFlights;
         private Bunifu.Framework.UI.BunifuFlatButton btnPilotList;
-        private Bunifu.Framework.UI.BunifuFlatButton btnLogBook;
+        private Bunifu.Framework.UI.BunifuFlatButton btnStatistics;
         private Bunifu.Framework.UI.BunifuTileButton btnPilotCenterFrm;
         public Bunifu.Framework.UI.BunifuTileButton btnExitApp;
         public Bunifu.Framework.UI.BunifuTileButton btnMinimize;
         private System.Windows.Forms.Timer ClockAdmin;
         private AdminUI.PilotListCtrl pilotListCtrl;
-        private AdminUI.AllFlightsCtrl allFlightsCtrl;
         private System.Windows.Forms.FlowLayoutPanel flowTeamArea;
         private System.Windows.Forms.Label lblTeam;
         private AdminUI.Teams.HubManagerCtrl hubManagerCtrl;
+        public AdminUI.AllFlightsCtrl allFlightsCtrl;
     }
 }
 

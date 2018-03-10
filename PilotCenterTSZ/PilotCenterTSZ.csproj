@@ -141,6 +141,12 @@
     <Compile Include="AdminUI\PilotListCtrl.Designer.cs">
       <DependentUpon>PilotListCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\Teams\FlightViewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Teams\FlightViewCtrl.Designer.cs">
+      <DependentUpon>FlightViewCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUI\Teams\HubManagerCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUI\PilotListCtrl.resx">
       <DependentUpon>PilotListCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Teams\FlightViewCtrl.resx">
+      <DependentUpon>FlightViewCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUI\Teams\HubManagerCtrl.resx">
       <DependentUpon>HubManagerCtrl.cs</DependentUpon>

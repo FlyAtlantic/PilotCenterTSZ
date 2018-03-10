@@ -1315,6 +1315,9 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public DateTime PirepDate
         { get; set; }
 
+        public int FlightTime
+        { get; set; }
+
         public string UserName
         { get; set; }
 
@@ -1348,16 +1351,38 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
         public int TotalFlights
         { get; set; }
 
+        public DateTime TimePenalization
+        { get; set; }
+
+        public string CodePenalization
+        { get; set; }
+
+        public int DiscountPenalization
+        { get; set; }
+
+        public string DiscriptionPenalization
+        { get; set; }
+
         public static List<AdminAllFlights> GetAdminAllFlights()
         {
             return (List<AdminAllFlights>)new MySqlConnection(Login.ConnectionString).Query<AdminAllFlights>(
-                @"select pireps.id as PirepID, pireps.date as PirepDate, utilizadores.user_nome as UserName, utilizadores.user_apelido as UserSurname, flights.departure as Departure, flights.destination as Arrival, flights.aircraft as Aircraft, pireps.`ft/pm` as Touch, pireps.sum as Sum, pireps.eps_granted as Eps, pireps.obs as Obs, flights.callsign as Callsign from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where accepted = 1 order by pireps.id desc");
+                @"select pireps.id as PirepID, pireps.date as PirepDate, pireps.flighttime as FlightTime, utilizadores.user_nome as UserName, utilizadores.user_apelido as UserSurname, flights.departure as Departure, flights.destination as Arrival, flights.aircraft as Aircraft, pireps.`ft/pm` as Touch, pireps.sum as Sum, pireps.eps_granted as Eps, pireps.obs as Obs, flights.callsign as Callsign from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where accepted = 1 order by pireps.id desc");
         }
 
         public static List<AdminAllFlights> GetTotalFlights()
         {
             return (List<AdminAllFlights>)new MySqlConnection(Login.ConnectionString).Query<AdminAllFlights>(
                 @"select count(id) as TotalFlights from pireps where accepted = 1");
+        }
+
+        public static List<AdminAllFlights> GetPenalizations(int pirepID)
+        {
+            return (List<AdminAllFlights>)new MySqlConnection(Login.ConnectionString).Query<AdminAllFlights>(
+                @"select penalizations.datepenalization as TimePenalization, penalizations_events.code as CodePenalization, penalizations_events.discount as DiscountPenalization, penalizations_events.discription as DiscriptionPenalization from penalizations left join penalizations_events on penalizations.code = penalizations_events.code left join pireps on penalizations.pirepid = pireps.id where pirepid=@PirepID order by datepenalization asc",
+            new
+            {
+                PirepID = pirepID
+            });
         }
     }
 }

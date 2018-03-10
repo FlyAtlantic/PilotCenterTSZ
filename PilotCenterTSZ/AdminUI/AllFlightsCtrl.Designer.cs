@@ -31,6 +31,7 @@
             this.lstFlights = new System.Windows.Forms.ListView();
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,6 +43,7 @@
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalFlights = new System.Windows.Forms.Label();
+            this.flightViewCtrl = new PilotCenterTSZ.AdminUI.Teams.FlightViewCtrl();
             this.SuspendLayout();
             // 
             // lstFlights
@@ -49,6 +51,7 @@
             this.lstFlights.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader17,
             this.columnHeader18,
+            this.columnHeader1,
             this.columnHeader19,
             this.columnHeader20,
             this.columnHeader21,
@@ -67,6 +70,7 @@
             this.lstFlights.UseCompatibleStateImageBehavior = false;
             this.lstFlights.View = System.Windows.Forms.View.Details;
             this.lstFlights.SelectedIndexChanged += new System.EventHandler(this.lstFlights_SelectedIndexChanged);
+            this.lstFlights.DoubleClick += new System.EventHandler(this.lstFlights_DoubleClick);
             // 
             // columnHeader17
             // 
@@ -75,6 +79,10 @@
             // columnHeader18
             // 
             this.columnHeader18.Text = "Date";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Flight Time";
             // 
             // columnHeader19
             // 
@@ -134,10 +142,19 @@
             this.lblTotalFlights.TabIndex = 3;
             this.lblTotalFlights.Text = "Total Flights: 1000";
             // 
+            // flightViewCtrl
+            // 
+            this.flightViewCtrl.Location = new System.Drawing.Point(3, 3);
+            this.flightViewCtrl.Name = "flightViewCtrl";
+            this.flightViewCtrl.Size = new System.Drawing.Size(887, 522);
+            this.flightViewCtrl.TabIndex = 4;
+            this.flightViewCtrl.Visible = false;
+            // 
             // AllFlightsCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.flightViewCtrl);
             this.Controls.Add(this.lblTotalFlights);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstFlights);
@@ -150,8 +167,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView lstFlights;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.ColumnHeader columnHeader18;
@@ -165,5 +180,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader26;
         private System.Windows.Forms.ColumnHeader columnHeader27;
         private System.Windows.Forms.Label lblTotalFlights;
+        private Teams.FlightViewCtrl flightViewCtrl;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        public System.Windows.Forms.ListView lstFlights;
     }
 }
