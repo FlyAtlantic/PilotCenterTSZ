@@ -144,7 +144,7 @@ namespace PilotCenterTSZ.UI
 
                         progress = (a.Eps * 100) / p.Eps;
 
-                        lblJS41.Text = String.Format("{0}% to Complete", progress);
+                        lblDH8D.Text = String.Format("{0}% to Complete", progress);
 
                         if (progress >= 100)
                         {
@@ -390,9 +390,9 @@ namespace PilotCenterTSZ.UI
                         }
                         else
                         {
-                            pbarJS41.Value = progress;
-                            lblJS41.Visible = true;
-                            lblJS41.ForeColor = Color.MediumBlue;
+                            pbarB744.Value = progress;
+                            lblB744.Visible = true;
+                            lblB744.ForeColor = Color.MediumBlue;
 
                             if (progress < 100 && progress >= 50)
                                 pbarB744.ProgressColor = Color.Goldenrod;
