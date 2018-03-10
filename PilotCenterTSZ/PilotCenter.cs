@@ -1385,5 +1385,62 @@ from qualificationsname left join utilizadores on qualificationsname.rank <= uti
             });
         }
     }
+
+    public class AdminHubRoutes
+    {
+        public string Callsign
+        { get; set; }
+
+        public string Aircraft
+        { get; set; }
+
+        public string Departure
+        { get; set; }
+
+        public string Arrival
+        { get; set; }
+
+        public string Alternate
+        { get; set; }
+
+        public string Route
+        { get; set; }
+
+        public string Altitude
+        { get; set; }
+
+        public TimeSpan FlightTime
+        { get; set; }
+
+        public string Briefing
+        { get; set; }
+
+        public string Qualification
+        { get; set; }
+
+        public string Hub
+        { get; set; }
+
+        public static List<AdminHubRoutes> GetHubRoutes(string hub)
+        {
+            return (List<AdminHubRoutes>)new MySqlConnection(Login.ConnectionString).Query<AdminHubRoutes>(
+                @"select callsign as Callsign, aircraft as Aircraft, departure as Departure, destination as Arrival, alternate as Alternate, route as Route, altitude as Altitude, flighttime as FlightTime, briefing as Briefing, qualificationsname.name as Qualification, hubs.icao as Hub from flights left join qualificationsname on flights.qualification_need = qualificationsname.id left join hubs on flights.hub = hubs.id where hubs.icao = @HUB",
+             new
+             {
+                 HUB = hub
+             });
+        }
+
+        public static List<AdminHubRoutes> GetHubRoutesByAircraft(string hub, string aircraft)
+        {
+            return (List<AdminHubRoutes>)new MySqlConnection(Login.ConnectionString).Query<AdminHubRoutes>(
+                @"select callsign as Callsign, aircraft as Aircraft, departure as Departure, destination as Arrival, alternate as Alternate, route as Route, altitude as Altitude, flighttime as FlightTime, briefing as Briefing, qualificationsname.name as Qualification, hubs.icao as Hub from flights left join qualificationsname on flights.qualification_need = qualificationsname.id left join hubs on flights.hub = hubs.id where hubs.icao = @HUB and flights.aircraft = @Aircraft",
+             new
+             {
+                 HUB = hub,
+                 Aircraft = aircraft
+             });
+        }
+    }
 }
 

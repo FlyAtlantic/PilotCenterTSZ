@@ -52,5 +52,9 @@ namespace PilotCenterTSZ
             get { return this; }
         }
 
+        private void imgStartImg_Click(object sender, EventArgs e)
+        {
+            SendToBack();
+        }
     }
 }

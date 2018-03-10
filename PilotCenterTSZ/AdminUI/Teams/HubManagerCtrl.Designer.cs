@@ -29,9 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HubManagerCtrl));
-            this.btnViewRoutes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblHubInfo = new System.Windows.Forms.Label();
+            this.btnViewRoutes = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.viewHubRoutesCtrl1 = new PilotCenterTSZ.AdminUI.Teams.ViewHubRoutesCtrl();
             this.SuspendLayout();
+            // 
+            // lblHubInfo
+            // 
+            this.lblHubInfo.AutoSize = true;
+            this.lblHubInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHubInfo.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblHubInfo.Location = new System.Drawing.Point(18, 12);
+            this.lblHubInfo.Name = "lblHubInfo";
+            this.lblHubInfo.Size = new System.Drawing.Size(73, 21);
+            this.lblHubInfo.TabIndex = 8;
+            this.lblHubInfo.Text = "HubInfo";
             // 
             // btnViewRoutes
             // 
@@ -67,22 +79,21 @@
             this.btnViewRoutes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewRoutes.Textcolor = System.Drawing.Color.White;
             this.btnViewRoutes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewRoutes.Click += new System.EventHandler(this.btnViewRoutes_Click);
             // 
-            // lblHubInfo
+            // viewHubRoutesCtrl1
             // 
-            this.lblHubInfo.AutoSize = true;
-            this.lblHubInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHubInfo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblHubInfo.Location = new System.Drawing.Point(18, 12);
-            this.lblHubInfo.Name = "lblHubInfo";
-            this.lblHubInfo.Size = new System.Drawing.Size(73, 21);
-            this.lblHubInfo.TabIndex = 8;
-            this.lblHubInfo.Text = "HubInfo";
+            this.viewHubRoutesCtrl1.Location = new System.Drawing.Point(-3, 0);
+            this.viewHubRoutesCtrl1.Name = "viewHubRoutesCtrl1";
+            this.viewHubRoutesCtrl1.Size = new System.Drawing.Size(908, 500);
+            this.viewHubRoutesCtrl1.TabIndex = 9;
+            this.viewHubRoutesCtrl1.Visible = false;
             // 
             // HubManagerCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.viewHubRoutesCtrl1);
             this.Controls.Add(this.lblHubInfo);
             this.Controls.Add(this.btnViewRoutes);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -97,5 +108,6 @@
 
         private Bunifu.Framework.UI.BunifuFlatButton btnViewRoutes;
         private System.Windows.Forms.Label lblHubInfo;
+        public ViewHubRoutesCtrl viewHubRoutesCtrl1;
     }
 }

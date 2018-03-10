@@ -31,13 +31,11 @@ namespace PilotCenterTSZ.UI
 
             IDP = idp;
 
-            FlightsClimbGraphic();
-
-            FlightsDescentGraphic();
-
             lblFlightInfo.Text = String.Format("{0} {1}-{2} {3}   FlightTime: {4}", idf, dep, arr, aircraft, time);
 
             FlightMap();
+
+            Penalizations();
         }
 
         public MyFlightView()
@@ -131,118 +129,99 @@ namespace PilotCenterTSZ.UI
                 });
         }
 
-        public void FlightsClimbGraphic()
+        public void Penalizations()
         {
-            var chart = chartFlightsClimbGraphic.ChartAreas[0];
-            chart.AxisX.IntervalType = DateTimeIntervalType.Number;
-
-            chart.AxisX.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.IsEndLabelVisible = true;
-
-            chart.AxisX.Minimum = 0;
-            chart.AxisX.Maximum = 60;
-            chart.AxisX.Interval = 5;
-
-            chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 10000;
-            chart.AxisY.Interval = 2000;
-
-            chartFlightsClimbGraphic.Series.Clear();
-            chartFlightsClimbGraphic.Series.Add("# chartFlightsClimbGraphic");
-            chartFlightsClimbGraphic.Series["# chartFlightsClimbGraphic"].ChartType = SeriesChartType.FastLine;
-            chartFlightsClimbGraphic.Series["# chartFlightsClimbGraphic"].Color = Color.MediumBlue;
-            chartFlightsClimbGraphic.Series[0].IsVisibleInLegend = false;
-
-            int i = 1;
-            int min = 0;
-            int temp = 0;
-            int diff = 0;
-
-            foreach (FlightLog l in FlightLog.GetClimb(IDF, IDP))
+            foreach (AdminAllFlights p in AdminAllFlights.GetPenalizations(IDP))
             {
-                if (l.Time.Minute != temp)
-                {
-                    if (temp != 0)
-                        if (temp > l.Time.Minute)
-                            diff = (l.Time.Minute - temp) + 60;
-                        else
-                            diff = l.Time.Minute - temp;
-                    else
-                        min = 1;
-
-                    int total = min + diff;
-
-                    if (total > l.Time.Minute)
-                        temp = l.Time.Minute + 60;
-                    else
-                        temp = l.Time.Minute;
-
-                    min = total;
-
-                    chartFlightsClimbGraphic.Series["# chartFlightsClimbGraphic"].Points.AddXY(total, l.Alt);
-
-                }
-
+                lstPenalizations.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lstPenalizations.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                lstPenalizations.Items.Add(new ListViewItem(new string[] {
+                    p.TimePenalization.ToString(),
+                    p.CodePenalization,
+                    p.DiscriptionPenalization,
+                    p.DiscountPenalization.ToString()
+                }));
             }
-
         }
 
-        public void FlightsDescentGraphic()
+        private void lstPenalizations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var chart = chartFlightsDescentGraphic.ChartAreas[0];
-            chart.AxisX.IntervalType = DateTimeIntervalType.Number;
-
-            chart.AxisX.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.Format = "";
-            chart.AxisY.LabelStyle.IsEndLabelVisible = true;
-
-            chart.AxisX.Minimum = 0;
-            chart.AxisX.Maximum = 60;
-            chart.AxisX.Interval = 5;
-
-            chart.AxisY.Minimum = 0;
-            chart.AxisY.Maximum = 10000;
-            chart.AxisY.Interval = 2000;
-
-            chartFlightsDescentGraphic.Series.Clear();
-            chartFlightsDescentGraphic.Series.Add("# chartFlightsDescentGraphic");
-            chartFlightsDescentGraphic.Series["# chartFlightsDescentGraphic"].ChartType = SeriesChartType.FastLine;
-            chartFlightsDescentGraphic.Series["# chartFlightsDescentGraphic"].Color = Color.MediumBlue;
-            chartFlightsDescentGraphic.Series[0].IsVisibleInLegend = false;
-
-            int i = 1;
-            int min = 0;
-            int temp = 0;
-            int diff = 0;
-
-            foreach (FlightLog l in FlightLog.GetDescent(IDF, IDP))
-            {
-                if (l.Time.Minute != temp)
+            if (lstPenalizations.SelectedItems.Count > 0) {
+                switch (lstPenalizations.SelectedItems[0].SubItems[1].Text)
                 {
-                    if (temp != 0)
-                        if (temp > l.Time.Minute)
-                            diff = (l.Time.Minute - temp) + 60;
-                        else
-                            diff = l.Time.Minute - temp;
-                    else
-                        min = 1;
+                    case "2A":
+                        label1.Text = "The event occurs when the aircraft makes a return of more than 30 degrees";
+                        break;
 
-                    int total = min + diff;
+                    case "3A":
+                        label1.Text = "The event occurs when the landing lights are on above 10,000 feet";
+                        break;
 
-                    if (total > l.Time.Minute)
-                        temp = l.Time.Minute + 60;
-                    else
-                        temp = l.Time.Minute;
+                    case "3B":
+                        label1.Text = "The event occurs when the landing lights are off on approach phase";
+                        break;
 
-                    min = total;
+                    case "3C":
+                        label1.Text = "The event occurs when the aircraft maintains an indicated speed greater than 250 knots below 10,000 feet";
+                        break;
 
-                    chartFlightsDescentGraphic.Series["# chartFlightsDescentGraphic"].Points.AddXY(total, l.Alt);
+                    case "3D":
+                        label1.Text = "The event occurs when the aircraft maintains an ground speed greater than 25 knots on taxi for departure";
+                        break;
+
+                    case "3E":
+                        label1.Text = "The event occurs when the aircraft maintains an ground speed greater than 25 knots on taxi to gate";
+                        break;
+
+                    case "4A":
+                        label1.Text = "The event occurs when the aircraft maintains an indicated speed greater than 250 knots with landing lights on";
+                        break;
+
+                    case "4B":
+                        label1.Text = "The event occurs when the aircraft keeps the landing lights off during take-off";
+                        break;
+
+                    case "4C":
+                        label1.Text = "The event occurs when the aircraft maintains an incline greater than 20 degrees below 1500 feet (Radio Altimeter)";
+                        break;
+
+                    case "4D":
+                        label1.Text = "The event occurs when the aircraft keeps the landing gear down at a speed exceeding 250 knots indicated";
+                        break;
+
+                    case "5A":
+                        label1.Text = "The event occurs when the pilot makes his flight disconnected from the VATSIM network";
+                        break;
+
+                    case "5C":
+                        label1.Text = "The event occurs when the aircraft effects a touchdown of less than -400 ft per minute";
+                        break;
+
+                    case "6A":
+                        label1.Text = "The event occurs when the aircraft takes off with a weight greater than its maximum take-off weight";
+                        break;
+
+                    case "6B":
+                        label1.Text = "The event occurs when the aircraft lands at a weight greater than its maximum landing weight";
+                        break;
+
+                    case "6C":
+                        label1.Text = "The event occurs when the aircraft is flying at an altitude above its maximum service ceiling";
+                        break;
+
+                    case "6D":
+                        label1.Text = "The event occurs when the aircraft is flying at a speed greater than its maximum flap speed";
+                        break;
+
+                    case "7B":
+                        label1.Text = "The event occurs when the aircraft is flying with a pitch greater than 30 degrees";
+                        break;
+
+                    default:
+                        break;
 
                 }
-
             }
-
         }
     }
 }

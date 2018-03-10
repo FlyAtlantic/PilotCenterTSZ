@@ -28,19 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnBack = new System.Windows.Forms.Button();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
-            this.chartFlightsClimbGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartFlightsDescentGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblFlightInfo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsClimbGraphic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDescentGraphic)).BeginInit();
+            this.lstPenalizations = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -79,41 +75,9 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(467, 286);
+            this.gMapControl1.Size = new System.Drawing.Size(424, 272);
             this.gMapControl1.TabIndex = 6;
             this.gMapControl1.Zoom = 0D;
-            // 
-            // chartFlightsClimbGraphic
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chartFlightsClimbGraphic.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartFlightsClimbGraphic.Legends.Add(legend3);
-            this.chartFlightsClimbGraphic.Location = new System.Drawing.Point(536, 38);
-            this.chartFlightsClimbGraphic.Name = "chartFlightsClimbGraphic";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartFlightsClimbGraphic.Series.Add(series3);
-            this.chartFlightsClimbGraphic.Size = new System.Drawing.Size(348, 170);
-            this.chartFlightsClimbGraphic.TabIndex = 7;
-            this.chartFlightsClimbGraphic.Text = "chart1";
-            // 
-            // chartFlightsDescentGraphic
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chartFlightsDescentGraphic.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartFlightsDescentGraphic.Legends.Add(legend4);
-            this.chartFlightsDescentGraphic.Location = new System.Drawing.Point(536, 214);
-            this.chartFlightsDescentGraphic.Name = "chartFlightsDescentGraphic";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartFlightsDescentGraphic.Series.Add(series4);
-            this.chartFlightsDescentGraphic.Size = new System.Drawing.Size(348, 170);
-            this.chartFlightsDescentGraphic.TabIndex = 8;
-            this.chartFlightsDescentGraphic.Text = "chart1";
             // 
             // lblFlightInfo
             // 
@@ -126,19 +90,60 @@
             this.lblFlightInfo.TabIndex = 9;
             this.lblFlightInfo.Text = "label1";
             // 
+            // lstPenalizations
+            // 
+            this.lstPenalizations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lstPenalizations.FullRowSelect = true;
+            this.lstPenalizations.Location = new System.Drawing.Point(499, 38);
+            this.lstPenalizations.MultiSelect = false;
+            this.lstPenalizations.Name = "lstPenalizations";
+            this.lstPenalizations.Size = new System.Drawing.Size(385, 272);
+            this.lstPenalizations.TabIndex = 14;
+            this.lstPenalizations.UseCompatibleStateImageBehavior = false;
+            this.lstPenalizations.View = System.Windows.Forms.View.Details;
+            this.lstPenalizations.SelectedIndexChanged += new System.EventHandler(this.lstPenalizations_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Time";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Code";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Discription";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Discount";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(496, 334);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(388, 72);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
+            // 
             // MyFlightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lstPenalizations);
             this.Controls.Add(this.lblFlightInfo);
-            this.Controls.Add(this.chartFlightsDescentGraphic);
-            this.Controls.Add(this.chartFlightsClimbGraphic);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.btnBack);
             this.Name = "MyFlightView";
             this.Size = new System.Drawing.Size(887, 500);
-            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsClimbGraphic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDescentGraphic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,8 +153,12 @@
 
         private System.Windows.Forms.Button btnBack;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartFlightsClimbGraphic;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartFlightsDescentGraphic;
         private System.Windows.Forms.Label lblFlightInfo;
+        private System.Windows.Forms.ListView lstPenalizations;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label1;
     }
 }

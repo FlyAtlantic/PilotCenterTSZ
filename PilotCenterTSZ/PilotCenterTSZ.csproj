@@ -153,6 +153,12 @@
     <Compile Include="AdminUI\Teams\HubManagerCtrl.Designer.cs">
       <DependentUpon>HubManagerCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\Teams\ViewHubRoutesCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Teams\ViewHubRoutesCtrl.Designer.cs">
+      <DependentUpon>ViewHubRoutesCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     <EmbeddedResource Include="AdminUI\Teams\HubManagerCtrl.resx">
       <DependentUpon>HubManagerCtrl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Teams\ViewHubRoutesCtrl.resx">
+      <DependentUpon>ViewHubRoutesCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -261,6 +270,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StartImage.resx">
+      <DependentUpon>StartImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AwardHourReceive.resx">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
     </EmbeddedResource>

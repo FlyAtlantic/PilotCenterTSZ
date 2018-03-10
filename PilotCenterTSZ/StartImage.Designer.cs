@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgStartImg = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.imgStartImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgStartImg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imgStartImg
-            // 
-            this.imgStartImg.Image = global::PilotCenterTSZ.Properties.Resources.lg_TSZ;
-            this.imgStartImg.Location = new System.Drawing.Point(0, 0);
-            this.imgStartImg.Name = "imgStartImg";
-            this.imgStartImg.Size = new System.Drawing.Size(827, 319);
-            this.imgStartImg.TabIndex = 0;
-            this.imgStartImg.TabStop = false;
             // 
             // label1
             // 
@@ -53,6 +44,16 @@
             this.label1.Size = new System.Drawing.Size(121, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Version 1.0.0.0";
+            // 
+            // imgStartImg
+            // 
+            this.imgStartImg.Image = global::PilotCenterTSZ.Properties.Resources.lg_TSZ;
+            this.imgStartImg.Location = new System.Drawing.Point(0, 0);
+            this.imgStartImg.Name = "imgStartImg";
+            this.imgStartImg.Size = new System.Drawing.Size(827, 319);
+            this.imgStartImg.TabIndex = 0;
+            this.imgStartImg.TabStop = false;
+            this.imgStartImg.Click += new System.EventHandler(this.imgStartImg_Click);
             // 
             // StartImage
             // 

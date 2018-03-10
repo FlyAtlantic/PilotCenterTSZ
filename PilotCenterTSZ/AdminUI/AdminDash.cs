@@ -65,7 +65,7 @@ namespace PilotCenterTSZ
                                 var ButtonHQ3 = new ButtonTeamAreaCtrl("Flight Team", 3);
                                 ButtonHQ3.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonHQ3;
 
-                                var ButtonHQ4 = new ButtonTeamAreaCtrl("Comunication", 0);
+                                var ButtonHQ4 = new ButtonTeamAreaCtrl("----", 0);
                                 ButtonHQ4.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonHQ4;
 
                                 flowTeamArea.Controls.Add(ButtonHQ1);
@@ -78,7 +78,7 @@ namespace PilotCenterTSZ
                                 var ButtonET1 = new ButtonTeamAreaCtrl("Event Manager", TeamTag);
                                 ButtonET1.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonET1;
 
-                                var ButtonET2 = new ButtonTeamAreaCtrl("Comunication", 0);
+                                var ButtonET2 = new ButtonTeamAreaCtrl("----", 0);
                                 ButtonET2.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonET2;
 
                                 flowTeamArea.Controls.Add(ButtonET1);
@@ -89,7 +89,7 @@ namespace PilotCenterTSZ
                                 var ButtonFT1 = new ButtonTeamAreaCtrl("Hub Manager", TeamTag);
                                 ButtonFT1.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonFT1;
 
-                                var ButtonFT2 = new ButtonTeamAreaCtrl("Comunication", 0);
+                                var ButtonFT2 = new ButtonTeamAreaCtrl("----", 0);
                                 ButtonFT2.OnClickButtonTeamAreaCtrl += Button_OnClickButtonTeamAreaCtrlButtonFT2;
 
                                 flowTeamArea.Controls.Add(ButtonFT1);
@@ -145,6 +145,7 @@ namespace PilotCenterTSZ
         {
             Hides();
             hubManagerCtrl.GetHub(a.Hub);
+            hubManagerCtrl.viewHubRoutesCtrl1.GetRoutes(a.Hub);
             hubManagerCtrl.Show();
         }
 
