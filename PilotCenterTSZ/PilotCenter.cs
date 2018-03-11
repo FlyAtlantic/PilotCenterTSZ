@@ -85,28 +85,36 @@ namespace PilotCenterTSZ
                         Rank = (string)sqlCmdRes[3];
                         Rate = (string)sqlCmdRes[4];
                         Callsign = (int)sqlCmdRes[5];
-                        PilotHours = TimeSpan.FromMinutes((float)sqlCmdRes[6]);
-                        if ((float)sqlCmdRes[6] > 0)
-                        {
-                            LastFlight = (DateTime)sqlCmdRes[7];
+
+                        if ((float)sqlCmdRes[6] > 0) {
+                            PilotHours = TimeSpan.FromMinutes((float)sqlCmdRes[6]);
+                            if ((float)sqlCmdRes[6] > 0)
+                            {
+                                LastFlight = (DateTime)sqlCmdRes[7];
+                            }
                         }
+
                         Hub = (string)sqlCmdRes[8];
+
                         if ((string)sqlCmdRes[9] != "")
                             Location = (string)sqlCmdRes[9];
                         else
                             Location = (string)sqlCmdRes[8];
+
                         Eps = (int)sqlCmdRes[10];
                         RankID = (int)sqlCmdRes[11];
                         LevelID = (int)sqlCmdRes[12];
-                        TotalFlights = Convert.ToInt32(sqlCmdRes[13]);
-                        SumTotalFlights = Convert.ToInt32(sqlCmdRes[14]);
-                        if ((int)sqlCmdRes[17] < 3)
-                        {
-                            StaffTeam = (string)sqlCmdRes[15];
-                            StaffName = (string)sqlCmdRes[16];
-                        }
+                        if (Convert.ToInt32(sqlCmdRes[13]) > 0) {
+                            TotalFlights = Convert.ToInt32(sqlCmdRes[13]);
+                            SumTotalFlights = Convert.ToInt32(sqlCmdRes[14]);
+                            if ((int)sqlCmdRes[17] < 3)
+                            {
+                                StaffTeam = (string)sqlCmdRes[15];
+                                StaffName = (string)sqlCmdRes[16];
+                            }
 
-                        MediaTotalFlights = SumTotalFlights / TotalFlights;
+                            MediaTotalFlights = SumTotalFlights / TotalFlights;
+                        }
                     }
 
             }
