@@ -97,7 +97,7 @@ namespace PilotCenterTSZ
 
                     int RemainingDaysToFlightExpire = ((lf.DateOfFlightExpire - DateTime.UtcNow.Date).Days - 1);
 
-                    if (RemainingDaysToFlightExpire == -1)
+                    if (RemainingDaysToFlightExpire <= -1)
                     {
 
                         lblFlightAlert.Visible = false;
