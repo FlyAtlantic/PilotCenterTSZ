@@ -131,6 +131,7 @@ namespace PilotCenterTSZ.UI
 
         public void Penalizations()
         {
+            lstPenalizations.Items.Clear();
             foreach (AdminAllFlights p in AdminAllFlights.GetPenalizations(IDP))
             {
                 lstPenalizations.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);

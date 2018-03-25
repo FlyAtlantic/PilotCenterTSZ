@@ -934,6 +934,47 @@ namespace PilotCenterTSZ.UI
 
                 switch (q.NextRank)
                 {
+                    case "Student":
+
+                        q.GetTypePromotionExamAssign(q.NextRankID);
+
+                        imgPromotion.Image = Properties.Resources.student;
+                        btnPromotion.Tag = q.NextRankID;
+
+                        lblNextRank.Text = "Student";
+
+                        progressTypes = (q.CountType * 100) / q.MinType;
+
+                        progressQuals = 100;
+
+                        progress = (progressTypes + progressQuals) / 2;
+
+                        lblPromotion.Text = String.Format("{0}% to Complete", progress);
+
+                        if (progress >= 100)
+                        {
+                            pbarPromotion.Value = 100;
+                            lblPromotion.Visible = false;
+                            lblPromotion.ForeColor = Color.ForestGreen;
+                            if (q.ExamTypeAssign)
+                                btnPromotion.Visible = false;
+                            else
+                                btnPromotion.Visible = true;
+                        }
+                        else
+                        {
+                            pbarPromotion.Value = progress;
+                            lblPromotion.Visible = true;
+                            lblPromotion.ForeColor = Color.MediumBlue;
+
+                            if (progress < 100 && progress >= 50)
+                                pbarPromotion.ProgressColor = Color.Goldenrod;
+                            else if (progress < 50)
+                                pbarPromotion.ProgressColor = Color.Red;
+                        }
+
+                        break;
+
                     case "Senior Student":
 
                         q.GetTypePromotionExamAssign(q.NextRankID);

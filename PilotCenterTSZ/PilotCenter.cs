@@ -307,6 +307,26 @@ where user_email=@Email and qualification != 0",
                             AwardMinHours = 100;
                             AwardEps = 100;
                         }
+                        else if (AwardID == 4)
+                        {
+                            AwardMinHours = 150;
+                            AwardEps = 150;
+                        }
+                        else if (AwardID == 5)
+                        {
+                            AwardMinHours = 200;
+                            AwardEps = 200;
+                        }
+                        else if (AwardID == 6)
+                        {
+                            AwardMinHours = 250;
+                            AwardEps = 250;
+                        }
+                        else if (AwardID == 7)
+                        {
+                            AwardMinHours = 500;
+                            AwardEps = 300;
+                        }
                     }
             }
             catch (Exception crap)
