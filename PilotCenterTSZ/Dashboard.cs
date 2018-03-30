@@ -145,7 +145,8 @@ namespace PilotCenterTSZ
 
             LastFlight.UpdateRatingDate(lf.AircraftOfLastFlight, lf.DateOfLastFlight);
 
-            if (lf.QualificationNeed != 0) {
+            if (lf.QualificationNeed != 0)
+            {
                 LastFlight.UpdateQualificationDate(lf.QualificationNeed, lf.DateOfLastFlight);
             }
         }

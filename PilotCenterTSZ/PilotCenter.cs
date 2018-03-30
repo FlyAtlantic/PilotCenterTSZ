@@ -673,11 +673,15 @@ group by
                 {
                     while (sqlCmdRes.Read())
                     {
-                        DateOfLastFlight = (DateTime)sqlCmdRes[0];
-                        AircraftOfLastFlight = (string)sqlCmdRes[1];
-                        LastFlightID = (int)sqlCmdRes[2];
-                        DateOfFlightExpire = (DateTime)sqlCmdRes[3];
-                        QualificationNeed = (int)sqlCmdRes[4];
+                        var a = Convert.ToString(sqlCmdRes[1]);
+
+                        if (a != "") {
+                            DateOfLastFlight = (DateTime)sqlCmdRes[0];
+                            AircraftOfLastFlight = (string)sqlCmdRes[1];
+                            LastFlightID = (int)sqlCmdRes[2];
+                            DateOfFlightExpire = (DateTime)sqlCmdRes[3];
+                            QualificationNeed = (int)sqlCmdRes[4];
+                        }
                     }
                     conn.Close();
                 }
