@@ -42,6 +42,9 @@ namespace PilotCenterTSZ
         int s;
         int sBar;
 
+        public static string CurrentLocation
+        { get; set; }
+
         public DateTime OnFlight
         { get; set; }
 
@@ -68,6 +71,12 @@ namespace PilotCenterTSZ
         public void AlertFlight()
         {
             a = new UserInfo();
+          
+            if(CurrentLocation != a.Location)
+            {
+                flightAssignmentCtrl.assingmentCtrl.comboTypeRatings();
+
+            }
 
             if (Flightid != 0)
             {
@@ -125,8 +134,9 @@ namespace PilotCenterTSZ
                     pBarFlightTimeEnd.Visible = false;
                     FlightTimeEndTick.Stop();
                 }
-                
+               
             }
+            CurrentLocation = a.Location;
         }      
 
         public void UpdateTyperatingAndQualificationsDate()
@@ -176,6 +186,8 @@ namespace PilotCenterTSZ
             notifyIcon1.Visible = false;
 
             UpdateTyperatingAndQualificationsDate();
+
+            CurrentLocation = a.Location;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

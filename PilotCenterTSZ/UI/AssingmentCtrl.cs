@@ -16,12 +16,15 @@ namespace PilotCenterTSZ.UI
             comboTypeRatings();
         }
 
-        UserInfo a = new UserInfo();
+        string Location;
 
         AssignFlight f = new AssignFlight();
 
-        private void comboTypeRatings()
+        public void comboTypeRatings()
         {
+            UserInfo a = new UserInfo();
+
+            Location = a.Location;
 
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
@@ -52,7 +55,7 @@ namespace PilotCenterTSZ.UI
             }
         }
 
-        private void comboFlightTime(string aircraft)
+        public void comboFlightTime(string aircraft)
         {
 
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
@@ -65,7 +68,7 @@ namespace PilotCenterTSZ.UI
 
                 MySqlCommand sqlCmd = new MySqlCommand(sqlFlightTime, conn);
                 sqlCmd.Parameters.AddWithValue("@Aircraft", aircraft);
-                sqlCmd.Parameters.AddWithValue("@Location", a.Location);
+                sqlCmd.Parameters.AddWithValue("@Location", Location);
 
                 MySqlDataAdapter mysqlDs = new MySqlDataAdapter(sqlCmd);
                 DataSet ds = new DataSet();
@@ -84,7 +87,7 @@ namespace PilotCenterTSZ.UI
             }
         }
 
-        private void cboxTypeRatings_SelectedValueChanged(object sender, EventArgs e)
+        public void cboxTypeRatings_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cboxTypeRatings.SelectedValue != null)
                 comboFlightTime(cboxTypeRatings.SelectedValue.ToString());
@@ -93,7 +96,7 @@ namespace PilotCenterTSZ.UI
         private void btnRequest_Click(object sender, EventArgs e)
         {
 
-            f.RandAssignFlight(a.Location, cboxTypeRatings.SelectedValue.ToString(), cboxFlightTime.SelectedValue.ToString());
+            f.RandAssignFlight(Location, cboxTypeRatings.SelectedValue.ToString(), cboxFlightTime.SelectedValue.ToString());
 
             var b = this.Parent as FlightAssignmentCtrl;
 
@@ -104,7 +107,6 @@ namespace PilotCenterTSZ.UI
             b.AlertFlight();
 
             this.Hide();
-
 
 
         }

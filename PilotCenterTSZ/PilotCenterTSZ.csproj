@@ -273,6 +273,9 @@
     <EmbeddedResource Include="StartImage.resx">
       <DependentUpon>StartImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\AssingmentCtrl.resx">
+      <DependentUpon>AssingmentCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AwardHourReceive.resx">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
     </EmbeddedResource>
