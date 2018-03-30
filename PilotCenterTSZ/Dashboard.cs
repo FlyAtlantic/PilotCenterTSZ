@@ -113,13 +113,13 @@ namespace PilotCenterTSZ
                         LastFlight.ReturnToHub(a.MediaTotalFlights);
                     }
                     else if(RemainingDaysToFlightExpire == 0){
-                        lblFlightAlert.Text = String.Format("Alert!! Today is last day to return your hub without penalizations", (lf.DateOfFlightExpire.Day - DateTime.UtcNow.Day) - 1);
+                        lblFlightAlert.Text = String.Format("Alert!! Today is last day to return your hub without penalizations", RemainingDaysToFlightExpire.ToString());
                         lblFlightAlert.ForeColor = Color.Red;
                         lblFlightAlert.Visible = true;
                     }
                     else
                     {
-                        lblFlightAlert.Text = String.Format("Alert!! You have {0} days to return your hub without penalizations", (lf.DateOfFlightExpire.Day - DateTime.UtcNow.Day) - 1);
+                        lblFlightAlert.Text = String.Format("Alert!! You have {0} days to return your hub without penalizations", RemainingDaysToFlightExpire.ToString());
                         lblFlightAlert.ForeColor = Color.Orange;
                         lblFlightAlert.Visible = true;
                     }                   

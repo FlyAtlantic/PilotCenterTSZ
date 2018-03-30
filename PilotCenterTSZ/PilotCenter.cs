@@ -658,7 +658,7 @@ group by
 
         public LastFlight()
         {
-            string sqlGetLastFlight = "SELECT pireps.date, flights.aircraft, flights.idf, adddate(pireps.date, interval 6 day ), qualification_need from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where user_email=@Email order by date desc LIMIT 1";
+            string sqlGetLastFlight = "SELECT MAX(pireps.date), flights.aircraft, flights.idf, adddate(MAX(pireps.date), interval 6 day ), qualification_need from pireps left join utilizadores on pireps.pilotid = utilizadores.user_id left join flights on pireps.flightid = flights.idf where user_email=@Email order by date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
