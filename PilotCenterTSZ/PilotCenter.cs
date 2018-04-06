@@ -698,7 +698,7 @@ group by
 
         public static void ReturnToHub(int epsMedium)
         {
-            string sqlReturnToHub = "UPDATE utilizadores SET location = utilizadores.hub, eps = eps - @EpsMedium where user_email=@Email";
+            string sqlReturnToHub = "UPDATE utilizadores left join hubs on utilizadores.hub = hubs.id SET location = hubs.icao, eps = eps - @EpsMedium where user_email=@Email";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
